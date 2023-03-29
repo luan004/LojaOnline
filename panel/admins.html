@@ -16,28 +16,64 @@
         $(function(){
             $("#sideBarElement").load("layout/sideBarElement.html");
             $("#fixedElement").load("layout/fixedElement.html");
-            $("#tabContentElement").load("layout/adminsElement.html"); /* Alterar apenas o load */
         });
-    </script> 
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="./scripts/db/functionsFirebase.js"></script>
+    <script src="./scripts/db/functionsAdmin.js"></script>
+    <script>startData();</script>
 
     <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleApp.css" />
-
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleSideBarElement.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleFixedElement.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleAdminsElement.css" /> <!-- Alterar apenas o href -->
 </head>
 <body>
-    <div id="tabContentElement" class="tabContentElement"></div> <!-- NAO ALTERAR -->
+    <div id="tabContentElement" class="tabContentElement">
+        <div class="addAdmin">
+            <div class="cen" onclick="buttonShowForm()">
+                <label>Adicionar novo administrador</label>
+            </div>
+        
+            <div id="addAdminOpen" class="addAdminOpen">
+        
+                <form id="idForm" class="adminForm">
+                    <label>Nome Completo:</label>
+                    <input type="text" id="name" placeholder="Nome Completo">
+                    
+                    <label id="labelName">Nome de Usuário:</label>
+                    <input type="text" id="user" placeholder="Apenas letras e números" maxlenght="32" autocomplete="current-password">
+            
+                    <label>Senha</label>
+                    <input type="password" placeholder="Usar 8 caracteres ou mais" id="password" autocomplete="current-password">
+            
+                    <label>CPF:</label>
+                    <input type="text" placeholder="Apenas números" id="cpf" maxlength="14">
+            
+                    <label>Data de Nacimento:</label>
+                    <input type="date" id="bornDate">
+            
+                    <label>Avatar</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/jpeg" class="filePicker">
+            
+                    <label id="idErrorLabel"></label>
+                    <input type="submit" class="submitButton">
+                </form>
+            </div>
+        </div>
+        
+        <div class="adminsCont" id="adminList"></div>
+    </div>
     <div id="sideBarElement"></div>
     <div id="fixedElement" class="fixedElement"></div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="./scripts/db/functionsFirebase.js"></script>
-<script src="./scripts/db/functionsAdmin.js"></script>
-<script>startData();</script>
-<script src="./scripts/encrypt.js"></script>
+<!-- CLIENT SIDE SCRIPTS -->
+<script src="./js/others/cookies.js"></script>
+<script src="./js/others/formats.js"></script>
+<script src="./js/pages/admins.js"></script>
 
 </html>

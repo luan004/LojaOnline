@@ -16,29 +16,48 @@
         $(function(){
             $("#sideBarElement").load("layout/sideBarElement.html");
             $("#fixedElement").load("layout/fixedElement.html");
-            $("#tabContentElement").load("layout/myaccountElement.html"); /* Alterar apenas o load */
         });
     </script> 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="./scripts/db/functionsFirebase.js"></script>
+    <script src="./scripts/db/functionsAdmin.js"></script>
+    <script>startData();</script>
+
     <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleApp.css" />
-
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleSideBarElement.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleFixedElement.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleMyaccountElement.css" />  <!-- Alterar apenas o href -->
 </head>
 <body>
-    <div id="tabContentElement" class="tabContentElement"></div> <!-- NAO ALTERAR -->
+    <div id="tabContentElement" class="tabContentElement">
+        <div class="adminInfoContainer">
+            <label class="contTitle">Dados da conta</label>
+            <div class="infoContainer">
+                <div class="firstInfosCont">
+                    <img id="avat" class="avat"  src="">
+                    <div class="firstInfos">
+                        <label class="first" id="name"></label>
+                        <label class="first" id="age"></label>
+                    </div>
+                </div>
+        
+                <label class="info">Nome de Usuário: <span id="user"></span></label>
+                <label class="info">CPF: <span id="cpf"></span></label>
+                <label class="info">Data de Nascimento: <span id="born"></span></label>
+            </div>
+        </div>
+    </div>
+
     <div id="sideBarElement"></div>
     <div id="fixedElement" class="fixedElement"></div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="./scripts/db/functionsFirebase.js"></script>
-<script src="./scripts/db/functionsAdmin.js"></script>
-<script>startData();</script>
-
-<script src="./scripts/encrypt.js"></script>
+<!-- CLIENT SIDE SCRIPTS -->
+<script src="./js/others/cookies.js"></script>
+<script src="./js/others/formats.js"></script>
+<script src="./js/pages/myaccount.js"></script>
 
 </html>

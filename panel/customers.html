@@ -16,9 +16,14 @@
         $(function(){
             $("#sideBarElement").load("layout/sideBarElement.html");
             $("#fixedElement").load("layout/fixedElement.html");
-            $("#tabContentElement").load("layout/customersElement.html"); /* Alterar apenas o load */
         });
     </script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="./scripts/db/functionsFirebase.js"></script>
+    <script src="./scripts/db/functionsAdmin.js"></script>
+    <script>startData();</script>
 
     <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleApp.css" />
@@ -28,17 +33,12 @@
     <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleCustomersElement.css" /> <!-- Alterar apenas o href -->
 </head>
 <body>
-    <div id="tabContentElement" class="tabContentElement"></div> <!-- NAO ALTERAR -->
+    <div id="tabContentElement" class="tabContentElement">
+        <!--  -->
+    </div>
     <div id="sideBarElement"></div>
     <div id="fixedElement" class="fixedElement"></div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="./scripts/db/functionsFirebase.js"></script>
-<script src="./scripts/db/functionsCustomers.js"></script>
-<script>startData();</script>
-
-<script src="./scripts/encrypt.js"></script>
 
 </html>

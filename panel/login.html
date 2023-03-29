@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel | Login</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="./scripts/db/functionsFirebase.js"></script>
+    <script src="./scripts/db/functionsAdmin.js"></script>
+    <script>startData();</script>
+
     <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
     <link rel="stylesheet" type="text/css" href="styles/styleLogin.css" />
-
 </head>
 <body>
 
@@ -15,7 +21,6 @@
         <form id="idLoginForm">
             <label>Usuário</label>
             <input id="user" type="text" placeholder="luan" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
-    
             <label>Senha</label>
             <input id="password" type="password" placeholder="123" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
             <button class="loginButton" type="submit">Logar</button>
@@ -25,11 +30,8 @@
 
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="./scripts/db/functionsFirebase.js"></script>
-<script src="./scripts/db/functionsAdmin.js"></script>
-<script src="./scripts/encrypt.js"></script>
-<script src="./scripts/login.js"></script>
+<!-- CLIENT SIDE SCRIPTS -->
+<script src="./js/others/cookies.js"></script>
+<script src="./js/pages/login.js"></script>
 
 </html>

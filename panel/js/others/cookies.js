@@ -1,10 +1,3 @@
-function decryptCookieValue(cipherText) {
-    var encryptionKey = getCookieEncryptionKey();
-    var bytes = CryptoJS.AES.decrypt(cipherText, encryptionKey);
-    var plainText = bytes.toString(CryptoJS.enc.Utf8);
-    return plainText;
-}
-
 function getCookieEncryptionKey() {
     return document.cookie.replace(/(?:(?:^|.*;\s*)CIPHER_KEY\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 }
@@ -13,6 +6,13 @@ function encryptCookieValue(value) {
     var encryptionKey = getCookieEncryptionKey();
     var cipher = CryptoJS.AES.encrypt(value, encryptionKey).toString();
     return cipher.toString();
+}
+
+function decryptCookieValue(cipherText) {
+    var encryptionKey = getCookieEncryptionKey();
+    var bytes = CryptoJS.AES.decrypt(cipherText, encryptionKey);
+    var plainText = bytes.toString(CryptoJS.enc.Utf8);
+    return plainText;
 }
 
 function getCookie(name) {
