@@ -1,0 +1,65 @@
+.content {
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    padding: 50px;
+}.aboutTitleh1, .aboutTitleh2 {
+    font-family: NunitoBold;
+    font-size: 25px;
+}.aboutTitleh1 {
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}.aboutTitleh2 {
+    text-align: center;
+    margin: 40px 0px 20px 0px;
+}.aboutText {
+    color:black;
+    font-family: Nunito;
+    font-size: 16px;
+    text-align: justify;
+}
+.faqButton {
+    border-radius: 32px;
+    font-family: NunitoBold;
+    font-size: 18px;
+    text-align: left;
+    padding: 20px;
+    padding-left: 30px;
+    width: 100%;
+    background-color: #dddbd6;
+    color: rgb(58, 58, 58);
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    outline: none;
+  }
+  
+.faqActive, .faqButton:hover {
+    background-color: #c0beba; 
+}
+
+.faqText {
+    border-radius:32px;
+    font-family: Nunito;
+    text-align: justify;
+    padding: 0 30px;
+    background-color: #d8d1b7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 7px;
+}
+
+.faqP {
+    text-indent: 50px;
+}
+
+@media screen and (max-width:799px){
+    .content {
+        margin: 2%;
+        width: 96%;
+        padding: 30px;
+    }
+}

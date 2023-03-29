@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="styles/styleSlideshow.css" />
+
+<div class="slideshowBox">
+
+    <!-- IMAGENS 1280 x 512 | 5:2 -->
+
+    <div class="slide anim">
+        <img title="slide1" class="imge" src="images/img1.jpg">
+    </div>
+
+    <div class="slide anim">
+        <img title="slide2" class="imge" src="images/img2.jpg">
+    </div>
+
+    <div class="slide anim">
+        <img title="slide3" class="imge" src="images/img3.jpg">
+    </div>
+
+    <div class="dotBox" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <a class="leftButton" onclick="plusSlides(-1)"></a>
+    <a class="rightButton" onclick="plusSlides(1)"></a>
+</div>
+
+<script src="./scripts/slideshow.js"></script>

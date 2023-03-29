@@ -1,0 +1,143 @@
+.grid {
+    font-size: 0;
+}
+
+.product {
+    width: 23%;
+    padding-bottom: 40%;
+    margin: 1%;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.48);
+    transition: 0.3s;
+}
+
+.likeButton {
+    width: 25%;
+    padding-bottom: 25%;
+    max-height: 0;
+    position: absolute;
+
+    background-image: url(../images/heart.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45%;
+    transition:0.3s;
+    opacity: 0.5;
+}
+
+.likeButton:hover {
+    background-image: url(../images/heartFilled.png);
+}
+
+.product:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.48);
+}
+
+.productImage {
+    width: 100%;
+    height: 65%;
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+}
+
+.productImg {
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.productInfo {
+    background-color: #cac2a6;
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px;
+}
+
+.productName {
+    font-size: 14px;
+    font-family: Nunito;
+    color: black;
+    width: 100%;
+    height: 60%;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5%;
+    cursor: pointer;
+}
+
+.productPrice {
+    color: black;
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 5%;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 40%;
+    cursor: pointer;
+}
+
+.minorPrice {
+    font-size: 12px;
+    font-family: 'Nunito';
+    margin: 0 3px;
+    font-family: Nunito;
+}
+
+.plusPrice {
+    font-size: 20px;
+    font-family: NunitoBold;
+}
+
+@media screen and (max-width:799px) {
+
+    .product {
+        width: 31%;
+        padding-bottom: 50%;
+    }
+
+    .productName {
+        font-size: 12px;
+    }
+
+    .minorPrice {
+        font-size: 10px;
+        font-family: 'Nunito';
+        margin: 0 3px;
+        font-family: Nunito;
+    }
+    
+    .plusPrice {
+        font-size: 15px;
+        font-family: NunitoBold;
+    }
+    
+}
+
+@media (min-width:800px) and (max-width:1030px) {
+    .likeButton {
+        background-size: 80%;
+    }
+
+    .productName {
+        font-size: 12px;
+    }
+
+    .minorPrice {
+        font-size: 10px;
+        font-family: 'Nunito';
+        margin: 0 3px;
+        font-family: Nunito;
+    }
+    
+    .plusPrice {
+        font-size: 13px;
+        font-family: NunitoBold;
+    }
+}

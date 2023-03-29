@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="styles/styleHeader.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="banner">
+    <div style="width: 100%;position: absolute;font-family: NunitoExtraBold;opacity: 0.5;">
+        TCC - LUAN GABRIEL - IFPR-4INFO - PARANAVAÍ
+    </div>
+    <a class="logo" href="#"></a>
+    <a class="user" href="#"></a>
+
+    <div class="navigationMenu">
+        <a class="navigationMenuItem" href="../tcc">Início</a>
+        <a class="navigationMenuItem" href="../tcc/about">Sobre</a>
+    </div>
+
+    <form class="form" name="searchForm" method="GET" action="search.html" onsubmit="return numberCheck()">
+        <input class="searchButton" type="submit" value="" autocomplete="off" onclick="" readonly onfocus="this.removeAttribute('readonly');"></input>
+        <span class="spanB"><input id="searchBar" class="searchBar" type="text" name="s" placeholder="Pesquisar.."></span>
+    </form>
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script src="./scripts/db/functionsFirebase.js"></script>
+<script src="./scripts/searchBar.js"></script>

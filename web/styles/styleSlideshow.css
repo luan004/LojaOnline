@@ -1,0 +1,119 @@
+.slide {
+    display: none
+}
+
+.slideshowBox{
+    background-color: #838383;
+    position: relative;
+    margin: auto;
+    width: 70%;
+    display: flex;
+    overflow: hidden;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.slide {
+    width: 100%;
+    padding-bottom: 40%;
+    height: 0;
+}
+ 
+.imge {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    vertical-align: middle;
+}
+
+.leftButton, .rightButton {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px;
+    background-color: rgba(0, 0, 0, 0.096);
+    cursor: pointer;
+    position: absolute;
+    padding: 0px 3%;
+    color: white;
+    transition: 0.3s;
+    height: 50%;
+    opacity: 0.3;
+    top:25%;
+}
+
+.leftButton:hover, .rightButton:hover {
+    background-color: rgba(0, 0, 0, 0.548);
+    opacity: 1;
+}
+
+.rightButton {
+    border-radius: 15px 0 0 15px;
+    background-image: url(../images/arrowRight.png);
+    right: 0;
+}
+
+.leftButton {
+    border-radius: 0 15px 15px 0;
+    background-image: url(../images/arrowLeft.png);
+    left: 0;
+}
+
+.dotBox {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-block;
+    transition: 0.3s;
+}
+  
+.dotActive, .dot:hover {
+    background-color: black;
+}
+
+.anim {
+    animation-name: anim;
+    animation-duration: 0.5s;
+}
+  
+@keyframes anim {
+    from {
+        opacity:0.8;
+    } 
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:799px){
+    .slideshowBox {
+        margin: 2%;
+        width: 96%;
+    }
+
+    .leftButton, .rightButton {
+        padding: 0px 4%;
+        height: 100%;
+        top:0%;
+    }
+
+    .dot {
+        height: 4px;
+        width: 4px;
+        border-width: 1.5px;
+    }
+
+    .leftButton:hover, .rightButton:hover {
+        background-color: rgba(0, 0, 0, 0.096);
+    }
+}
