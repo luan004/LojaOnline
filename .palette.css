@@ -1,13 +1,13 @@
 :root {
-   --dark1:#0e0d0d; /* footer */
-   --dark2:#121111; /* footer */
-   --dark3:#262525; /* elements */
-   --dark4:#525252; /* elements */
+    --dark1:#0e0d0d; /* footer */
+    --dark2:#121111; /* footer */
+    --dark3:#262525; /* elements */
+    --dark4:#525252; /* elements */
 
     --white1:#f7f6f2; /* BACKGROUND */
     --white2:#ebe9e3; /* CONTENT and some ELEMENTS */
     --white3:#dddbd6; /* ELEMENTS:HOVER */
     --white4:#ebe9e37e; /* BLURRED BACKGROUNDS */
-
+    
     --black1:#141414; /*404 and PANEL LOGIN BACKGROUND*/
 }
