@@ -1,0 +1,147 @@
+.product {
+    background-color: #202020;
+    width: 98%;
+    height: 100px;
+    border-radius: 20px;
+    margin: 1%;
+    display: flex;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.firstInfos {
+    height: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+    margin-right: auto;
+}
+
+.first {
+    font-family: NunitoBold;
+    display: block;
+    font-size: 18px;
+    color: white;
+    white-space: nowrap;
+}
+
+.price {
+    font-size: 16px;
+    color:grey;
+    font-family: Nunito;
+}
+
+.description {
+    font-size: 14px;
+    color:grey;
+    font-family: Nunito;
+}
+
+.key {
+    color:rgb(59, 59, 59);
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.removeAdminButton {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    margin: 28px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.removeAdminButton:hover {
+    background-color: #3a3a3a;
+}
+
+.svgIcon {
+    width: 30px;
+    fill: white;
+    margin: auto;
+}
+
+.addAdmin {
+    margin: 1% 1% 30px 1%;
+    transition: 0.3s;
+}
+
+.cen label {
+    font-family: NunitoBold;
+    font-size: 15px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    margin: auto;
+}
+
+.cen {
+    cursor: pointer;
+    display: flex;
+    background-color: #202020;
+    border-radius: 20px;
+    height: 50px;
+}
+
+.addAdminOpen {
+    border-radius: 20px;
+    background-color: #242424;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 0;
+    transition: 0.3s;
+    padding: 0 30px
+}
+
+.addAdminOpened {
+    padding: 30px 30px;
+    height: 485px;
+}
+
+.adminForm label {
+    font-size: 16px;
+    color:white;
+    font-family: Nunito;
+    width: 100%;
+    display: block;
+}
+
+.adminForm label span{
+    font-size: 12px;
+    color:rgb(230, 17, 17);
+}
+
+.adminForm input, select {
+    height: 30px;
+    width: 99%;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background-color: #3a3a3a;
+    color: white;
+    padding: 0px 13px;
+    box-sizing: border-box;
+    border-style:none;
+    font-family: Nunito;
+}
+
+.adminForm input[type="submit"] {
+    margin-top: 15px;
+    background-color: #474747;
+    cursor: pointer;
+}
+
+.adminForm input[type="submit"]:hover {
+    background-color: #646464;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel | Clientes</title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function(){
+            $("#sideBarElement").load("layout/sideBarElement.html");
+            $("#fixedElement").load("layout/fixedElement.html");
+            $("#tabContentElement").load("layout/customersElement.html"); /* Alterar apenas o load */
+        });
+    </script> 
+
+    <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styleApp.css" />
+
+    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleSideBarElement.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleFixedElement.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleCustomersElement.css" /> <!-- Alterar apenas o href -->
+</head>
+<body>
+    <div id="tabContentElement" class="tabContentElement"></div> <!-- NAO ALTERAR -->
+    <div id="sideBarElement"></div>
+    <div id="fixedElement" class="fixedElement"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script src="./scripts/db/functionsFirebase.js"></script>
+<script src="./scripts/db/functionsCustomers.js"></script>
+<script>startData();</script>
+
+<script src="./scripts/encrypt.js"></script>
+
+</html>

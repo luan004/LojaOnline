@@ -1,0 +1,104 @@
+<div class="header">
+    <div class="dataBar">
+        <label id="actualDate" class="actualDate">actualDate</label>
+        <label id="actualTime" class="actualTime">actualTime</label>
+    </div>
+    <div class="userBar">
+        <div class="sideBarButton" onclick="openSideBar()">
+            <svg class="svg-icon" viewBox="0 0 20 20">
+                <path fill="white" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
+                    c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743
+                    s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314
+                    c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
+            </svg>
+        </div>
+        <img id="adminAvatar" class="adminAvatar"  src="">
+        <div class="adminNameAndUser">
+            <label id="adminName" class="adminName"></label>
+            <label id="adminUser" class="adminUser"></label>
+        </div>
+        <div class="logoutButton" onclick="logout()">
+            Sair
+        </div>
+    </div>
+</div>
+
+<script>
+    if (getCookie('user') == null || getCookie('pass') == null) {
+        logout();
+    }
+
+    var user = decryptCookieValue(getCookie('user'));
+    var pass = decryptCookieValue(getCookie('pass'));
+
+    firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
+    if (snapshot.exists() == false) {
+        logout();
+    }
+        snapshot.forEach(snapshot=>{
+        if(snapshot.child("password").val() != pass){
+            logout();
+        }
+
+        createActualDate('actualDate');
+        createActualTime('actualTime');
+        updateElementInterval(createActualDate, 'actualDate', 1000);
+        updateElementInterval(createActualTime, 'actualTime', 1000);
+        //createTimer('sessionTimer',getCookie('expireTime'));
+        document.getElementById("adminAvatar").src = snapshot.child("avatar").val();
+        document.getElementById("adminName").innerHTML = snapshot.child("name").val();
+        document.getElementById("adminUser").innerHTML = snapshot.child("user").val();
+        })
+    })
+
+    function createActualDate(element) {
+    const now = new Date();
+    const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+    const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+    const weekDay = weekDays[now.getDay()];
+    const monthDay = now.getDate();
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    const formatedDate = `${weekDay}, ${monthDay} de ${month} de ${year}`;
+
+    document.getElementById(element).innerHTML = formatedDate;
+    }
+
+    function createActualTime(element) {
+    const now = new Date();
+
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+
+    const formatedTime = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}<label class="milisecond">,${second.toString().padStart(2, '0')}</label>`;
+
+    document.getElementById(element).innerHTML = formatedTime;
+    }
+
+
+    function updateElementInterval(func, element, refreshTime) {
+    setInterval(function() {
+        func(element);
+    }, refreshTime)
+    }
+
+    function getDateTimeString() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://worldtimeapi.org/api/timezone/America/Sao_Paulo');
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            const dateTimeString = data.datetime;
+            return dateTimeString;
+        } else {
+            return null;
+        }
+        }
+    };
+    }
+</script>

@@ -1,0 +1,68 @@
+.itemContainer {
+    margin-bottom: 40px;
+}
+
+.statTitle{
+    font-family: NunitoExtraBold;
+    font-size: 24px;
+    color: white;
+    margin: 1%;
+    display: block;
+}
+
+.item1 {
+    width: 31%;
+    height: 130px;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: #202020;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.itemIcon {
+    width: 120px;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    fill: rgb(0, 0, 0);
+    opacity: 0.3;
+}
+
+.itemLabel {
+    white-space:nowrap;
+    overflow: hidden;
+    font-family: Nunito;
+    font-size: 22px;
+    color: white;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.valueSpan {
+    font-family: NunitoBold;
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.651);
+}
+
+.item1Value {
+    font-family: NunitoBold;
+    font-size: 28px;
+    color: white;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+}
+
+.min {
+    font-size: 16px;
+}
+
+@media screen and (max-width:799px) {
+    .item1 {
+        width: 98%;
+    }
+}

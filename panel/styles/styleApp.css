@@ -1,0 +1,27 @@
+.fixedElement {
+    top: 0;
+    width: 100%;
+    float: right;
+    transition: 0.3s;
+    position: fixed;
+}
+
+.tabContentElement {
+    width: 80%;
+    min-height: calc(100vh - 96px);
+    float: right;
+    font-size: 0;
+    background-color: #2f2f2f;
+    transition: 0.3s;
+    margin-top: 96px;
+}
+
+@media screen and (max-width:799px) {
+    .tabContent {
+        width: 100%;
+    }
+    .tabContentElement {
+        width: 100%;
+        margin-top: 90px;
+    }
+}

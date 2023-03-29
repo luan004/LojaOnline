@@ -1,0 +1,58 @@
+.adminInfoContainer {
+    width: 98%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 1%;
+    background-color: #202020;
+}
+
+.contTitle{
+    font-family: NunitoExtraBold;
+    font-size: 24px;
+    color: white;
+    margin: 1% 1% 20px 1%;;
+    display: block;
+}
+
+.firstInfosCont {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.avat {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+.first {
+    font-size: 36px;
+    font-family: Nunito;
+    color: rgb(158, 158, 158);
+    display: block;
+}
+
+.firstInfos {
+    margin-left: 10px;
+}
+
+.info {
+    display: block;
+    font-size: 18px;
+    font-family: NunitoBold;
+    color: white;
+    margin: 10px 0;
+}
+
+.info span {
+    color: rgb(158, 158, 158);
+    font-family: Nunito;
+}
+
+@media screen and (max-width:799px) {
+    .first {
+        font-size: 4.5vw;
+    }
+}

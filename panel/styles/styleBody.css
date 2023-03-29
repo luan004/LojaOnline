@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    min-width: 400px;
+    background-color: #525252;
+}
+
+@font-face {
+    font-family: Nunito-Light;
+    src: url(../fonts/Nunito-Light.ttf);
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+    font-family: NunitoBold;
+    src: url(../fonts/Nunito-Bold.ttf);
+}
+
+@font-face {
+    font-family: NunitoExtraBold;
+    src: url(../fonts/Nunito-ExtraBold.ttf);
+}
