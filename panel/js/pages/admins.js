@@ -43,7 +43,7 @@ document.getElementById("user").addEventListener("blur", () => {
 
 /* BUTTON ACTIONS */
 function buttonDeleteAdmin(user) {
-    deleteAdminByUser(user);
+    deleteAdmin(user);
     loadList();
 }
 function buttonEditAdmin() {
@@ -71,18 +71,18 @@ document.getElementById('idForm').addEventListener('submit', function() {
 
     Promise.resolve(uploadAvatar(avatarForm.files[0], user)).then((avatarUrl) => {
         if (user != '' && pass.length > 7 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length) {
-        checkIfAnUserExists(document.getElementById('user').value).then((result) => {
-            if (result == false) {
-                if (createAdmin(user,pass,name,cpf,avatarUrl,bornDate)) {
-                    this.reset();
-                    document.getElementById('idErrorLabel').innerHTML = '';
-                    setTimeout(function() {
-                        loadList();
-                        buttonShowForm();
-                    }, 500);
-                }
-            } 
-        });
+            checkIfAnUserExists(document.getElementById('user').value).then((result) => {
+                if (result == false) {
+                    if (createAdmin(user,pass,name,cpf,avatarUrl,bornDate)) {
+                        this.reset();
+                        document.getElementById('idErrorLabel').innerHTML = '';
+                        setTimeout(function() {
+                            loadList();
+                            buttonShowForm();
+                        }, 500);
+                    }
+                } 
+            });
         } else {
             document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
         }

@@ -22,7 +22,7 @@ async function createAdmin(user, password, name, cpf, avatarUrl, bornDate) {
     return true;
 }
 
-function deleteAdminByUser(user) {  
+function deleteAdmin(user) {  
   firebase.database().ref("admins")
     .orderByChild("user")
     .equalTo(user)
@@ -64,12 +64,11 @@ function deleteAvatar(user) {
   });
 }
 
-function loginAdmin(user,password) {
+function validateAuth(user,password) {
     return firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
         return snapshot.forEach(snapshot=>{     
             var bool = false;
             if (snapshot.child("password").val() == password){
-                console.log('LOGADO!');
                 bool = true;
             } else {
                 bool = false;

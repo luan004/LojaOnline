@@ -2,7 +2,7 @@ if (getCookie('user') != null) {
     var user = decryptCookieValue(getCookie('user'));
     var pass = decryptCookieValue(getCookie('pass'));
 
-    Promise.resolve(loginAdmin(user,pass)).then((value) => {
+    Promise.resolve(validateAuth(user,pass)).then((value) => {
         if (value == true) {
             window.location.replace('stats'); 
         }
@@ -14,7 +14,7 @@ document.getElementById('idLoginForm').addEventListener('submit', function(e) {
     var user = document.getElementById('user').value;
     var password = document.getElementById('password').value;
 
-    Promise.resolve(loginAdmin(user,password)).then((value) => {
+    Promise.resolve(validateAuth(user,password)).then((value) => {
         if (value == true) {
             var secondsExpire = 21600; // TEMPO EM SEGUNDOS QUE LEVARA PARA O COOKIE EXPIRAR
             var time = new Date((secondsExpire*1000) + Date.now()).toUTCString();
@@ -27,3 +27,4 @@ document.getElementById('idLoginForm').addEventListener('submit', function(e) {
         }
     });
 });
+

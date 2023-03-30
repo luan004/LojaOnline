@@ -14,7 +14,7 @@ function createProduct(name,price,description,category,image,stock) {
     });
 }
 
-function deleteProductByKey(key) {
+function deleteProduct(key) {
     firebase.database().ref("products/").child(key).remove()
       .then(() => {
         console.log(`Produto de ID "${key}" apagado com sucesso.`);

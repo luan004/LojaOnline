@@ -24,10 +24,6 @@
 </div>
 
 <script>
-    if (getCookie('user') == null || getCookie('pass') == null) {
-        logout();
-    }
-
     var user = decryptCookieValue(getCookie('user'));
     var pass = decryptCookieValue(getCookie('pass'));
 

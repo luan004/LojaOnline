@@ -25,7 +25,7 @@ document.getElementById("price").addEventListener("keydown", (event) => {
 
 /* BUTTON ACTIONS */
 function deleteButtonAction(key) {
-    deleteProductByKey(key);
+    deleteProduct(key);
     loadList();
 }
 var oa = false;
