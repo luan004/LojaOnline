@@ -71,6 +71,16 @@ function checkLogin(user) {
   })
 }
 
+/* GET USER COOKIE VALUE */
+function getCookieUser() {
+  return decryptCookieValue(getCookie('user'));
+}
+
+/* GET PASSWORD COOKIE VALUE */
+function getCookiePassword() {
+  return decryptCookieValue(getCookie('password'));
+}
+
 /* LOGOUT ADMIN */
 function logout() {
   document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";

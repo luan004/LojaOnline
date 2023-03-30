@@ -50,7 +50,7 @@ document.getElementById('idForm').addEventListener('submit', function() {
     var image = document.getElementById('image').value;
 
     if (name != '' && price != '0.00' && price != ''&& description != '' && image != '' && category != '' && stock != '') {
-        createProduct(name,price,description,category,image,stock)
+        createProduct(name,price,description,category,image,stock);
         document.getElementById('idForm').reset();
         document.getElementById('idErrorLabel').innerHTML = '';
         setTimeout(function() {

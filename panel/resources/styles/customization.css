@@ -1,0 +1,39 @@
+.title {
+    font-family: NunitoExtraBold;
+    font-size: 24px;
+    color: white;
+    margin: 1%;
+    display: block;
+}
+
+.item {
+    width: 98%;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: #202020;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.item p {
+    font-family: Nunito;
+    font-size: 14px;
+    color: white;
+    margin: 1%;
+}
+
+.slide {
+    background-color: red;
+    width: 31%;
+    display: inline-block;
+    height: 200px;
+}
+
+@media screen and (max-width:799px) {
+    .slide {
+        width: 100%;
+    }
+}

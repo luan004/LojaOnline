@@ -61,7 +61,8 @@ function buttonShowForm() {
 }
 
 /* CREATE ADMIN */
-document.getElementById('idForm').addEventListener('submit', function() {
+document.getElementById('idForm').addEventListener('submit', function(event) {
+    event.preventDefault();
     var user = document.getElementById('user').value;
     var pass = document.getElementById('password').value;
     var name = document.getElementById('name').value;
@@ -69,24 +70,20 @@ document.getElementById('idForm').addEventListener('submit', function() {
     var avatarForm = document.getElementById("avatar");
     var bornDate = document.getElementById('bornDate').value
 
-    Promise.resolve(uploadAvatar(avatarForm.files[0], user)).then((avatarUrl) => {
-        if (user != '' && pass.length > 7 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length) {
-            checkIfAnUserExists(document.getElementById('user').value).then((result) => {
-                if (result == false) {
-                    if (createAdmin(user,pass,name,cpf,avatarUrl,bornDate)) {
-                        this.reset();
-                        document.getElementById('idErrorLabel').innerHTML = '';
-                        setTimeout(function() {
-                            loadList();
-                            buttonShowForm();
-                        }, 500);
-                    }
-                } 
-            });
+    Promise.resolve(checkIfAnUserExists(user).then((result) => {
+        if (user != '' && pass.length > 7 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length && result == false) {
+            createAdmin(user,pass,name,cpf,avatarForm,bornDate);
+            document.getElementById('idErrorLabel').innerHTML = '';
+            setTimeout(() => {
+                console.log('carregando...');
+                loadList();
+                buttonShowForm();
+              }, 1000);
+            document.getElementById('idForm').reset();
         } else {
             document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
         }
-    });
+    }))
 });
 
 /* LOAD ADMINS LIST */

@@ -1,25 +1,27 @@
-async function createAdmin(user, password, name, cpf, avatarUrl, bornDate) {
-    const snapshot = await firebase
-      .database()
-      .ref('admins')
-      .orderByChild('user')
-      .equalTo(user)
-      .once('value');
-    
-    if (snapshot.exists()) {
-      return false;
+function createAdmin(user, password, name, cpf, avatarForm, bornDate) {
+  Promise.resolve(uploadAvatar(avatarForm.files[0], user)).then((avatarUrl) => {
+    if (avatarUrl != null) {
+      firebase.database().ref('admins').push().set({
+        'user': user,
+        'password': password,
+        'name': name,
+        'cpf': cpf,
+        'avatar': avatarUrl,
+        'bornDate': bornDate
+      });
     }
-    
-    await firebase.database().ref('admins').push().set({
-      user: user,
-      password: password,
-      name: name,
-      cpf: cpf,
-      avatar: avatarUrl,
-      bornDate: bornDate
+  });
+}
+
+function uploadAvatar(avatar, user) {
+  return firebase.storage().ref().child(`avatars/${user}.jpg`).put(avatar)
+    .then((snapshot) => {
+      return snapshot.ref.getDownloadURL();
+    })
+    .catch((error) => {
+      console.error('Error uploading file:', error);
+      return null;
     });
-    
-    return true;
 }
 
 function deleteAdmin(user) {  
@@ -41,17 +43,6 @@ function deleteAdmin(user) {
         console.log(`Ocorreu um erro ao tentar remover o admin ${user}:\n ${error}`);
     }
   );
-}
-
-function uploadAvatar(file, user) {
-  return firebase.storage().ref().child(`avatars/${user}.jpg`).put(file)
-    .then((snapshot) => {
-      return snapshot.ref.getDownloadURL();
-    })
-    .catch((error) => {
-      console.error('Error uploading file:', error);
-      return null;
-    });
 }
 
 function deleteAvatar(user) {
@@ -86,13 +77,4 @@ function checkIfAnUserExists(user) {
             return false;
         }
     })   
-}
-
-function getAdminName(user) {
-    const a= firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
-        return snapshot.forEach(snapshot=>{     
-            return snapshot.child("name").val();
-        })
-    })
-    console.log(a);
 }

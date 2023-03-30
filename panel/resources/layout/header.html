@@ -24,77 +24,19 @@
 </div>
 
 <script>
-    var user = decryptCookieValue(getCookie('user'));
-    var pass = decryptCookieValue(getCookie('pass'));
+    document.getElementById('actualDate').innerHTML = getDate();
+    document.getElementById('actualTime').innerHTML = getTime();
 
-    firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
-        if (snapshot.exists() == false) {
-            logout();
-        }
+    setInterval(function() {
+        document.getElementById('actualDate').innerHTML = getDate();
+        document.getElementById('actualTime').innerHTML = getTime();
+    }, 1000)
+
+    firebase.database().ref('admins').orderByChild("user").equalTo(getCookieUser()).once('value').then((snapshot)=>{
         snapshot.forEach(snapshot=>{
-        if(snapshot.child("password").val() != pass){
-            logout();
-        }
-
-        createActualDate('actualDate');
-        createActualTime('actualTime');
-        updateElementInterval(createActualDate, 'actualDate', 1000);
-        updateElementInterval(createActualTime, 'actualTime', 1000);
-
-        document.getElementById("adminAvatar").src = snapshot.child("avatar").val();
-        document.getElementById("adminName").innerHTML = snapshot.child("name").val();
-        document.getElementById("adminUser").innerHTML = snapshot.child("user").val();
+            document.getElementById("adminAvatar").src = snapshot.child("avatar").val();
+            document.getElementById("adminName").innerHTML = snapshot.child("name").val();
+            document.getElementById("adminUser").innerHTML = snapshot.child("user").val();
         })
     })
-
-    function createActualDate(element) {
-        const now = new Date();
-        const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-        const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-
-        const weekDay = weekDays[now.getDay()];
-        const monthDay = now.getDate();
-        const month = months[now.getMonth()];
-        const year = now.getFullYear();
-        
-        const formatedDate = `${weekDay}, ${monthDay} de ${month} de ${year}`;
-
-        document.getElementById(element).innerHTML = formatedDate;
-    }
-
-    function createActualTime(element) {
-        const now = new Date();
-
-        const hour = now.getHours();
-        const minute = now.getMinutes();
-        const second = now.getSeconds();
-
-        const formatedTime = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}<label class="milisecond">,${second.toString().padStart(2, '0')}</label>`;
-
-        document.getElementById(element).innerHTML = formatedTime;
-    }
-
-
-    function updateElementInterval(func, element, refreshTime) {
-        setInterval(function() {
-            func(element);
-        }, refreshTime)
-    }
-
-    function getDateTimeString() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://worldtimeapi.org/api/timezone/America/Sao_Paulo');
-        xhr.send();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                const dateTimeString = data.datetime;
-                return dateTimeString;
-            } else {
-                return null;
-            }
-            }
-        };
-    }
 </script>

@@ -59,3 +59,22 @@ function calcAge(date) {
   }
   return age;
 }
+
+function getDate() {
+  const now = new Date();
+  const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+  const weekDay = weekDays[now.getDay()];
+  const monthDay = now.getDate();
+  const month = months[now.getMonth()];
+  const year = now.getFullYear();
+  return `${weekDay}, ${monthDay} de ${month} de ${year}`;
+}
+
+function getTime(element) {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const second = now.getSeconds();
+  return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}<label class="milisecond">,${second.toString().padStart(2, '0')}</label>`;
+}
