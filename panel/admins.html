@@ -14,23 +14,21 @@
 
     <script>
         $(function(){
-            $("#sideBarElement").load("layout/sideBarElement.html");
-            $("#fixedElement").load("layout/fixedElement.html");
+            $("#sideBarElement").load("resources/layout/sidebar.html");
+            $("#fixedElement").load("resources/layout/header.html");
         });
     </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <script src="./scripts/db/functionsFirebase.js"></script>
-    <script src="./scripts/db/functionsAdmin.js"></script>
+    <script src="./js/data/firebase.js"></script>
     <script>startData();</script>
 
-    <link rel="stylesheet" type="text/css" href="styles/styleBody.css" />
-    <link rel="stylesheet" type="text/css" href="styles/styleApp.css" />
-    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleSideBarElement.css" />
-    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleFixedElement.css" />
-    <link rel="stylesheet" type="text/css" href="styles/styleLayout/styleAdminsElement.css" /> <!-- Alterar apenas o href -->
-</head>
+    <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/styles/sidebar.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/styles/header.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/styles/admins.css"/>
 <body>
     <div id="tabContentElement" class="tabContentElement">
         <div class="addAdmin">
@@ -72,6 +70,7 @@
 </body>
 
 <!-- CLIENT SIDE SCRIPTS -->
+<script src="./js/data/adminsFunctions.js"></script>
 <script src="./js/others/cookies.js"></script>
 <script src="./js/others/formats.js"></script>
 <script src="./js/pages/admins.js"></script>
