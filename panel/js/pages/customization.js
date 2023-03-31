@@ -1,4 +1,6 @@
 loadImages();
+loadName();
+
 /* LOAD IMAGES FROM DATA */
 function loadImages() {
     Promise.resolve(getSlideSrc(1)).then((src1) => {
@@ -91,6 +93,13 @@ function changeTitle(title) {
         "title": title,
     };
     firebase.database().ref('custom/carousel/').update(value);
+}
+
+function loadName() {
+    firebase.database().ref('custom/carousel/title').once('value')
+    .then((snapshot) => {
+        document.getElementById("inputTitle").value = snapshot.val();
+    })
 }
 
 function changeProduct(id, num) {
