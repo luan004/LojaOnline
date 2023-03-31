@@ -1,7 +1,10 @@
 loadImages();
 loadName();
+loadCarouselProduct(1);
+loadCarouselProduct(2);
 
-/* LOAD IMAGES FROM DATA */
+
+/* LOAD SLIDES FROM DATA */
 function loadImages() {
     Promise.resolve(getSlideSrc(1)).then((src1) => {
         document.getElementById("slide1").src = src1;
@@ -11,6 +14,19 @@ function loadImages() {
     })
     Promise.resolve(getSlideSrc(3)).then((src3) => {
         document.getElementById("slide3").src = src3;
+    })
+}
+
+/* LOAD PRODUCTS FROM DATA */
+function loadCarouselProduct(num) {
+    Promise.resolve(getCarouselProduct(num)).then((value) => {
+        firebase.database().ref('products/').child(value).once('value').then((snap) => {
+            document.getElementById('product'+num+'img').src = snap.val().image;
+            document.getElementById('product'+num+'name').innerHTML = snap.val().name;
+            document.getElementById('product'+num+'desc').innerHTML = snap.val().description;
+            document.getElementById('product'+num+'price').innerHTML = 'R$'+snap.val().price.replace('.', ',');
+            document.getElementById('product'+num+'id').innerHTML = value;
+        })
     })
 }
 
@@ -49,7 +65,7 @@ document.getElementById("edit3").addEventListener("click", async function() {
 /* CHANGE ELEMENT TITLE */
 document.getElementById('inputTitle').addEventListener('blur', function() {
     changeTitle(this.value);
-    changeProduct('-NRZZleNN9VvD7hEiV1O', 1)
+    //changeProduct('-NRa2UnKfMt6HkkMgR6l', 2);
 })
 
 async function selectJpgFile() {
@@ -63,6 +79,13 @@ async function selectJpgFile() {
     });
     const file = await fileHandle.getFile();
     return file;
+}
+
+function getCarouselProduct(num) {
+    return firebase.database().ref("custom/carousel/product" + num).once('value')
+    .then((snapshot) => {
+        return snapshot.val();
+    })
 }
 
 function uploadImage(file, num) {
