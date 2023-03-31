@@ -27,24 +27,21 @@ const waitTime = 2000;
 /* EDIT BUTTONS */
 document.getElementById("edit1").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    uploadImage(file, 1);
-    setTimeout(() => {
+    Promise.resolve(uploadImage(file, 1)).then((r) => {
         loadImages();
-    }, waitTime);
+    })
 })
 document.getElementById("edit2").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    uploadImage(file, 2);
-    setTimeout(() => {
+    Promise.resolve(uploadImage(file, 2)).then((r) => {
         loadImages();
-    }, waitTime);
+    })
 })
 document.getElementById("edit3").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    uploadImage(file, 3);
-    setTimeout(() => {
+    Promise.resolve(uploadImage(file, 3)).then((r) => {
         loadImages();
-    }, waitTime);
+    })
 })
 
 async function selectJpgFile() {
@@ -63,11 +60,11 @@ async function selectJpgFile() {
 function uploadImage(file, num) {
     return firebase.storage().ref().child(`custom/slideshow/slide${num}.jpg`).put(file)
     .then((snapshot) => {
-        return snapshot.ref.getDownloadURL();
+        return true;
     })
     .catch((error) => {
         console.error('Error uploading file:', error);
-        return null;
+        return false;
     });
 }
 
