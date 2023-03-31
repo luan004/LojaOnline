@@ -78,7 +78,7 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
                 console.log('carregando...');
                 loadList();
                 buttonShowForm();
-              }, 1000);
+            }, 1000);
             document.getElementById('idForm').reset();
         } else {
             document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';

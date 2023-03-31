@@ -1,9 +1,23 @@
+.item input[type=checkbox] {
+    margin: 1%;
+    height: 30px;
+}
+
+.swit {
+    width: 32px;
+    height: 32px;
+    margin: 1%;
+    background-color: red;
+    display: inline-block;
+}
+
 .item h1 {
+    position: absolute;
     font-family: NunitoExtraBold;
     font-size: 24px;
     color: white;
     margin: 1%;
-    display: block;
+    display: inline-block;
 }
 
 .item h2 {
@@ -14,7 +28,7 @@
     display: inline-block;
 }
 
-.item input {
+.inputTitle {
     border-radius: 15px;
     height: 30px;
     margin-bottom: 12px;
@@ -123,6 +137,8 @@
 .product label {
     white-space: nowrap;
     display: block;
+    text-overflow: ellipsis;
+    overflow: hidden
 }
 
 .name {
@@ -143,11 +159,83 @@
     font-size: 16px;
 }
 
-.id {
-    color: rgb(59, 59, 59);
+.firstInfos input {
+    height: auto;
+    border-radius: 15px;
+    background-color: #3a3a3a;
+    color: grey;
+    padding: 0px 6px;
+    box-sizing: border-box;
+    border-style: none;
     font-family: monospace;
     font-size: 12px;
 }
+
+
+
+
+
+
+
+
+
+
+.switch {
+    --secondary-container: #3a4b39;
+    --primary: #84da89;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 32px;
+    margin: 1%;
+}
+   
+.switch input {
+    display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+   
+.switch span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #583f3f;
+    transition: .2s;
+    border-radius: 30px;
+}
+
+.switch span:before {
+    position: absolute;
+    content: "";
+    border-radius: 20px;
+    height: 24px;
+    width: 24px;
+    margin: 4px;
+    background-color: #dda7a7;
+    transition: .4s;
+}
+   
+input:checked + .slider::before {
+    background-color: #6ba168
+}
+   
+input:checked + .slider {
+    background-color: #3a4b39
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.9em);
+}
+
+
+
+
 
 @media screen and (max-width:799px) {
     .slide {

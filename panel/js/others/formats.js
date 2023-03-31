@@ -32,11 +32,45 @@ function formatCpf(cpf) {
     return cpf;
 }
 
-function formatPrice(price, cents) {
+function formatPrice2(price) {
   price = price.replace(/\D/g, "");
-  cents = Number(price);
-  return (cents / 100).toFixed(2);
+  const prefix = price.substring(0, price.length - 2);
+  const suffix = price.substring(price.length - 2);
+  return `${prefix}.${suffix}`;
 }
+
+function formatPrice(value) {
+  // Remove todos os caracteres que não são números
+  value = value.replace(/\D/g, "");
+  // Apaga os zeros a esquerda caso o valor tenha mais de 3 caracteres
+  if (value.length > 2) {
+    value = value.replace(/^0+/, "");
+  }
+  // Completa com zeros à esquerda até alcançar 3 caracteres
+  while (value.length < 3) {
+    value = "0" + value;
+  }
+  // Adiciona um ponto antes dos dois últimos caracteres
+  if (value.length >= 3) {
+    value = value.slice(0, -2) + "." + value.slice(-2);
+  }
+  return value;
+}
+
+function formatNumber(value) {
+  if (value.length <= 3) {
+    value = value.padStart(3, "0");
+  } else {
+    value = value.replace(/^0+/, "");
+  }
+  if (value.length > 3) {
+    value = value.replace(/(\d{2})$/, ".$1");
+  }
+  return value;
+}
+
+
+
 
 function formatProductName(name) {
   name = name.replace(/\s{2,}/g, " ");

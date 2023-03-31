@@ -24,6 +24,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/others/formats.js"></script>
     <script src="./js/data/customizationFunctions.js"></script>
+    <script src="./js/data/productsFunctions.js"></script>
     <script src="./js/data/firebase.js"></script>
     <script>startData();validateSession();</script>
 
@@ -37,10 +38,14 @@
 <body>
     <div id="tabContentElement" class="tabContentElement">
         <div class="item">
-            <h1 class="title">Slideshow da página inicial</h1>
-            <p>
-                O slider conta com três slots para imagens.<br>Recomenda-se imagens com proporção de 5:2.
-            </p>
+            
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+
+            <h1>Slideshow da página inicial</h1>
+            <p>O slider conta com três slots para imagens.<br>Recomenda-se imagens com proporção de 5:2.</p>
 
             <div class="slide">
                 <div class="imageBox">
@@ -99,51 +104,56 @@
 
 
         <div class="item">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
             <h1>Carrocel de Destaques</h1>
             <p>O carrocel de destaques conta com slots para quatro produtos<br>Também é permitido alterar o título do carrocel.</p>
 
-            <h2>Título do Elemento</h2>
-            <input type="text" id="inputTitle">
+            <h2>Título do Elemento:</h2>
+            <input type="text" class="inputTitle" id="inputTitle">
 
             <div class="productsContainer">
 
                 <div class="product">
                     <img src="" id="product1img">
                     <div class="firstInfos">
+                        <input id="product1id" class="id" type="text">
                         <label id="product1name" class="name"></label>
                         <label id="product1desc" class="desc"></label>
                         <label id="product1price" class="price"></label>
-                        <label id="product1id" class="id"></label>
                     </div>
+                    
                 </div>
 
                 <div class="product">
                     <img src="" id="product2img">
                     <div class="firstInfos">
+                        <input id="product2id" type="text">
                         <label id="product2name" class="name"></label>
                         <label id="product2desc" class="desc"></label>
                         <label id="product2price" class="price"></label>
-                        <label id="product2id" class="id"></label>
                     </div>
                 </div>
 
                 <div class="product">
                     <img src="" id="product3img">
                     <div class="firstInfos">
+                        <input id="product3id" type="text">
                         <label id="product3name" class="name"></label>
                         <label id="product3desc" class="desc"></label>
                         <label id="product3price" class="price"></label>
-                        <label id="product3id" class="id"></label>
                     </div>
                 </div>
 
                 <div class="product">
                     <img src="" id="product4img">
                     <div class="firstInfos">
+                        <input id="product4id" type="text">
                         <label id="product4name" class="name"></label>
                         <label id="product4desc" class="desc"></label>
                         <label id="product4price" class="price"></label>
-                        <label id="product4id" class="id"></label>
                     </div>
                 </div>
 

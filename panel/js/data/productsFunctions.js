@@ -23,3 +23,13 @@ function deleteProduct(key) {
         console.error(`Erro ao apagar produto de ID: "${key}":\n`, error);
       });
 }
+
+function checkIfAProductExists(key) {
+  return firebase.database().ref('products/').child(key).once('value').then((snapshot)=>{
+    if (snapshot.exists()) {
+        return true;
+    } else {
+        return false;
+    }
+  })   
+}

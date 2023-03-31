@@ -4,23 +4,13 @@ loadList();
 document.getElementById("name").addEventListener("blur", function(){
     this.value = formatProductName(this.value);
 });
+
 /* FORMAT PRICE */
-let cents = 0;
 document.getElementById("price").addEventListener("input", function() {
-    this.value = formatPrice(this.value, cents);
+    this.value = formatPrice(this.value);
     console.log(this.value);
 });
-document.getElementById("price").addEventListener("keydown", (event) => {
-    const key = event.key;
-    if (/\d/.test(key)) {
-        cents = (cents * 10) + Number(key);
-        this.value = (cents / 100).toFixed(2);
-    } else if (key === "Backspace" || key === "Delete") {
-        cents = Math.floor(cents / 10);
-        this.value = (cents / 100).toFixed(2);
-    }
-    event.preventDefault();
-});
+
 
 
 /* BUTTON ACTIONS */
@@ -41,7 +31,8 @@ function openAddProduct() {
 
 
 /* CREATE PRODUCT */
-document.getElementById('idForm').addEventListener('submit', function() {
+document.getElementById('idForm').addEventListener('submit', function(event) {
+    event.preventDefault();
     var name = document.getElementById('name').value;
     var price = document.getElementById('price').value;
     var description = document.getElementById('description').value;
@@ -51,7 +42,7 @@ document.getElementById('idForm').addEventListener('submit', function() {
 
     if (name != '' && price != '0.00' && price != ''&& description != '' && image != '' && category != '' && stock != '') {
         createProduct(name,price,description,category,image,stock);
-        document.getElementById('idForm').reset();
+        //document.getElementById('idForm').reset();
         document.getElementById('idErrorLabel').innerHTML = '';
         setTimeout(function() {
             loadList();

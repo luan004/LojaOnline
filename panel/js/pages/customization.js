@@ -25,7 +25,7 @@ function loadCarouselProduct(num) {
             document.getElementById('product'+num+'name').innerHTML = snap.val().name;
             document.getElementById('product'+num+'desc').innerHTML = snap.val().description;
             document.getElementById('product'+num+'price').innerHTML = 'R$'+snap.val().price.replace('.', ',');
-            document.getElementById('product'+num+'id').innerHTML = value;
+            document.getElementById('product'+num+'id').value = value;
         })
     })
 }
@@ -62,10 +62,51 @@ document.getElementById("edit3").addEventListener("click", async function() {
     })
 })
 
-/* CHANGE ELEMENT TITLE */
+/* CHANGE CAROUSEL TITLE */
 document.getElementById('inputTitle').addEventListener('blur', function() {
     changeTitle(this.value);
-    //changeProduct('-NRa2UnKfMt6HkkMgR6l', 2);
+})
+
+/* CHANGE PRODUCTS */
+document.getElementById('product1id').addEventListener('blur', function() {
+    Promise.resolve(checkIfAProductExists(this.value)).then((res) => {
+        if (res) {
+            changeProduct(this.value, 1);
+        } else {
+            this.value = getCarouselProduct();
+        }
+        loadCarouselProduct(1);
+    })
+})
+document.getElementById('product2id').addEventListener('blur', function() {
+    Promise.resolve(checkIfAProductExists(this.value)).then((res) => {
+        if (res) {
+            changeProduct(this.value, 2);
+        } else {
+            this.value = getCarouselProduct();
+        }
+        loadCarouselProduct(2);
+    })
+})
+document.getElementById('product3id').addEventListener('blur', function() {
+    Promise.resolve(checkIfAProductExists(this.value)).then((res) => {
+        if (res) {
+            changeProduct(this.value, 3);
+        } else {
+            this.value = getCarouselProduct();
+        }
+        loadCarouselProduct(3);
+    })
+})
+document.getElementById('product4id').addEventListener('blur', function() {
+    Promise.resolve(checkIfAProductExists(this.value)).then((res) => {
+        if (res) {
+            changeProduct(this.value, 4);
+        } else {
+            this.value = getCarouselProduct();
+        }
+        loadCarouselProduct(4);
+    })
 })
 
 async function selectJpgFile() {
