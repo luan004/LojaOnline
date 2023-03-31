@@ -78,3 +78,19 @@ function getTime(element) {
   const second = now.getSeconds();
   return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}<label class="milisecond">,${second.toString().padStart(2, '0')}</label>`;
 }
+
+function downloadFile(url) {
+  // Cria um elemento <a> para simular o clique em um link de download
+  const link = document.createElement("a");
+  link.href = url;
+
+  // Define o atributo 'download' para indicar que o arquivo deve ser baixado e não aberto no navegador
+  link.setAttribute("download", "");
+
+  // Dispara o clique no link
+  document.body.appendChild(link);
+  link.click();
+
+  // Remove o elemento <a> depois que o download é iniciado
+  document.body.removeChild(link);
+}
