@@ -47,6 +47,7 @@ document.getElementById("edit3").addEventListener("click", async function() {
 /* CHANGE ELEMENT TITLE */
 document.getElementById('inputTitle').addEventListener('blur', function() {
     changeTitle(this.value);
+    changeProduct('-NRZZleNN9VvD7hEiV1O', 1)
 })
 
 async function selectJpgFile() {
@@ -85,17 +86,17 @@ function getSlideSrc(num) {
 }
 
 function changeTitle(title) {
-    const data = firebase.database().ref('custom/carousel/');
     if(title == '') {title = 'Destaques'}
-    data.set({
+    const value = {
         "title": title,
-    });
+    };
+    firebase.database().ref('custom/carousel/').update(value);
 }
 
 function changeProduct(id, num) {
-    const data = firebase.database().ref('custom/carousel/');
-    product = 'product'+num;
-    data.set({
-        product: id 
-    })
+    var product = 'product'+num;
+    const value = {
+        [product]: id
+    };
+    firebase.database().ref('custom/carousel/').update(value);
 }
