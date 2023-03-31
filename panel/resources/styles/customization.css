@@ -1,9 +1,30 @@
-.title {
+.item h1 {
     font-family: NunitoExtraBold;
     font-size: 24px;
     color: white;
     margin: 1%;
     display: block;
+}
+
+.item h2 {
+    font-family: NunitoBold;
+    font-size: 18px;
+    color:white;
+    margin: 1%;
+    display: inline-block;
+}
+
+.item input {
+    border-radius: 15px;
+    height: 30px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background-color: #3a3a3a;
+    color: white;
+    padding: 0px 13px;
+    box-sizing: border-box;
+    border-style: none;
+    font-family: Nunito;
 }
 
 .item {
@@ -23,6 +44,13 @@
     font-size: 14px;
     color: white;
     margin: 1%;
+}
+
+.item label {
+    font-family: Nunito;
+    font-size: 15px;
+    color:grey;
+    margin: 0 10px;
 }
 
 .slide {
@@ -76,6 +104,13 @@
     margin: 10px;
     background-color:#111010;
     cursor: pointer;
+}
+
+.product {
+    background-color: red;
+    width: 23%;
+    margin: 1%;
+    display: inline-block;
 }
 
 @media screen and (max-width:799px) {

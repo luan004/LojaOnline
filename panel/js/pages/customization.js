@@ -44,6 +44,11 @@ document.getElementById("edit3").addEventListener("click", async function() {
     })
 })
 
+/* CHANGE ELEMENT TITLE */
+document.getElementById('inputTitle').addEventListener('blur', function() {
+    changeTitle(this.value);
+})
+
 async function selectJpgFile() {
     const [fileHandle] = await window.showOpenFilePicker({
         types: [{
@@ -77,4 +82,20 @@ function getSlideSrc(num) {
         console.error('Error getting download URL:', error);
         return null;
     });
-}  
+}
+
+function changeTitle(title) {
+    const data = firebase.database().ref('custom/carousel/');
+    if(title == '') {title = 'Destaques'}
+    data.set({
+        "title": title,
+    });
+}
+
+function changeProduct(id, num) {
+    const data = firebase.database().ref('custom/carousel/');
+    product = 'product'+num;
+    data.set({
+        product: id 
+    })
+}
