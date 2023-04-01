@@ -1,11 +1,43 @@
-loadImages();
+loadSlides();
 loadName();
+
 loadCarouselProduct(1);
 loadCarouselProduct(2);
+loadCarouselProduct(3);
+loadCarouselProduct(4);
 
+firebase.database().ref('custom/slideshow/enable').once('value').then((snap) => {
+    if (snap.val() == true) {
+        document.getElementById('switch1').checked = true;
+    }
+})
+firebase.database().ref('custom/carousel/enable').once('value').then((snap) => {
+    if (snap.val() == true) {
+        document.getElementById('switch2').checked = true;
+    }
+})
+
+document.getElementById("switch1").addEventListener("change", function() {
+    firebase.database().ref('custom/slideshow/enable').once('value').then((snap) => {
+        if (snap.val() == false) {
+            firebase.database().ref('custom/slideshow').update({'enable':true});
+        } else {
+            firebase.database().ref('custom/slideshow').update({'enable':false});
+        }
+    })
+})
+document.getElementById("switch2").addEventListener("change", function() {
+    firebase.database().ref('custom/carousel/enable').once('value').then((snap) => {
+        if (snap.val() == false) {
+            firebase.database().ref('custom/carousel').update({'enable':true});
+        } else {
+            firebase.database().ref('custom/carousel').update({'enable':false});
+        }
+    })
+})
 
 /* LOAD SLIDES FROM DATA */
-function loadImages() {
+function loadSlides() {
     Promise.resolve(getSlideSrc(1)).then((src1) => {
         document.getElementById("slide1").src = src1;
     })
@@ -30,7 +62,7 @@ function loadCarouselProduct(num) {
     })
 }
 
-/* DOWNLOAD BUTTONS */
+/* DOWNLOAD BUTTONS EVENTS */
 document.getElementById("down1").addEventListener("click", function() {
     downloadFile(document.getElementById("slide1").src);
 })
@@ -42,32 +74,32 @@ document.getElementById("down3").addEventListener("click", function() {
 })
 
 const waitTime = 2000;
-/* EDIT BUTTONS */
+/* EDIT BUTTONS EVENTS */
 document.getElementById("edit1").addEventListener("click", async function() {
     const file = await selectJpgFile();
     Promise.resolve(uploadImage(file, 1)).then((r) => {
-        loadImages();
+        loadSlides();
     })
 })
 document.getElementById("edit2").addEventListener("click", async function() {
     const file = await selectJpgFile();
     Promise.resolve(uploadImage(file, 2)).then((r) => {
-        loadImages();
+        loadSlides();
     })
 })
 document.getElementById("edit3").addEventListener("click", async function() {
     const file = await selectJpgFile();
     Promise.resolve(uploadImage(file, 3)).then((r) => {
-        loadImages();
+        loadSlides();
     })
 })
 
-/* CHANGE CAROUSEL TITLE */
+/* CHANGE CAROUSEL TITLE EVENT */
 document.getElementById('inputTitle').addEventListener('blur', function() {
     changeTitle(this.value);
 })
 
-/* CHANGE PRODUCTS */
+/* CHANGE PRODUCTS EVENTS */
 document.getElementById('product1id').addEventListener('blur', function() {
     Promise.resolve(checkIfAProductExists(this.value)).then((res) => {
         if (res) {
