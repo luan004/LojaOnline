@@ -137,9 +137,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .adminForm .filePicker {
     padding: 0px;
 }
+
 .filePicker::-webkit-file-upload-button {
     display: none;
 }
+
 .filePicker::before {
     content: 'Selecione um arquivo .jpg ou .png';
     color: white;
