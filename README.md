@@ -8,10 +8,10 @@ O projeto consiste no desenvolvimento de um sistema de vendas online completo, q
 
 ## Tecnologias Utilizadas
 
-- HTML
-- CSS
 - JavaScript
 - Firebase
+- HTML
+- CSS
 
 ## Autor
 

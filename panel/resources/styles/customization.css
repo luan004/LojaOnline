@@ -163,16 +163,17 @@
     background-color: green;
     display: inline-block;
     border-radius: 6px;
-    height: 12px;
+    height: 14px;
     padding: 0 10px;
     color: white;
     font-family: Nunito;
     user-select: none;
-    font-size: 10px;
+    font-size: 11px;
+    
 }
 
 .firstInfos input {
-    height: 12px;
+    height: 14px;
     border-radius: 6px;
     background-color: #3a3a3a;
     color: grey;
@@ -181,12 +182,6 @@
     border-style: none;
     font-family: monospace;
     font-size: 12px;
-    display: inline-block;
-    position: absolute;
-}
-
-.inputIdClicked {
-    color:red;
 }
 
 .switch {
@@ -241,10 +236,6 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(1.9em);
 }
-
-
-
-
 
 @media screen and (max-width:799px) {
     .item h1 {
