@@ -9,7 +9,6 @@ firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value
         if(snapshot.child("password").val() != pass){
             logout();
         }
-
         document.getElementById("avat").src = snapshot.child("avatar").val();
         document.getElementById("name").innerHTML = snapshot.child("name").val();
         document.getElementById("age").innerHTML = calcAge(snapshot.child("bornDate").val()) + ' anos';

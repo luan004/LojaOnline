@@ -12,7 +12,6 @@ document.getElementById("price").addEventListener("input", function() {
 });
 
 
-
 /* BUTTON ACTIONS */
 function deleteButtonAction(key) {
     deleteProduct(key);
@@ -28,7 +27,6 @@ function openAddProduct() {
         oa=false;
     }
 }
-
 
 /* CREATE PRODUCT */
 document.getElementById('idForm').addEventListener('submit', function(event) {
