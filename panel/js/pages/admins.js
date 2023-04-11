@@ -15,6 +15,9 @@ document.getElementById('user').addEventListener('input', function() {
 document.getElementById("password").addEventListener("input", function() {
     this.value = formatPassword(this.value);
 });
+document.getElementById("password2").addEventListener("input", function() {
+    this.value = formatPassword(this.value);
+});
 /* FORMAT CPF */
 document.getElementById("cpf").addEventListener("input", function() {;
     this.value = formatCpf(this.value);
@@ -65,13 +68,14 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var user = document.getElementById('user').value;
     var pass = document.getElementById('password').value;
+    var pass2 = document.getElementById('password2').value;
     var name = document.getElementById('name').value;
     var cpf = document.getElementById('cpf').value.replace(/\D+/g, '');
     var avatarForm = document.getElementById("avatar");
     var bornDate = document.getElementById('bornDate').value
 
     Promise.resolve(checkIfAnUserExists(user).then((result) => {
-        if (user != '' && pass.length > 7 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length && result == false) {
+        if (user != '' && pass.length > 7 && pass == pass2 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length && result == false) {
             createAdmin(user,pass,name,cpf,avatarForm,bornDate);
             document.getElementById('idErrorLabel').innerHTML = '';
             setTimeout(() => {
