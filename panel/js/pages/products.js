@@ -1,4 +1,4 @@
-//loadList();
+loadList();
 
 /* FORMAT PRODUCT NAME */
 document.getElementById("name").addEventListener("blur", function(){
@@ -14,9 +14,41 @@ document.getElementById("price").addEventListener("input", function() {
 
 /* BUTTON ACTIONS */
 function deleteButtonAction(key) {
-    deleteProduct(key);
-    loadList();
+    const confirm = document.getElementById('confirm');
+    confirm.setAttribute("style", 'display: block;');
+
+    const confirmBox = document.createElement('div');
+    confirmBox.classList.add("confirmBox");
+    confirm.appendChild(confirmBox);
+
+    const label = document.createElement('label');
+    label.innerHTML = 'Você tem certeza que quer apagar esse item?'
+    confirmBox.appendChild(label);
+
+    const conButs = document.createElement('div');
+    conButs.classList.add("conButs");
+    confirmBox.appendChild(conButs);
+
+    const conYes = document.createElement('div');
+    //conYes.setAttribute("onclick", 'deleteProduct(\"' + key + '\")');
+    conYes.innerHTML = 'Sim';
+    conYes.classList.add("conBut");
+    conButs.appendChild(conYes);
+
+    const conNo = document.createElement('div');
+    conNo.innerHTML = 'Não';
+    conNo.classList.add("conBut");
+    conButs.appendChild(conNo);
+    
+    conYes.addEventListener('click', function() {
+        console.log('deletado');
+    })
+
+    conNo.addEventListener('click', function() {
+        console.log('nao');
+    })
 }
+
 var oa = false;
 function openAddProduct() {
     if (oa == false) {
@@ -50,21 +82,6 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
         document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
     }
 });
-
-/* LOAD PRODUCTS TABLE */
-function loadTable() {
-    firebase.database().ref('products').once('value').then(snapshot => {
-        const products = snapshot.val();
-        const productsTable = document.getElementById('productsTable');
-        productsTable.innerHTML = '';
-    
-        for (const productKey in products) {
-            const product = products[productKey];
-
-            
-        }
-    })
-}
 
 
 /* LOAD PRODUCTS LIST */
