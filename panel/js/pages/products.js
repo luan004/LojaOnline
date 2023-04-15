@@ -67,13 +67,13 @@ function openAddProduct() {
 document.getElementById('idForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var name = document.getElementById('name').value;
-    var price = document.getElementById('price').value;
+    var price = parseFloat(document.getElementById('price').value);
     var description = document.getElementById('description').value;
     var category = document.getElementById('category').value;
-    var stock = document.getElementById('stock').value;
+    var stock = parseInt(document.getElementById('stock').value);
     var image = document.getElementById('image').value;
 
-    if (name != '' && price != '0.00' && price != ''&& description != '' && image != '' && category != '' && stock != '') {
+    if (name != '' && price != '0.00' && price != '' && description != '' && image != '' && category != '' && stock != '') {
         createProduct(name,price,description,category,image,stock);
         //document.getElementById('idForm').reset();
         document.getElementById('idErrorLabel').innerHTML = '';
@@ -112,7 +112,7 @@ function loadList(filterBy = '', filterValue = '') {
             let isFiltered = false;
     
             if (filterBy && filterValue) {
-                if (product[filterBy].toLowerCase().includes(filterValue.toLowerCase())) {
+                if (product[filterBy].toString().toLowerCase().includes(filterValue.toLowerCase())) {
                 isFiltered = true;
                 }
             }
@@ -150,7 +150,7 @@ function loadList(filterBy = '', filterValue = '') {
                 const price = document.createElement('label');
                 price.classList.add("first");
                 price.classList.add("price");
-                price.innerText = 'R$'+product.price.replace('.', ',') + ' | ' + product.stock + ' unidades | ' + product.viewCount + ' visualizações | ' + product.likes + ' likes';
+                price.innerText = 'R$'+product.price.toString().replace('.', ',') + ' | ' + product.stock + ' unidades | ' + product.viewCount + ' visualizações | ' + product.likes + ' likes';
                 firstInfos.appendChild(price);
     
                 // Cria key label
