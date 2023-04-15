@@ -68,6 +68,19 @@
                 </form>
             </div>
         </div>
+
+        <div class="filters">
+            <form id="filtersForm">
+                <label>Filtrar por:</label>
+                <select id="filterby">
+                    <option value="name">Nome</option>
+                    <option value="user">Nome de Usuário</option>
+                    <option value="cpf">CPF</option>
+                </select>
+                <label>Busca:</label>
+                <input id="filterText" type="text" placeholder="Insira o termo ou valor a ser buscado">
+            </form>
+        </div>
         
         <div class="adminsCont" id="adminList"></div>
     </div>

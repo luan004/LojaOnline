@@ -1,5 +1,39 @@
 loadList();
 
+
+/* CUIDADO AO EXECUTAR, DIVEROS PRODUTOS SERÃO CRIADOS!!! */
+/* const produtos = ["iPhone 13", "Samsung Galaxy S21", "OnePlus 9 Pro", "Xiaomi Mi 11", "Google Pixel 6", "Motorola Moto G Stylus", "Nokia 5.4", "LG K92", "Dell XPS 13", "HP Spectre x360", "Lenovo ThinkPad X1 Carbon", "Sony WH-1000XM4", "Bose QuietComfort 35 II", "Apple AirPods Pro", "Samsung Galaxy Buds Pro", "ASUS ROG Swift PG279QZ", "Acer Predator XB273K", "PlayStation 5", "Xbox Series X", "Alienware Aurora R12"];
+const categorias = ["smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "notebooks", "notebooks", "notebooks", "headphones", "headphones", "headphones", "headphones", "monitores", "monitores", "videogames", "videogames", "gamer"];
+const descricoes = [
+    "O mais recente lançamento da Apple com câmera aprimorada.",
+    "Excelente tela com uma câmera profissional.",
+    "Excelente desempenho em jogos e tela de 120Hz.",
+    "Câmera potente e ótimo desempenho em geral.",
+    "Inteligência artificial em fotos e excelente experiência Android.",
+    "Ótima opção de smartphone para quem precisa de um caneta stylus.",
+    "Design clássico e boa relação custo-benefício.",
+    "Bom processamento para uso diário e preço acessível.",
+    "O melhor laptop da Dell com excelente design e desempenho.",
+    "Laptop premium com excelente tela touch e bateria.",
+    "Laptop empresarial ultra-portátil com alta durabilidade.",
+    "Headphone com cancelamento de ruído líder de mercado.",
+    "Headphone confortável com cancelamento de ruído decente.",
+    "Auriculares totalmente sem fio com cancelamento de ruído e som de alta qualidade.",
+    "Auriculares totalmente sem fio com cancelamento de ruído e boa duração da bateria.",
+    "Monitor com alta taxa de atualização e baixo tempo de resposta.",
+    "Monitor 4K com excelente qualidade de imagem e cores vibrantes.",
+    "Console de última geração com excelente desempenho e qualidade de imagem.",
+    "Console de última geração com excelente desempenho e ótimo controle.",
+    "Poderoso PC para jogos com iluminação RGB personalizável."
+];
+var c = 0;
+
+while(c < 20) {
+    createProduct(produtos[c], 999.99, descricoes[c], categorias[c], 'https://source.unsplash.com/random?'+produtos[c], 100)
+    c++;
+} */
+  
+
 /* FORMAT PRODUCT NAME */
 document.getElementById("name").addEventListener("blur", function(){
     this.value = formatProductName(this.value);
