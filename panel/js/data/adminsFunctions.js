@@ -13,6 +13,17 @@ function createAdmin(user, password, name, cpf, avatarForm, bornDate) {
   });
 }
 
+function createAdmin2(user, password, name, cpf, avatarUrl, bornDate) {
+  firebase.database().ref('admins').push().set({
+    'user': user,
+    'password': password,
+    'name': name,
+    'cpf': cpf,
+    'avatar': avatarUrl,
+    'bornDate': bornDate
+  });
+}
+
 function uploadAvatar(avatar, user) {
   return firebase.storage().ref().child(`avatars/${user}.jpg`).put(avatar)
     .then((snapshot) => {

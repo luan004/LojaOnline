@@ -1,8 +1,5 @@
 function createProduct(name,price,description,category,image,stock) {
-    var data = firebase.database().ref('products');
-
-    var dataPush = data.push();
-    dataPush.set({
+    firebase.database().ref('products').push().set({
         "name": name,
         "price": price,
         "description": description,
