@@ -14,6 +14,8 @@
     background-color: #2f2f2f;
     transition: 0.3s;
     margin-top: 96px;
+    padding: 1%;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width:799px) {

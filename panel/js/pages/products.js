@@ -1,4 +1,4 @@
-loadList();
+//loadList();
 
 /* FORMAT PRODUCT NAME */
 document.getElementById("name").addEventListener("blur", function(){
@@ -50,6 +50,21 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
         document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
     }
 });
+
+/* LOAD PRODUCTS TABLE */
+function loadTable() {
+    firebase.database().ref('products').once('value').then(snapshot => {
+        const products = snapshot.val();
+        const productsTable = document.getElementById('productsTable');
+        productsTable.innerHTML = '';
+    
+        for (const productKey in products) {
+            const product = products[productKey];
+
+            
+        }
+    })
+}
 
 
 /* LOAD PRODUCTS LIST */
