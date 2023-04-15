@@ -1,9 +1,7 @@
 .product {
     background-color: #202020;
-    width: 98%;
-    height: 100px;
     border-radius: 20px;
-    margin: 1%;
+    margin-bottom: 8px;
     display: flex;
 }
 
@@ -70,8 +68,8 @@
     margin: 7px;
 }
 
-.addAdmin {
-    margin: 1% 1% 30px 1%;
+.add {
+    margin-bottom: 10px;
     transition: 0.3s;
 }
 
@@ -93,7 +91,7 @@
     height: 50px;
 }
 
-.addAdminOpen {
+.addOpen {
     border-radius: 20px;
     background-color: #242424;
     overflow: hidden;
@@ -103,12 +101,12 @@
     padding: 0 30px
 }
 
-.addAdminOpened {
+.addOpened {
     padding: 30px 30px;
     height: 485px;
 }
 
-.adminForm label {
+.form label {
     font-size: 16px;
     color:white;
     font-family: Nunito;
@@ -116,14 +114,14 @@
     display: block;
 }
 
-.adminForm label span{
+.form label span{
     font-size: 12px;
     color:rgb(230, 17, 17);
 }
 
-.adminForm input, select {
+.form input, select, .filters input{
     height: 30px;
-    width: 99%;
+    width: 100%;
     margin-bottom: 12px;
     border-radius: 10px;
     background-color: #3a3a3a;
@@ -134,16 +132,31 @@
     font-family: Nunito;
 }
 
-.adminForm input[type="submit"] {
+.form input[type="submit"] {
     margin-top: 15px;
     background-color: #474747;
     cursor: pointer;
 }
 
-.adminForm input[type="submit"]:hover {
+.form input[type="submit"]:hover {
     background-color: #646464;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
+}
+
+.filters {
+    width: 100%;
+    background-color: #202020;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.filters form label {
+    font-family: Nunito;
+    color: white;
+    font-size: 16px;
 }
