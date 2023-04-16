@@ -25,7 +25,7 @@ function readAdmin(user) {
   .once("value")
   .then((snapshot) => {
     const key = Object.keys(snapshot.val())[0];
-    return snapshot.val()[key];
+    return [snapshot.val()[key], key];
   })
 }
 
