@@ -6,20 +6,20 @@ body {
 
 @font-face {
     font-family: Nunito-Light;
-    src: url(../resources/fonts/Nunito-Light.ttf);
+    src: url(../fonts/Nunito-Light.ttf);
 }
 
 @font-face {
     font-family: Nunito;
-    src: url(../resources/fonts/Nunito-Regular.ttf);
+    src: url(../fonts/Nunito-Regular.ttf);
 }
 
 @font-face {
     font-family: NunitoBold;
-    src: url(../resources/fonts/Nunito-Bold.ttf);
+    src: url(../fonts/Nunito-Bold.ttf);
 }
 
 @font-face {
     font-family: NunitoExtraBold;
-    src: url(../resources/fonts/Nunito-ExtraBold.ttf);
+    src: url(../fonts/Nunito-ExtraBold.ttf);
 }
