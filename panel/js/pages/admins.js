@@ -55,7 +55,7 @@ document.getElementById("user").addEventListener("blur", () => {
 
 
 /* BUTTON ACTIONS */
-function deleteButtonAction(user) {
+function deleteButtonAction(key) {
     const confirm = document.getElementById('confirm');
     confirm.setAttribute("style", 'display: block;');
 
@@ -82,7 +82,7 @@ function deleteButtonAction(user) {
     conButs.appendChild(conNo);
     
     conYes.addEventListener('click', function() {
-        deleteAdmin(user);
+        deleteAdmin(key);
         confirm.innerHTML = "";
         confirm.setAttribute('style', 'display:none;');
         loadList();
@@ -115,23 +115,20 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
     var pass2 = document.getElementById('password2').value;
     var name = document.getElementById('name').value;
     var cpf = document.getElementById('cpf').value.replace(/\D+/g, '');
-    var avatarForm = document.getElementById("avatar");
+    var avatar = document.getElementById("avatar");
     var bornDate = document.getElementById('bornDate').value
 
-    Promise.resolve(checkIfAnUserExists(user).then((result) => {
-        if (user != '' && pass.length > 7 && pass == pass2 && name != '' && cpf.length == 11 && bornDate != '' && avatarForm.files.length && result == false) {
-            createAdmin(user,pass,name,cpf,avatarForm,bornDate);
-            document.getElementById('idErrorLabel').innerHTML = '';
-            setTimeout(() => {
-                console.log('carregando...');
-                loadList();
-                buttonShowForm();
-            }, 1000);
+    if (user != '' && pass.length > 7 && pass == pass2 && name != '' && cpf.length == 11 && bornDate != '' && avatar.files.length) {
+        createAdmin(user,pass,name,cpf,avatar,bornDate);
+        document.getElementById('idErrorLabel').innerHTML = '';
+        setTimeout(() => {
+            loadList();
+            buttonShowForm();
             document.getElementById('idForm').reset();
-        } else {
-            document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
-        }
-    }))
+        }, 2000);
+    } else {
+        document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
+    }
 });
 
 /* FILTERS FORM */
@@ -233,7 +230,7 @@ function loadList(filterBy = '', filterValue = '') {
                 } else {
                     // Cria remove button
                     const button = document.createElement('div');
-                    button.setAttribute("onclick", 'deleteButtonAction(\"' + admin.user + '\")');
+                    button.setAttribute("onclick", 'deleteButtonAction(\"' + adminKey + '\")');
                     button.classList.add("itemButton");
                     listItem.appendChild(button);
 

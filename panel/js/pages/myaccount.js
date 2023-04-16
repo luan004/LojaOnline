@@ -1,19 +1,43 @@
 var user = decryptCookieValue(getCookie('user'));
 var pass = decryptCookieValue(getCookie('pass'));
 
-firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
-    if (snapshot.exists() == false) {
-        logout();
-    }
-    snapshot.forEach(snapshot=>{
-        if(snapshot.child("password").val() != pass){
-            logout();
-        }
-        document.getElementById("avat").src = snapshot.child("avatar").val();
-        document.getElementById("name").innerHTML = snapshot.child("name").val();
-        document.getElementById("age").innerHTML = calcAge(snapshot.child("bornDate").val()) + ' anos';
-        document.getElementById("user").innerHTML = snapshot.child("user").val();
-        document.getElementById("cpf").innerHTML = formatCpf(snapshot.child("cpf").val());
-        document.getElementById("born").innerHTML = formatBorn(snapshot.child("bornDate").val());
-    })
+/* VALIDATIONS */
+document.getElementById("name").addEventListener("input", function() {
+    this.value = formatName(this.value);
+});
+document.getElementById("name").addEventListener("blur", function() {
+    this.value = this.value.trim();
+});
+document.getElementById("oldpassword").addEventListener("input", function() {
+    this.value = formatPassword(this.value);
+});
+document.getElementById("password").addEventListener("input", function() {
+    this.value = formatPassword(this.value);
+});
+document.getElementById("password2").addEventListener("input", function() {
+    this.value = formatPassword(this.value);
+});
+document.getElementById("cpf").addEventListener("input", function() {;
+    this.value = formatCpf(this.value);
+});
+
+/* READ ADMIN DATA */
+readAdmin(user).then((user) => {
+    document.getElementById("avat").src = user.avatar;
 })
+readAdmin(user).then((user) => {
+    document.getElementById("fname").innerHTML = user.name;
+})
+readAdmin(user).then((user) => {
+    document.getElementById("age").innerHTML = calcAge(user.bornDate) + ' anos';
+})
+
+readAdmin(user).then((user) => {
+    document.getElementById("name").value = user.name;
+});
+readAdmin(user).then((user) => {
+    document.getElementById("cpf").value = formatCpf(user.cpf);
+});
+readAdmin(user).then((user) => {
+    document.getElementById("bornDate").value = user.bornDate;
+});

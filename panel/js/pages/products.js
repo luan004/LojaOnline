@@ -199,9 +199,10 @@ document.getElementById('idForm').addEventListener('submit', function(event) {
     var description = document.getElementById('description').value;
     var category = document.getElementById('category').value;
     var stock = parseInt(document.getElementById('stock').value);
-    var image = document.getElementById('image').value;
 
-    if (name != '' && price != '0.00' && price != '' && description != '' && image != '' && category != '' && stock != '') {
+    var image = document.getElementById('image');
+
+    if (name != '' && price != '0.00' && price != '' && description != '' && image.files.length && category != '' && stock != '') {
         createProduct(name,price,description,category,image,stock);
         //document.getElementById('idForm').reset();
         document.getElementById('idErrorLabel').innerHTML = '';

@@ -23,7 +23,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/others/formats.js"></script>
     <script src="./js/data/firebase.js"></script>
-    <script src="./js/data/adminsFunctions.js"></script>
+    <script src="./js/data/adminCRUD.js"></script>
     <script>startData();validateSession();</script>
 
     <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
@@ -56,14 +56,32 @@
                     
 
                     <div class="firstInfos">
-                        <label class="first" id="name"></label>
+                        <label class="first" id="fname"></label>
                         <label class="first" id="age"></label>
                     </div>
                 </div>
-        
-                <label class="info">Nome de Usuário: <span id="user"></span></label>
-                <label class="info">CPF: <span id="cpf"></span></label>
-                <label class="info">Data de Nascimento: <span id="born"></span></label>
+
+                <form class="form">
+                    <label>Nome Completo:</label>
+                    <input type="text" id="name" placeholder="Nome Completo">
+
+                    <label>CPF:</label>
+                    <input type="text" placeholder="Apenas números" id="cpf" maxlength="14">
+            
+                    <label>Data de Nacimento:</label>
+                    <input type="date" id="bornDate">
+
+                    <label>Senha Antiga</label>
+                    <input type="password" placeholder="Usar 8 caracteres ou mais" id="oldpassword" autocomplete="current-password">
+
+                    <label>Senha Nova</label>
+                    <input type="password" placeholder="Usar 8 caracteres ou mais" id="password" autocomplete="current-password">
+
+                    <label>Confirme a senha</label>
+                    <input type="password" placeholder="Confirme a senha" id="password2" autocomplete="current-password">
+
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </div>

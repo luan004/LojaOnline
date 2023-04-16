@@ -23,7 +23,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/others/formats.js"></script>
     <script src="./js/data/firebase.js"></script>
-    <script src="./js/data/productsCRUD.js"></script>
+    <script src="./js/data/productCRUD.js"></script>
     <script>startData();validateSession();</script>
 
     <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
@@ -66,7 +66,7 @@
                     <input type="number" id="stock" placeholder="Quantidade em Estoque" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         
                     <label>Imagem do Produto:</label>
-                    <input type="text" id="image" placeholder="Link para a imagem">
+                    <input type="file" id="image" accept="image/jpeg" class="filePicker">
             
                     <label id="idErrorLabel"></label>
                     <input type="submit" class="submitButton">

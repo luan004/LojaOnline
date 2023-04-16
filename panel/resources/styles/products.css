@@ -146,6 +146,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
 
+.form .filePicker {
+    padding: 0px;
+}
+
+.filePicker::-webkit-file-upload-button {
+    display: none;
+}
+
+.filePicker::before {
+    content: 'Selecione um arquivo .jpg';
+    color: white;
+    display: inline-block;
+    background: #141414;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
 .filters {
     width: 100%;
     background-color: #202020;
