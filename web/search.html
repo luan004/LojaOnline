@@ -18,7 +18,12 @@
             $("#sideBar").load("resources/layout/sideBar.html"); 
             $("#footer").load("resources/layout/footer.html");
         });
-    </script> 
+    </script>
+
+    <!-- ESSENTIAL SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="./js/data/firebase.js"></script>
+    <script>startData();</script>
 
     <link rel="stylesheet" type="text/css" href="resources/styles/body.css" />
     <link rel="stylesheet" type="text/css" href="resources/styles/content.css" />
@@ -59,8 +64,5 @@
     <div id="footer"></div>
 
 </body>
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="./scripts/db/functionsFirebase.js"></script>
-<script src="./scripts/search.js"></script>
+<script src="./js/pages/search.js"></script>
 </html>

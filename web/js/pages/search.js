@@ -1,5 +1,3 @@
-startData();
-
 var url = new URL(window.location.href);
 var searchTerm = url.searchParams.get("s");
 console.log(searchTerm);
