@@ -1,5 +1,5 @@
-function isEnabled(x) {
-    return firebase.database().ref(`custom/${x}/enable`).once('value').then((snapshot) => {
+function getSlideshowData(loc) {
+    return firebase.database().ref(`custom/${loc}`).once('value').then((snapshot) => {
         return snapshot.val();
     })
 }

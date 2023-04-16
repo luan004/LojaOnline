@@ -1,6 +1,6 @@
 <div class="slideshowBox">
     <div class="slide anim">
-        <img title="slide1" class="imge" id="slide1" src="/tcc/web/resources/images/img1.jpg">
+        <img title="slide1" class="imge" id="slide1" src="">
     </div>
     <div class="slide anim">
         <img title="slide2" class="imge" id="slide2" src="/tcc/web/resources/images/img2.jpg">
@@ -18,6 +18,13 @@
 </div>
 
 <script>
+    
+    getSlideshowData('slideshow').then((val) => {
+        document.getElementById('slide1').src = val.slide1;
+        //document.getElementById('slide2').src = val.slide2;
+        //document.getElementById('slide3').src = val.slide3;
+    })
+
     let slideIndex = 1;
     showSlides(slideIndex);
 
