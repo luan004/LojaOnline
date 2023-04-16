@@ -15,7 +15,6 @@
     <script> 
         $(function(){
             $("#header").load("resources/layout/header.html");
-            $("#slideshow").load("resources/layout/slideshow.html");
             $("#footer").load("resources/layout/footer.html");
         });
     </script>
@@ -23,6 +22,7 @@
     <!-- ESSENTIAL SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/data/firebase.js"></script>
+    <script src="./js/data/slideshowFunctions.js"></script>
     <script>startData();</script>
 
     <link rel="stylesheet" type="text/css" href="resources/styles/body.css" />
@@ -34,24 +34,7 @@
 
     <div id="header"></div>
 
-    <div class="slideshowBox">
-        <div class="slide anim">
-            <img title="slide1" class="imge" id="slide1" src="resources/images/img1.jpg">
-        </div>
-        <div class="slide anim">
-            <img title="slide2" class="imge" id="slide2" src="resources/images/img2.jpg">
-        </div>
-        <div class="slide anim">
-            <img title="slide3" class="imge" id="slide3" src="resources/images/img3.jpg">
-        </div>
-        <div class="dotBox" style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
-        </div>
-        <a class="leftButton" onclick="plusSlides(-1)"></a>
-        <a class="rightButton" onclick="plusSlides(1)"></a>
-    </div>
+    <div id="slideshow"></div>
 
     <div class="content categories">
         <label class="h1Title">Categorias</label>
@@ -99,7 +82,6 @@
         </div>
     </div>
 
-    <!-- CONTENT-->
     <div class="grid content">
 
         <a href="#" class="product">
@@ -177,7 +159,7 @@
                 </label>
             </div>
         </a>
-    </div> <!---->
+    </div>
 
     <div id="footer"></div>
 </body>
