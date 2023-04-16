@@ -42,7 +42,6 @@ document.getElementById("name").addEventListener("blur", function(){
 /* FORMAT PRICE */
 document.getElementById("price").addEventListener("input", function() {
     this.value = formatPrice(this.value);
-    console.log(this.value);
 });
 
 
@@ -112,7 +111,6 @@ function editButtonAction(key, name, description, price, stock, category, image)
     confirmBox.appendChild(inputPrice);
     inputPrice.addEventListener("input", function() {
         this.value = formatPrice(this.value);
-        console.log(this.value);
     });
 
     const inputDescLabel = document.createElement('label');
