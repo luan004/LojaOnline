@@ -6,7 +6,25 @@ function getProductMost(order) {
 }
 
 function getNumChildren(loc) {
-    return firebase.database().ref(loc).once('value', function(snapshot) {
+    return firebase.database().ref(loc).once('value').then((snapshot) => {
         return snapshot.numChildren();
     });
 }
+
+function getMediumAge() {
+    return firebase.database().ref('admins').once('value').then((snapshot) => {
+      let sumAge = 0;
+      let numAdmins = 0;
+  
+      snapshot.forEach((adminSnapshot) => {
+        const birthDate = new Date(adminSnapshot.child('bornDate').val());
+        const age = calcAge(birthDate);
+        
+        sumAge += age;
+        numAdmins++;
+      });
+  
+      return sumAge / numAdmins;
+    });
+}
+  
