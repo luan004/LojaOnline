@@ -19,6 +19,9 @@ function createProduct(name,price,description,category,image,stock) {
 } */
 
 function updateProduct(key, attribute, value) {
+
+  console.log(value);
+
   const ref = firebase.database().ref(`products/${key}`);
   const updates = {};
   updates[attribute] = value;

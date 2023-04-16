@@ -48,17 +48,17 @@
     font-size: 12px;
 }
 
-.removeAdminButton {
+.erbutton {
     width: 45px;
     height: 45px;
     cursor: pointer;
     display: flex;
-    margin: 28px;
+    margin: 28px 10px;
     border-radius: 50%;
     transition: 0.3s;
 }
 
-.removeAdminButton:hover {
+.erbutton:hover {
     background-color: #3a3a3a;
 }
 
