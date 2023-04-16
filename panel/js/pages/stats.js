@@ -1,9 +1,21 @@
-defineMostSearched();
+getNumChildren('admins').then((val) => {
+    console.log(val);
+    document.getElementById("idQtdeAdmins").innerHTML = val;
+});
+
+getProductMost('likes').then((val) => {
+    document.getElementById("idMostLiked").innerHTML = val;
+});
+
+getProductMost('viewCount').then((val) => {
+    document.getElementById("idMostViewed").innerHTML = val;
+});
+
+/* defineMostSearched();
 
 defineQtdeProducts();
 defineMostLiked();
 defineMostViewed();
-
 defineQtdeAdmins();
 
 function defineMostSearched() {
@@ -49,19 +61,6 @@ function defineMostViewed() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function defineQtdeAdmins() {
     firebase.database().ref('admins').once('value', function(snapshot) {
         document.getElementById("idQtdeAdmins").innerHTML = snapshot.numChildren();
@@ -72,4 +71,4 @@ function defineQtdeProducts() {
     firebase.database().ref('products').once('value', function(snapshot) {
         document.getElementById("idQtdeProducts").innerHTML = snapshot.numChildren();
     });
-}
+} */
