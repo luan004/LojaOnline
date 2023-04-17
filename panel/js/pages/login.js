@@ -1,3 +1,5 @@
+import {validateAuth} from '../data/adminCRUD.js';
+
 if (getCookie('user') != null) {
     var user = decryptCookieValue(getCookie('user'));
     var pass = decryptCookieValue(getCookie('pass'));

@@ -1,4 +1,4 @@
-function createAdmin(user, password, name, cpf, avatar, bornDate) {
+export function createAdmin(user, password, name, cpf, avatar, bornDate) {
   const ref = firebase.database().ref('admins').push();
   const keyRef = ref.key;
 
@@ -29,27 +29,27 @@ function createAdmin(user, password, name, cpf, avatar, bornDate) {
   })
 } */
 
-function readAdmin(key) {
+export function readAdmin(key) {
   const ref = firebase.database().ref(`admins/${key}`);
   return ref.once('value').then((snapshot) => {
     return snapshot.val();
   });
 }
 
-function updateAdmin(key, field, value) {
+export function updateAdmin(key, field, value) {
   const ref = firebase.database().ref(`admins/${key}`);
   const updates = {};
   updates[field] = value;
   ref.update(updates);
 }
 
-function deleteAdmin(key) {
+export function deleteAdmin(key) {
   firebase.database().ref("admins/").child(key).remove();
   firebase.storage().ref().child(`admins/${key}.jpg`).delete();
 }
 
 // - OTHERS ---
-function validateAuth(user, password) {
+export function validateAuth(user, password) {
   return firebase.database().ref('admins').orderByChild('user').equalTo(user).once('value').then((snapshot) => {
     let key = null;
     snapshot.forEach((childSnapshot) => {
@@ -61,7 +61,7 @@ function validateAuth(user, password) {
   });
 }
 
-function checkIfAnUserExists(user) {
+export function checkIfAnUserExists(user) {
     return firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
         if (snapshot.exists()) {
             return true;

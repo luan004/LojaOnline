@@ -1,10 +1,10 @@
-function formatName(name) {
+export function formatName(name) {
     name = name.replace(/[0-9]/g, "").replace(/\s{2,}/g, " ").toLowerCase();
     name = name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     return name;
 }
 
-function formatUser(user) {
+export function formatUser(user) {
     user = user.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     const maxLength = 22;
     if (user.length <= maxLength) {
@@ -14,7 +14,7 @@ function formatUser(user) {
     }
 }
 
-function formatPassword(pass) {
+export function formatPassword(pass) {
   pass = pass.replace(/\s/g, '');
   const maxLength = 22;
   if (pass.length <= maxLength) {
@@ -24,7 +24,7 @@ function formatPassword(pass) {
   }
 }
 
-function formatCpf(cpf) {
+export function formatCpf(cpf) {
     cpf = cpf.replace(/\D/g, "");
     cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
     cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
@@ -32,14 +32,7 @@ function formatCpf(cpf) {
     return cpf;
 }
 
-function formatPrice2(price) {
-  price = price.replace(/\D/g, "");
-  const prefix = price.substring(0, price.length - 2);
-  const suffix = price.substring(price.length - 2);
-  return `${prefix}.${suffix}`;
-}
-
-function formatPrice(value) {
+export function formatPrice(value) {
   // Remove todos os caracteres que não são números
   value = value.replace(/\D/g, "");
   // Apaga os zeros a esquerda caso o valor tenha mais de 3 caracteres
@@ -57,7 +50,7 @@ function formatPrice(value) {
   return value;
 }
 
-function formatNumber(value) {
+export function formatNumber(value) {
   if (value.length <= 3) {
     value = value.padStart(3, "0");
   } else {
@@ -69,21 +62,18 @@ function formatNumber(value) {
   return value;
 }
 
-
-
-
-function formatProductName(name) {
+export function formatProductName(name) {
   name = name.replace(/\s{2,}/g, " ");
   name = name.trim();
   return name;
 }
 
-function formatBorn(date) {
+export function formatBorn(date) {
   const [year, month, day] = date.split("-");
   return `${day}/${month}/${year}`;
 }
 
-function calcAge(date) {
+export function calcAge(date) {
   var birthDate = new Date(date);
   var today = new Date();
   var age = today.getFullYear() - birthDate.getFullYear();
@@ -94,7 +84,7 @@ function calcAge(date) {
   return age;
 }
 
-function getDate() {
+export function getDate() {
   const now = new Date();
   const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
   const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
@@ -105,7 +95,7 @@ function getDate() {
   return `${weekDay}, ${monthDay} de ${month} de ${year}`;
 }
 
-function getTime(element) {
+export function getTime(element) {
   const now = new Date();
   const hour = now.getHours();
   const minute = now.getMinutes();
@@ -113,7 +103,7 @@ function getTime(element) {
   return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}<label class="milisecond">,${second.toString().padStart(2, '0')}</label>`;
 }
 
-function downloadFile(url) {
+export function downloadFile(url) {
   // Cria um elemento <a> para simular o clique em um link de download
   const link = document.createElement("a");
   link.href = url;

@@ -1,3 +1,15 @@
+import {
+    changeSwitchValue,
+    loadSwitch,
+    loadCarouselProduct,
+    getCarouselProduct,
+    uploadSlideFile,
+    getSlideSrc,
+    changeCarouselTitle,
+    loadCarouselTitle,
+    changeCarouselProduct
+} from '../data/customizationFunctions.js';
+
 loadSwitch('slideshow');
 loadSlide(1);
 loadSlide(2);
@@ -95,7 +107,7 @@ document.getElementById('product4id').addEventListener('blur', function() {
 
 /* LOAD SLIDES FROM DATA */
 function loadSlide(num) {
-    Promise.resolve(getSlideSrc(num)).then((val) => {
+    getSlideSrc(num).then((val) => {
         document.getElementById("slide"+num).src = val;
     })
 }

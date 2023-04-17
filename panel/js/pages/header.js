@@ -1,10 +1,4 @@
-document.getElementById('actualDate').innerHTML = getDate();
-document.getElementById('actualTime').innerHTML = getTime();
-
-setInterval(function() {
-    document.getElementById('actualDate').innerHTML = getDate();
-    document.getElementById('actualTime').innerHTML = getTime();
-}, 1000)
+import {readAdmin} from '../data/adminCRUD.js';
 
 readAdmin(decryptCookieValue(getCookie('key'))).then((admin) => {
     document.getElementById("adminAvatar").src = admin.avatar;

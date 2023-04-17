@@ -1,4 +1,8 @@
-function changeSwitchValue(swit) {
+import {
+    readProduct
+} from '../data/productCRUD.js';
+
+export function changeSwitchValue(swit) {
     firebase.database().ref('custom/'+swit+'/enable').once('value').then((snap) => {
         if (snap.val() == false) {
             firebase.database().ref('custom/'+swit).update({'enable':true});
@@ -8,7 +12,7 @@ function changeSwitchValue(swit) {
     })
 }
 
-function loadSwitch(switchid) {
+export function loadSwitch(switchid) {
     firebase.database().ref('custom/'+switchid+'/enable').once('value').then((snap) => {
         if (snap.val() == true) {
             document.getElementById(switchid).checked = true;
@@ -16,7 +20,7 @@ function loadSwitch(switchid) {
     })
 }
 
-function loadCarouselProduct(num) {
+export function loadCarouselProduct(num) {
     getCarouselProduct(num).then((key) => {
         readProduct(key).then((product) => {
             document.getElementById('product'+num+'img').src = product.image;
@@ -29,14 +33,14 @@ function loadCarouselProduct(num) {
 }
 
 
-function getCarouselProduct(num) {
+export function getCarouselProduct(num) {
     return firebase.database().ref("custom/carousel/product" + num).once('value')
     .then((snapshot) => {
         return snapshot.val();
     })
 }
 
-function uploadSlideFile(file, num) {
+export function uploadSlideFile(file, num) {
     firebase.storage().ref().child(`custom/slideshow/slide${num}.jpg`).put(file);
 
     getSlideSrc(num).then((value) => {
@@ -46,14 +50,14 @@ function uploadSlideFile(file, num) {
     });
 }
 
-function getSlideSrc(num) {
+export function getSlideSrc(num) {
     return firebase.storage().ref().child(`custom/slideshow/slide${num}.jpg`).getDownloadURL()
     .then(url => {
         return url;
     })
 }
 
-function changeCarouselTitle(title) {
+export function changeCarouselTitle(title) {
     if(title == '') {title = 'Destaques'}
     const value = {
         "title": title,
@@ -61,14 +65,14 @@ function changeCarouselTitle(title) {
     firebase.database().ref('custom/carousel/').update(value);
 }
 
-function loadCarouselTitle() {
+export function loadCarouselTitle() {
     firebase.database().ref('custom/carousel/title').once('value')
     .then((snapshot) => {
         document.getElementById("inputTitle").value = snapshot.val();
     })
 }
 
-function changeCarouselProduct(id, num) {
+export function changeCarouselProduct(id, num) {
     var product = 'product'+num;
     const value = {
         [product]: id

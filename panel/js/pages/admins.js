@@ -1,6 +1,7 @@
+import {createAdmin, deleteAdmin, checkIfAnUserExists} from '../data/adminCRUD.js';
+import {formatName, formatUser, formatPassword, formatCpf} from '../others/formats.js';
+
 loadList();
-
-
 
 /* CUIDADO AO EXECUTAR, DIVEROS PRODUTOS SERÃO CRIADOS!!! */
 /* const pessoas = ["Ana Paula", "Bruno Santos", "Carla Oliveira", "Daniel Costa", "Eduardo Silva", "Fabiana Martins", "Gabriel Rodrigues", "Helena Santos", "Isabela Almeida", "João Santos", "Karen Souza", "Lucas Lima", "Mariana Carvalho", "Natalia Pereira", "Otávio Rocha", "Paula Sousa", "Ricardo Santos", "Sofia Alves", "Thiago Castro", "Vivian Gomes"];

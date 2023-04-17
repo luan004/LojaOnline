@@ -1,3 +1,6 @@
+import {createProduct, updateProduct, deleteProduct} from '../data/productCRUD.js';
+import {formatPrice, formatProductName} from '../others/formats.js';
+
 loadList();
 
 

@@ -1,4 +1,4 @@
-function createProduct(name, price, description, category, image, stock) {
+export function createProduct(name, price, description, category, image, stock) {
   const ref = firebase.database().ref('products').push();
   const keyRef = ref.key;
 
@@ -20,21 +20,21 @@ function createProduct(name, price, description, category, image, stock) {
   });
 }
 
-function readProduct(key) {
+export function readProduct(key) {
   const ref = firebase.database().ref(`products/${key}`);
   return ref.once('value').then((snapshot) => {
     return snapshot.val();
   });
 }
 
-function updateProduct(key, field, value) {
+export function updateProduct(key, field, value) {
   const ref = firebase.database().ref(`products/${key}`);
   const updates = {};
   updates[field] = value;
   ref.update(updates);
 }
 
-function deleteProduct(key) {
+export function deleteProduct(key) {
   firebase.database().ref("products/").child(key).remove();
   firebase.storage().ref().child(`products/${key}.jpg`).delete();
 }
