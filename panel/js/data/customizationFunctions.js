@@ -17,8 +17,7 @@ function loadSwitch(switchid) {
 }
 
 function loadCarouselProduct(num) {
-    Promise.resolve(getCarouselProduct(num)).then((key) => {
-
+    getCarouselProduct(num).then((key) => {
         readProduct(key).then((product) => {
             document.getElementById('product'+num+'img').src = product.image;
             document.getElementById('product'+num+'name').innerHTML = product.name;
@@ -26,15 +25,6 @@ function loadCarouselProduct(num) {
             document.getElementById('product'+num+'price').innerHTML = 'R$'+product.price.replace('.', ',');
             document.getElementById('product'+num+'id').value = key;
         });
-
-/*         firebase.database().ref('products/').child(key).once('value').then((snap) => {
-
-            document.getElementById('product'+num+'img').src = snap.val().image;
-            document.getElementById('product'+num+'name').innerHTML = snap.val().name;
-            document.getElementById('product'+num+'desc').innerHTML = snap.val().description;
-            document.getElementById('product'+num+'price').innerHTML = 'R$'+snap.val().price.replace('.', ',');
-            document.getElementById('product'+num+'id').value = key;
-        }) */
     })
 }
 
