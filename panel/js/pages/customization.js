@@ -32,21 +32,18 @@ document.getElementById("down3").addEventListener("click", function() {
 /* EDIT BUTTONS LISTENERS */
 document.getElementById("edit1").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    Promise.resolve(uploadSlideFile(file, 1)).then((r) => {
-        loadSlide(1);
-    })
+    uploadSlideFile(file, 1);
+    loadSlide(1);
 })
 document.getElementById("edit2").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    Promise.resolve(uploadSlideFile(file, 2)).then((r) => {
-        loadSlide(2);
-    })
+    uploadSlideFile(file, 2);
+    loadSlide(2);
 })
 document.getElementById("edit3").addEventListener("click", async function() {
     const file = await selectJpgFile();
-    Promise.resolve(uploadSlideFile(file, 3)).then((r) => {
-        loadSlide(3);
-    })
+    uploadSlideFile(file, 3);
+    loadSlide(3);
 })
 
 /* CAROUSEL TITLE LISTENER */

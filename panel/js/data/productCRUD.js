@@ -20,12 +20,12 @@ function createProduct(name, price, description, category, image, stock) {
   });
 }
 
-/* function readProduct(key, attribute) {
-  const ref = firebase.database().ref(`products/${key}/${attribute}`);
+function readProduct(key) {
+  const ref = firebase.database().ref(`products/${key}`);
   return ref.once('value').then((snapshot) => {
     return snapshot.val();
   });
-} */
+}
 
 function updateProduct(key, field, value) {
   const ref = firebase.database().ref(`products/${key}`);

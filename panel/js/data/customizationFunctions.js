@@ -17,14 +17,24 @@ function loadSwitch(switchid) {
 }
 
 function loadCarouselProduct(num) {
-    Promise.resolve(getCarouselProduct(num)).then((value) => {
-        firebase.database().ref('products/').child(value).once('value').then((snap) => {
+    Promise.resolve(getCarouselProduct(num)).then((key) => {
+
+        readProduct(key).then((product) => {
+            document.getElementById('product'+num+'img').src = product.image;
+            document.getElementById('product'+num+'name').innerHTML = product.name;
+            document.getElementById('product'+num+'desc').innerHTML = product.description;
+            document.getElementById('product'+num+'price').innerHTML = 'R$'+product.price.replace('.', ',');
+            document.getElementById('product'+num+'id').value = key;
+        });
+
+/*         firebase.database().ref('products/').child(key).once('value').then((snap) => {
+
             document.getElementById('product'+num+'img').src = snap.val().image;
             document.getElementById('product'+num+'name').innerHTML = snap.val().name;
             document.getElementById('product'+num+'desc').innerHTML = snap.val().description;
             document.getElementById('product'+num+'price').innerHTML = 'R$'+snap.val().price.replace('.', ',');
-            document.getElementById('product'+num+'id').value = value;
-        })
+            document.getElementById('product'+num+'id').value = key;
+        }) */
     })
 }
 
@@ -37,13 +47,12 @@ function getCarouselProduct(num) {
 }
 
 function uploadSlideFile(file, num) {
-    return firebase.storage().ref().child(`custom/slideshow/slide${num}.jpg`).put(file)
-    .then((snapshot) => {
-        return true;
-    })
-    .catch((error) => {
-        console.error('Error uploading file:', error);
-        return false;
+    firebase.storage().ref().child(`custom/slideshow/slide${num}.jpg`).put(file);
+
+    getSlideSrc(num).then((value) => {
+        const updates = {};
+        updates['slide'+num] = value;
+        firebase.database().ref('custom/slideshow/').update(updates);
     });
 }
 
@@ -52,10 +61,6 @@ function getSlideSrc(num) {
     .then(url => {
         return url;
     })
-    .catch(error => {
-        console.error('Error getting download URL:', error);
-        return null;
-    });
 }
 
 function changeCarouselTitle(title) {
