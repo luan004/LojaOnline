@@ -48,7 +48,7 @@ document.getElementById("price").addEventListener("input", function() {
 /* BUTTON ACTIONS */
 function deleteButtonAction(key) {
     const confirm = document.getElementById('confirm');
-    confirm.setAttribute("style", 'display: block;');
+    confirm.classList.add('confirmOpened');
 
     const confirmBox = document.createElement('div');
     confirmBox.classList.add("confirmBox");
@@ -81,13 +81,15 @@ function deleteButtonAction(key) {
 
     conNo.addEventListener('click', function() {
         confirm.innerHTML = "";
-        confirm.setAttribute('style', 'display:none;');
+        confirm.classList.remove('confirmOpened');
     })
 }
 
 function editButtonAction(key, name, description, price, stock, category, image) {
     const confirm = document.getElementById('confirm');
-    confirm.setAttribute("style", 'display: block;');
+    confirm.classList.add('confirmOpened');
+
+    //confirm.setAttribute("style", 'display: block;background-color: rgba(0, 0, 0, 0.788);');
 
     const confirmBox = document.createElement('div');
     confirmBox.classList.add("editBox");
@@ -175,7 +177,7 @@ function editButtonAction(key, name, description, price, stock, category, image)
 
     conNo.addEventListener('click', function() {
         confirm.innerHTML = "";
-        confirm.setAttribute('style', 'display:none;');
+        confirm.classList.remove('confirmOpened');
     })
     
 }
