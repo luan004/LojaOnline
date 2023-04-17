@@ -1,5 +1,7 @@
 loadList();
 
+
+
 /* CUIDADO AO EXECUTAR, DIVEROS PRODUTOS SERÃO CRIADOS!!! */
 /* const pessoas = ["Ana Paula", "Bruno Santos", "Carla Oliveira", "Daniel Costa", "Eduardo Silva", "Fabiana Martins", "Gabriel Rodrigues", "Helena Santos", "Isabela Almeida", "João Santos", "Karen Souza", "Lucas Lima", "Mariana Carvalho", "Natalia Pereira", "Otávio Rocha", "Paula Sousa", "Ricardo Santos", "Sofia Alves", "Thiago Castro", "Vivian Gomes"];
 const usuarios = ["anapaula01", "brunosantos82", "carlaoliveira", "dan_costa", "eduardosilva88", "fabianam", "gabriel_rodrigues", "helenasantos", "isabela27", "joaosantos", "karensouza", "lucaslima", "marianacarvalho", "nataliapereira", "otavio_rocha", "paulasousa", "ricardosantos", "sofiaalves", "thiagocastro", "viviangomes"];

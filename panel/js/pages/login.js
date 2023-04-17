@@ -2,28 +2,28 @@ if (getCookie('user') != null) {
     var user = decryptCookieValue(getCookie('user'));
     var pass = decryptCookieValue(getCookie('pass'));
 
-    Promise.resolve(validateAuth(user,pass)).then((value) => {
-        if (value == true) {
+    validateAuth(user, pass).then((value) => {
+        if (value != true) {
             window.location.replace('stats'); 
         }
     });
 }
 
-document.getElementById('idLoginForm').addEventListener('submit', function(e) {
+document.getElementById('form').addEventListener('submit', function(e) {
     e.preventDefault();
     var user = document.getElementById('user').value;
     var password = document.getElementById('password').value;
 
-    Promise.resolve(validateAuth(user,password)).then((value) => {
-        if (value == true) {
+    validateAuth(user,password).then((value) => {
+        if (value != null) {
             var secondsExpire = 21600; // TEMPO EM SEGUNDOS QUE LEVARA PARA O COOKIE EXPIRAR
             var time = new Date((secondsExpire*1000) + Date.now()).toUTCString();
             document.cookie = "user="+encryptCookieValue(user)+"; expires=" + time + ';'
             document.cookie = "pass="+encryptCookieValue(password)+"; expires=" + time + ';'
-            document.cookie = "expireTime="+((secondsExpire*1000) + Date.now())+"; expires=" + time + ';'
+            document.cookie = "key="+encryptCookieValue(value)+"; expires=" + time + ';'
             window.location.replace('stats'); 
         } else {
-            document.getElementById("failedAuthMessage").innerHTML = 'Usuario ou senha incorretos!';
+            document.getElementById("failedAuthMessage").innerHTML = 'Usuario ou senha incorreto!';
         }
     });
 });

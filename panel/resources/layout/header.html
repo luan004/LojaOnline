@@ -23,20 +23,5 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('actualDate').innerHTML = getDate();
-    document.getElementById('actualTime').innerHTML = getTime();
-
-    setInterval(function() {
-        document.getElementById('actualDate').innerHTML = getDate();
-        document.getElementById('actualTime').innerHTML = getTime();
-    }, 1000)
-
-    firebase.database().ref('admins').orderByChild("user").equalTo(getCookieUser()).once('value').then((snapshot)=>{
-        snapshot.forEach(snapshot=>{
-            document.getElementById("adminAvatar").src = snapshot.child("avatar").val();
-            document.getElementById("adminName").innerHTML = snapshot.child("name").val();
-            document.getElementById("adminUser").innerHTML = snapshot.child("user").val();
-        })
-    })
-</script>
+<script src="js/data/adminCRUD.js"></script>
+<script src="js/pages/header.js"></script>

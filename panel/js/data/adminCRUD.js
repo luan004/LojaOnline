@@ -18,7 +18,7 @@ function createAdmin(user, password, name, cpf, avatar, bornDate) {
   });
 }
 
-function readAdmin(user) {
+/* function readAdmin(user) {
   return firebase.database().ref("admins")
   .orderByChild("user")
   .equalTo(user)
@@ -27,6 +27,13 @@ function readAdmin(user) {
     const key = Object.keys(snapshot.val())[0];
     return [snapshot.val()[key], key];
   })
+} */
+
+function readAdmin(key) {
+  const ref = firebase.database().ref(`admins/${key}`);
+  return ref.once('value').then((snapshot) => {
+    return snapshot.val();
+  });
 }
 
 function updateAdmin(key, field, value) {
@@ -42,19 +49,18 @@ function deleteAdmin(key) {
 }
 
 // - OTHERS ---
-function validateAuth(user,password) {
-    return firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
-        return snapshot.forEach(snapshot=>{     
-            var bool = false;
-            if (snapshot.child("password").val() == password){
-                bool = true;
-            } else {
-                bool = false;
-            }
-            return bool
-        })
-    })   
+function validateAuth(user, password) {
+  return firebase.database().ref('admins').orderByChild('user').equalTo(user).once('value').then((snapshot) => {
+    let key = null;
+    snapshot.forEach((childSnapshot) => {
+      if (childSnapshot.child('password').val() === password) {
+        key = childSnapshot.key;
+      }
+    });
+    return key;
+  });
 }
+
 function checkIfAnUserExists(user) {
     return firebase.database().ref('admins').orderByChild("user").equalTo(user).once('value').then((snapshot)=>{
         if (snapshot.exists()) {
