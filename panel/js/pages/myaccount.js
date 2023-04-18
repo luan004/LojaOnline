@@ -1,5 +1,17 @@
+import {
+    readAdmin,
+    updateAdmin
+} from '../data/adminCRUD.js'
+
+import {
+    formatName,
+    formatPassword,
+    formatCpf,
+    calcAge
+} from '../others/formats.js'
+
 var user = decryptCookieValue(getCookie('user'));
-var pass = decryptCookieValue(getCookie('pass'));
+var key = decryptCookieValue(getCookie('key'));
 
 /* VALIDATIONS */
 document.getElementById("name").addEventListener("input", function() {
@@ -23,24 +35,24 @@ document.getElementById("cpf").addEventListener("input", function() {;
 
 
 /* READ ADMIN DATA */
-readAdmin(user).then((user) => {
-    document.getElementById("avat").src = user[0].avatar;
+readAdmin(key).then((user) => {
+    document.getElementById("avat").src = user.avatar;
 })
-readAdmin(user).then((user) => {
-    document.getElementById("fname").innerHTML = user[0].name;
+readAdmin(key).then((user) => {
+    document.getElementById("fname").innerHTML = user.name;
 })
-readAdmin(user).then((user) => {
-    document.getElementById("age").innerHTML = calcAge(user[0].bornDate) + ' anos';
+readAdmin(key).then((user) => {
+    document.getElementById("age").innerHTML = calcAge(user.bornDate) + ' anos';
 })
 
-readAdmin(user).then((user) => {
-    document.getElementById("name").value = user[0].name;
+readAdmin(key).then((user) => {
+    document.getElementById("name").value = user.name;
 });
-readAdmin(user).then((user) => {
-    document.getElementById("cpf").value = formatCpf(user[0].cpf);
+readAdmin(key).then((user) => {
+    document.getElementById("cpf").value = formatCpf(user.cpf);
 });
-readAdmin(user).then((user) => {
-    document.getElementById("bornDate").value = user[0].bornDate;
+readAdmin(key).then((user) => {
+    document.getElementById("bornDate").value = user.bornDate;
 });
 
 
@@ -58,24 +70,22 @@ document.getElementById('form').addEventListener('submit', function(event) {
     var pass1 = document.getElementById('password').value;
     var pass2 = document.getElementById('password2').value;
 
-    readAdmin(user).then((user) => {
-        if (opass == '' && pass1 == '' && pass2 == '' && name != '' && cpf.length == 11 && bornDate != '') {
-            updateAdmin(user[1], 'name', name);
-            updateAdmin(user[1], 'cpf', cpf);
-            updateAdmin(user[1], 'bornDate', bornDate);
+    if (opass == '' && pass1 == '' && pass2 == '' && name != '' && cpf.length == 11 && bornDate != '') {
+        updateAdmin(key, 'name', name);
+        updateAdmin(key, 'cpf', cpf);
+        updateAdmin(key, 'bornDate', bornDate);
 
-            location.reload();
-        }
-        else if (opass == user[0].password && pass1.length > 7 && pass1 == pass2 && name != '' && cpf.length == 11 && bornDate != '') {
-            updateAdmin(user[1], 'name', name);
-            updateAdmin(user[1], 'cpf', cpf);
-            updateAdmin(user[1], 'bornDate', bornDate);
-            updateAdmin(user[1], 'password', pass1);
+        location.reload();
+    }
+    else if (opass == key.password && pass1.length > 7 && pass1 == pass2 && name != '' && cpf.length == 11 && bornDate != '') {
+        updateAdmin(key, 'name', name);
+        updateAdmin(key, 'cpf', cpf);
+        updateAdmin(key, 'bornDate', bornDate);
+        updateAdmin(key, 'password', pass1);
 
-            logout();
-        }
-        else {
-            document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
-        }
-    });
+        logout();
+    }
+    else {
+        document.getElementById('idErrorLabel').innerHTML = '<span>Preencha todos os campos corretamente!</span>';
+    }
 });
