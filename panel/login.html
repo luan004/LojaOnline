@@ -14,11 +14,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <style>
+        .is-nunito-extra-bold {
+            font-family: NunitoExtraBold;
+        }
         .is-nunito-bold {
             font-family: NunitoBold;
         }
         .is-nunito {
             font-family: Nunito;
+        }
+        .is-nunito-light {
+            font-family: NunitoLight;
         }
     </style>
 </head>
@@ -30,15 +36,13 @@
                     <div class="column is-5-tablet is-4-desktop is-4-widescreen">
                         <div class="box">
                             <form id="form">
-
                                 <div id="failed" class="notification is-danger is-light has-text-centered is-hidden">
                                     Usuário ou senha incorreto!
                                 </div>
-
                                 <div class="field is-nunito-bold">
                                     <label class="label">Usuário</label>
                                     <div class="control has-icons-left">
-                                        <input class="input is-nunito" type="text" placeholder="Usuário" id="user">
+                                        <input class="input is-nunito" type="text" placeholder="Usuário" id="user" required>
                                         <span class="icon is-left">
                                             <i class="fas fa-user"></i>
                                         </span>
@@ -47,7 +51,7 @@
                                 <div class="field">
                                     <label class="label is-nunito-bold">Senha</label>
                                     <div class="control has-icons-left">
-                                        <input class="input is-nunito" type="password" placeholder="Senha" id="password">
+                                        <input class="input is-nunito" type="password" placeholder="Senha" id="password" required>
                                         <span class="icon is-left">
                                             <i class="fas fa-lock"></i>
                                         </span>

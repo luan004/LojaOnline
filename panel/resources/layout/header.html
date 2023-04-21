@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="userBar">
         <div class="sideBarButton" onclick="openSideBar()">
             <svg class="svg-icon" viewBox="0 0 20 20">
@@ -17,6 +17,42 @@
             Sair
         </div>
     </div>
+</div> -->
+
+<div class="navbar has-background-black-ter p-2">
+
+    <!-- NAVBAR-BRAND -->
+    <div class="navbar-brand">
+        <div class="navbar-item is-nunito-extra-bold has-text-light">
+            Painel de Administração
+        </div>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <!-- NAVBAR-MENU -->
+    <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+
+            <a class="navbar-item has-text-light is-nunito-bold">
+                <label class="item" id="admin.name"></label>
+            </a>
+    
+            <div class="navbar-end">
+                <div class="navbar-dropdown is-right">
+                    <a href="" class="navbar-item">
+                        <label class="label">
+                            Item
+                        </label>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script type="module" src="./js/pages/header.js"></script>

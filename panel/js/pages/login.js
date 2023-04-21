@@ -4,8 +4,8 @@ import {
 
 import {
     decryptCookieValue,
-    getCookie,
-    encryptCookieValue
+    encryptCookieValue,
+    getCookie
 } from '../others/cookies.js';
 
 
