@@ -76,7 +76,7 @@ document.getElementById("user").addEventListener("blur", () => {
 /* BUTTON ACTIONS */
 function deleteButtonAction(key) {
     const confirm = document.getElementById('confirm');
-    confirm.setAttribute("style", 'display: block;');
+    confirm.classList.add('confirmOpened');
 
     const confirmBox = document.createElement('div');
     confirmBox.classList.add("confirmBox");
@@ -109,12 +109,15 @@ function deleteButtonAction(key) {
 
     conNo.addEventListener('click', function() {
         confirm.innerHTML = "";
-        confirm.setAttribute('style', 'display:none;');
+        confirm.classList.remove('confirmOpened');
     })
 }
 function buttonEditAdmin() {
     window.location.replace('myaccount'); 
 }
+document.getElementById('buttonShowForm').addEventListener('click', function() {
+    buttonShowForm();
+});
 var oa = false;
 function buttonShowForm() {
     if (oa == false) {
@@ -235,6 +238,10 @@ function loadList(filterBy = '', filterValue = '') {
                     button.setAttribute("onclick", 'buttonEditAdmin()');
                     button.classList.add("itemButton");
                     listItem.appendChild(button);
+                    
+                    button.addEventListener('click', function(){
+                        buttonEditAdmin();
+                    });
 
                     // Cria svg
                     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -249,9 +256,12 @@ function loadList(filterBy = '', filterValue = '') {
                 } else {
                     // Cria remove button
                     const button = document.createElement('div');
-                    button.setAttribute("onclick", 'deleteButtonAction(\"' + adminKey + '\")');
                     button.classList.add("itemButton");
                     listItem.appendChild(button);
+
+                    button.addEventListener('click', function(){
+                        deleteButtonAction(adminKey);
+                    });
 
                     // Cria svg
                     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");

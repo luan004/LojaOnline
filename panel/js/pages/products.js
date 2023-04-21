@@ -111,9 +111,12 @@ function loadList(filterBy = '', filterValue = '') {
 
                 // Cria edit button
                 const ebutton = document.createElement('div');
-                ebutton.setAttribute("onclick", 'editButtonAction(\"' + productKey + '\",\"' + product.name + '\",\"' + product.description + '\",\"' + product.price + '\",\"' + product.stock + '\",\"' + product.category + '\",\"' + product.image + '\")');
                 ebutton.classList.add("erbutton");
                 listItem.appendChild(ebutton);
+
+                ebutton.addEventListener('click', function() {
+                    editButtonAction(productKey, product.name, product.description, product.price, product.stock, product.category, product.image);
+                });
 
                 // Cria svg
                 const esvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -127,9 +130,12 @@ function loadList(filterBy = '', filterValue = '') {
 
                 // Cria remove button
                 const rbutton = document.createElement('div');
-                rbutton.setAttribute("onclick", 'deleteButtonAction(\"' + productKey + '\")');
                 rbutton.classList.add("erbutton");
                 listItem.appendChild(rbutton);
+
+                rbutton.addEventListener('click', function() {
+                    deleteButtonAction(productKey);
+                });
         
                 // Cria svg
                 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
