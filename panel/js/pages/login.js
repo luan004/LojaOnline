@@ -1,11 +1,19 @@
-import {validateAuth} from '../data/adminCRUD.js';
+import {
+    validateAuth
+} from '../data/adminCRUD.js';
+
+import {
+    getCookie,
+    decryptCookieValue,
+    encryptCookieValue
+  } from '../others/cookies.js';
 
 if (getCookie('user') != null) {
     var user = decryptCookieValue(getCookie('user'));
     var pass = decryptCookieValue(getCookie('pass'));
 
-    validateAuth(user, pass).then((value) => {
-        if (value != true) {
+    validateAuth(user, pass).then((key) => {
+        if (key != null) {
             window.location.replace('stats'); 
         }
     });

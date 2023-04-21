@@ -19,11 +19,8 @@
         });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-
     <script src="./js/data/firebase.js"></script>
-    <script>startData();validateSession();</script>
 
     <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
     <link rel="stylesheet" type="text/css" href="resources/styles/app.css"/>
@@ -35,7 +32,7 @@
 
     <div id="tabContentElement" class="tabContentElement">
         <div class="add">
-            <div class="cen" onclick="openAddProduct()">
+            <div class="cen" id="openAddProduct">
                 <label>Adicionar Produto</label>
             </div>
             <div id="addOpen" class="addOpen">

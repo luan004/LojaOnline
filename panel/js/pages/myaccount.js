@@ -1,14 +1,19 @@
 import {
     readAdmin,
     updateAdmin
-} from '../data/adminCRUD.js'
+} from '../data/adminCRUD.js';
 
 import {
     formatName,
     formatPassword,
     formatCpf,
     calcAge
-} from '../others/formats.js'
+} from '../others/formats.js';
+
+import {
+    decryptCookieValue,
+    getCookie,
+} from '../others/cookies.js';
 
 var user = decryptCookieValue(getCookie('user'));
 var key = decryptCookieValue(getCookie('key'));

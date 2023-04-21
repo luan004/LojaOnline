@@ -4,199 +4,13 @@ import {formatPrice, formatProductName} from '../others/formats.js';
 loadList();
 
 
-/* CUIDADO AO EXECUTAR, DIVEROS PRODUTOS SERÃO CRIADOS!!! */
-/* const produtos = ["iPhone 13", "Samsung Galaxy S21", "OnePlus 9 Pro", "Xiaomi Mi 11", "Google Pixel 6", "Motorola Moto G Stylus", "Nokia 5.4", "LG K92", "Dell XPS 13", "HP Spectre x360", "Lenovo ThinkPad X1 Carbon", "Sony WH-1000XM4", "Bose QuietComfort 35 II", "Apple AirPods Pro", "Samsung Galaxy Buds Pro", "ASUS ROG Swift PG279QZ", "Acer Predator XB273K", "PlayStation 5", "Xbox Series X", "Alienware Aurora R12"];
-const categorias = ["smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "smartphones", "notebooks", "notebooks", "notebooks", "headphones", "headphones", "headphones", "headphones", "monitores", "monitores", "videogames", "videogames", "gamer"];
-const descricoes = [
-    "O mais recente lançamento da Apple com câmera aprimorada.",
-    "Excelente tela com uma câmera profissional.",
-    "Excelente desempenho em jogos e tela de 120Hz.",
-    "Câmera potente e ótimo desempenho em geral.",
-    "Inteligência artificial em fotos e excelente experiência Android.",
-    "Ótima opção de smartphone para quem precisa de um caneta stylus.",
-    "Design clássico e boa relação custo-benefício.",
-    "Bom processamento para uso diário e preço acessível.",
-    "O melhor laptop da Dell com excelente design e desempenho.",
-    "Laptop premium com excelente tela touch e bateria.",
-    "Laptop empresarial ultra-portátil com alta durabilidade.",
-    "Headphone com cancelamento de ruído líder de mercado.",
-    "Headphone confortável com cancelamento de ruído decente.",
-    "Auriculares totalmente sem fio com cancelamento de ruído e som de alta qualidade.",
-    "Auriculares totalmente sem fio com cancelamento de ruído e boa duração da bateria.",
-    "Monitor com alta taxa de atualização e baixo tempo de resposta.",
-    "Monitor 4K com excelente qualidade de imagem e cores vibrantes.",
-    "Console de última geração com excelente desempenho e qualidade de imagem.",
-    "Console de última geração com excelente desempenho e ótimo controle.",
-    "Poderoso PC para jogos com iluminação RGB personalizável."
-];
-var c = 0;
-
-while(c < 20) {
-    createProduct(produtos[c], 999.99, descricoes[c], categorias[c], 'https://source.unsplash.com/random?'+produtos[c], 100)
-    c++;
-} */
-  
-
-/* FORMAT PRODUCT NAME */
+/* PRODUCT FORM */
 document.getElementById("name").addEventListener("blur", function(){
     this.value = formatProductName(this.value);
 });
-
-/* FORMAT PRICE */
 document.getElementById("price").addEventListener("input", function() {
     this.value = formatPrice(this.value);
 });
-
-
-/* BUTTON ACTIONS */
-function deleteButtonAction(key) {
-    const confirm = document.getElementById('confirm');
-    confirm.classList.add('confirmOpened');
-
-    const confirmBox = document.createElement('div');
-    confirmBox.classList.add("confirmBox");
-    confirm.appendChild(confirmBox);
-
-    const label = document.createElement('label');
-    label.innerHTML = 'Você tem certeza que quer apagar esse item?'
-    confirmBox.appendChild(label);
-
-    const conButs = document.createElement('div');
-    conButs.classList.add("conButs");
-    confirmBox.appendChild(conButs);
-
-    const conYes = document.createElement('div');
-    conYes.innerHTML = 'Sim';
-    conYes.classList.add("conBut");
-    conButs.appendChild(conYes);
-
-    const conNo = document.createElement('div');
-    conNo.innerHTML = 'Não';
-    conNo.classList.add("conBut");
-    conButs.appendChild(conNo);
-    
-    conYes.addEventListener('click', function() {
-        deleteProduct(key);
-        confirm.innerHTML = "";
-        confirm.setAttribute('style', 'display:none;');
-        loadList();
-    })
-
-    conNo.addEventListener('click', function() {
-        confirm.innerHTML = "";
-        confirm.classList.remove('confirmOpened');
-    })
-}
-
-function editButtonAction(key, name, description, price, stock, category, image) {
-    const confirm = document.getElementById('confirm');
-    confirm.classList.add('confirmOpened');
-
-    //confirm.setAttribute("style", 'display: block;background-color: rgba(0, 0, 0, 0.788);');
-
-    const confirmBox = document.createElement('div');
-    confirmBox.classList.add("editBox");
-    confirm.appendChild(confirmBox);
-
-    //elements ---
-    const inputNameLabel = document.createElement('label');
-    inputNameLabel.innerHTML = 'Nome:';
-    confirmBox.appendChild(inputNameLabel);
-    const inputName = document.createElement('input');
-    inputName.setAttribute("type", 'text');
-    inputName.value = name;
-    confirmBox.appendChild(inputName);
-
-    const inputPriceLabel = document.createElement('label');
-    inputPriceLabel.innerHTML = 'Preço:';
-    confirmBox.appendChild(inputPriceLabel);
-    const inputPrice = document.createElement('input');
-    inputPrice.setAttribute("type", 'text');
-    inputPrice.value = price;
-    confirmBox.appendChild(inputPrice);
-    inputPrice.addEventListener("input", function() {
-        this.value = formatPrice(this.value);
-    });
-
-    const inputDescLabel = document.createElement('label');
-    inputDescLabel.innerHTML = 'Descrição:';
-    confirmBox.appendChild(inputDescLabel);
-    const inputDesc = document.createElement('input');
-    inputDesc.setAttribute("type", 'text');
-    inputDesc.value = description;
-    confirmBox.appendChild(inputDesc);
-
-    const inputCatLabel = document.createElement('label');
-    inputCatLabel.innerHTML = 'Categoria:';
-    confirmBox.appendChild(inputCatLabel);
-    const inputCat = document.createElement('input');
-    inputCat.setAttribute("type", 'text');
-    inputCat.value = category;
-    confirmBox.appendChild(inputCat);
-
-    const inputDiscountLabel = document.createElement('label');
-    inputDiscountLabel.innerHTML = 'Desconto(%):';
-    confirmBox.appendChild(inputDiscountLabel);
-    const inputDiscount = document.createElement('input');
-    inputDiscount.setAttribute("type", 'text');
-    inputDiscount.value = stock + '%';
-    confirmBox.appendChild(inputDiscount);
-
-    const inputStockLabel = document.createElement('label');
-    inputStockLabel.innerHTML = 'Quantidade em Estoque:';
-    confirmBox.appendChild(inputStockLabel);
-    const inputStock = document.createElement('input');
-    inputStock.setAttribute("type", 'text');
-    inputStock.value = stock;
-    confirmBox.appendChild(inputStock);
-
-    //buttons ---
-    const conButs = document.createElement('div');
-    conButs.classList.add("conButs");
-    confirmBox.appendChild(conButs);
-
-    const conYes = document.createElement('div');
-    conYes.innerHTML = 'Aplicar Edição';
-    conYes.classList.add("conBut");
-    conButs.appendChild(conYes);
-
-    const conNo = document.createElement('div');
-    conNo.innerHTML = 'Cancelar';
-    conNo.classList.add("conBut");
-    conButs.appendChild(conNo);
-
-    conYes.addEventListener('click', function() {
-        updateProduct(key, 'name', inputName.value);
-        updateProduct(key, 'price', inputPrice.value);
-        updateProduct(key, 'description', inputDesc.value);
-        updateProduct(key, 'category', inputCat.value);
-        //updateProduct(key, 'discount', inputName.value);
-        updateProduct(key, 'stock', inputStock.value);
-
-        confirm.innerHTML = "";
-        confirm.setAttribute('style', 'display:none;');
-        loadList();
-    })
-
-    conNo.addEventListener('click', function() {
-        confirm.innerHTML = "";
-        confirm.classList.remove('confirmOpened');
-    })
-    
-}
-
-var oa = false;
-function openAddProduct() {
-    if (oa == false) {
-        document.getElementById("addOpen").classList.add('addOpened');
-        oa=true;
-    } else {
-        document.getElementById("addOpen").classList.remove("addOpened");
-        oa=false;
-    }
-}
-
-/* CREATE PRODUCT */
 document.getElementById('idForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var name = document.getElementById('name').value;
@@ -234,6 +48,7 @@ document.getElementById('filtersForm').addEventListener('submit', function(event
     }
 })
 
+/* LIST */
 function loadList(filterBy = '', filterValue = '') {
     firebase.database().ref('products').once('value')
     .then(snapshot => {
@@ -334,4 +149,154 @@ function loadList(filterBy = '', filterValue = '') {
     .catch(error => {
         console.error(error);
     });
+}
+
+
+/* BUTTON ACTIONS */
+function deleteButtonAction(key) {
+    const confirm = document.getElementById('confirm');
+    confirm.classList.add('confirmOpened');
+
+    const confirmBox = document.createElement('div');
+    confirmBox.classList.add("confirmBox");
+    confirm.appendChild(confirmBox);
+
+    const label = document.createElement('label');
+    label.innerHTML = 'Você tem certeza que quer apagar esse item?'
+    confirmBox.appendChild(label);
+
+    const conButs = document.createElement('div');
+    conButs.classList.add("conButs");
+    confirmBox.appendChild(conButs);
+
+    const conYes = document.createElement('div');
+    conYes.innerHTML = 'Sim';
+    conYes.classList.add("conBut");
+    conButs.appendChild(conYes);
+
+    const conNo = document.createElement('div');
+    conNo.innerHTML = 'Não';
+    conNo.classList.add("conBut");
+    conButs.appendChild(conNo);
+    
+    conYes.addEventListener('click', function() {
+        deleteProduct(key);
+        confirm.innerHTML = "";
+        confirm.setAttribute('style', 'display:none;');
+        loadList();
+    })
+
+    conNo.addEventListener('click', function() {
+        confirm.innerHTML = "";
+        confirm.classList.remove('confirmOpened');
+    })
+}
+function editButtonAction(key, name, description, price, stock, category, image) {
+    const confirm = document.getElementById('confirm');
+    confirm.classList.add('confirmOpened');
+
+    //confirm.setAttribute("style", 'display: block;background-color: rgba(0, 0, 0, 0.788);');
+
+    const confirmBox = document.createElement('div');
+    confirmBox.classList.add("editBox");
+    confirm.appendChild(confirmBox);
+
+    //elements ---
+    const inputNameLabel = document.createElement('label');
+    inputNameLabel.innerHTML = 'Nome:';
+    confirmBox.appendChild(inputNameLabel);
+    const inputName = document.createElement('input');
+    inputName.setAttribute("type", 'text');
+    inputName.value = name;
+    confirmBox.appendChild(inputName);
+
+    const inputPriceLabel = document.createElement('label');
+    inputPriceLabel.innerHTML = 'Preço:';
+    confirmBox.appendChild(inputPriceLabel);
+    const inputPrice = document.createElement('input');
+    inputPrice.setAttribute("type", 'text');
+    inputPrice.value = price;
+    confirmBox.appendChild(inputPrice);
+    inputPrice.addEventListener("input", function() {
+        this.value = formatPrice(this.value);
+    });
+
+    const inputDescLabel = document.createElement('label');
+    inputDescLabel.innerHTML = 'Descrição:';
+    confirmBox.appendChild(inputDescLabel);
+    const inputDesc = document.createElement('input');
+    inputDesc.setAttribute("type", 'text');
+    inputDesc.value = description;
+    confirmBox.appendChild(inputDesc);
+
+    const inputCatLabel = document.createElement('label');
+    inputCatLabel.innerHTML = 'Categoria:';
+    confirmBox.appendChild(inputCatLabel);
+    const inputCat = document.createElement('input');
+    inputCat.setAttribute("type", 'text');
+    inputCat.value = category;
+    confirmBox.appendChild(inputCat);
+
+    const inputDiscountLabel = document.createElement('label');
+    inputDiscountLabel.innerHTML = 'Desconto(%):';
+    confirmBox.appendChild(inputDiscountLabel);
+    const inputDiscount = document.createElement('input');
+    inputDiscount.setAttribute("type", 'text');
+    inputDiscount.value = stock + '%';
+    confirmBox.appendChild(inputDiscount);
+
+    const inputStockLabel = document.createElement('label');
+    inputStockLabel.innerHTML = 'Quantidade em Estoque:';
+    confirmBox.appendChild(inputStockLabel);
+    const inputStock = document.createElement('input');
+    inputStock.setAttribute("type", 'text');
+    inputStock.value = stock;
+    confirmBox.appendChild(inputStock);
+
+    //buttons ---
+    const conButs = document.createElement('div');
+    conButs.classList.add("conButs");
+    confirmBox.appendChild(conButs);
+
+    const conYes = document.createElement('div');
+    conYes.innerHTML = 'Aplicar Edição';
+    conYes.classList.add("conBut");
+    conButs.appendChild(conYes);
+
+    const conNo = document.createElement('div');
+    conNo.innerHTML = 'Cancelar';
+    conNo.classList.add("conBut");
+    conButs.appendChild(conNo);
+
+    conYes.addEventListener('click', function() {
+        updateProduct(key, 'name', inputName.value);
+        updateProduct(key, 'price', inputPrice.value);
+        updateProduct(key, 'description', inputDesc.value);
+        updateProduct(key, 'category', inputCat.value);
+        //updateProduct(key, 'discount', inputName.value);
+        updateProduct(key, 'stock', inputStock.value);
+
+        confirm.innerHTML = "";
+        confirm.setAttribute('style', 'display:none;');
+        loadList();
+    })
+
+    conNo.addEventListener('click', function() {
+        confirm.innerHTML = "";
+        confirm.classList.remove('confirmOpened');
+    })
+    
+}
+document.getElementById('openAddProduct').addEventListener('click', function(){
+    openAddProduct();
+});
+var oa = false;
+function openAddProduct() {
+    if (oa == false) {
+        document.getElementById("addOpen").classList.add('addOpened');
+        oa=true;
+    } else {
+        document.getElementById("addOpen").classList.remove("addOpened");
+        oa=false;
+    }
 }

@@ -1,5 +1,21 @@
-import {createAdmin, deleteAdmin, checkIfAnUserExists} from '../data/adminCRUD.js';
-import {formatName, formatUser, formatPassword, formatCpf} from '../others/formats.js';
+import {
+    createAdmin,
+    deleteAdmin,
+    checkIfAnUserExists
+} from '../data/adminCRUD.js';
+
+import {
+    formatName,
+    formatUser,
+    formatPassword,
+    formatCpf
+} from '../others/formats.js';
+
+import {
+    decryptCookieValue,
+    getCookie,
+} from '../others/cookies.js';
+
 
 loadList();
 
