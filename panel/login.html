@@ -6,29 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel | Login</title>
 
-    <!-- CLIENT SIDE SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-
     <script src="./js/data/firebase.js"></script>
-    <script>startData();</script>
 
-    <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="resources/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .is-nunito-bold {
+            font-family: NunitoBold;
+        }
+        .is-nunito {
+            font-family: Nunito;
+        }
+    </style>
 </head>
 <body>
+    <section class="hero is-fullheight has-background-black-ter">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+                        <div class="box">
+                            <form id="form">
 
-    <div class="loginContainer">
-        <form id="form">
-            <label>Usuário</label>
-            <input id="user" type="text" placeholder="luan" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
-            <label>Senha</label>
-            <input id="password" type="password" placeholder="123" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
-            <button class="loginButton" type="submit">Logar</button>
-            <label id="failedAuthMessage" class="failedAuthMessage"></label>
-        </form>
-    </div>
+                                <div id="failed" class="notification is-danger is-light has-text-centered is-hidden">
+                                    Usuário ou senha incorreto!
+                                </div>
 
+                                <div class="field is-nunito-bold">
+                                    <label class="label">Usuário</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input is-nunito" type="text" placeholder="Usuário" id="user">
+                                        <span class="icon is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label is-nunito-bold">Senha</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input is-nunito" type="password" placeholder="Senha" id="password">
+                                        <span class="icon is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="button is-link is-fullwidth is-nunito" type="submit">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 <!-- CLIENT SIDE SCRIPTS -->

@@ -1,4 +1,13 @@
-import {validateAuth} from '../data/adminCRUD.js';
+import {
+    validateAuth
+} from '../data/adminCRUD.js';
+
+import {
+    decryptCookieValue,
+    getCookie,
+    encryptCookieValue
+} from '../others/cookies.js';
+
 
 if (getCookie('user') != null) {
     var user = decryptCookieValue(getCookie('user'));
@@ -25,7 +34,7 @@ document.getElementById('form').addEventListener('submit', function(e) {
             document.cookie = "key="+encryptCookieValue(value)+"; expires=" + time + ';'
             window.location.replace('stats'); 
         } else {
-            document.getElementById("failedAuthMessage").innerHTML = 'Usuario ou senha incorreto!';
+            document.getElementById("failed").classList.remove('is-hidden');
         }
     });
 });

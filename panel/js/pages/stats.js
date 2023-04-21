@@ -1,4 +1,8 @@
-/*  */
+import {
+    getNumChildren,
+    getMediumAge,
+    getProductMost
+} from '../data/statsFunctions.js';
 
 /* PRODUCTS */
 getNumChildren('products').then((val) => {
