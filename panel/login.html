@@ -14,18 +14,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <style>
-        .is-nunito-extra-bold {
-            font-family: NunitoExtraBold;
-        }
-        .is-nunito-bold {
-            font-family: NunitoBold;
-        }
-        .is-nunito {
+        .is-nunito{
             font-family: Nunito;
-        }
-        .is-nunito-light {
-            font-family: NunitoLight;
-        }
+        }   
     </style>
 </head>
 <body>
@@ -36,10 +27,10 @@
                     <div class="column is-5-tablet is-4-desktop is-4-widescreen">
                         <div class="box">
                             <form id="form">
-                                <div id="failed" class="notification is-danger is-light has-text-centered is-hidden">
+                                <div id="failed" class="notification is-danger is-light has-text-centered is-nunito is-hidden">
                                     Usuário ou senha incorreto!
                                 </div>
-                                <div class="field is-nunito-bold">
+                                <div class="field is-nunito">
                                     <label class="label">Usuário</label>
                                     <div class="control has-icons-left">
                                         <input class="input is-nunito" type="text" placeholder="Usuário" id="user" required>
@@ -49,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label is-nunito-bold">Senha</label>
+                                    <label class="label is-nunito">Senha</label>
                                     <div class="control has-icons-left">
                                         <input class="input is-nunito" type="password" placeholder="Senha" id="password" required>
                                         <span class="icon is-left">
@@ -57,7 +48,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <button class="button is-link is-fullwidth is-nunito" type="submit">Login</button>
+                                <button class="button is-info is-fullwidth is-nunito" type="submit">Login</button>
                             </form>
                         </div>
                     </div>

@@ -24,7 +24,6 @@ document.getElementById('form').addEventListener('submit', function(e) {
     e.preventDefault();
     var user = document.getElementById('user').value;
     var password = document.getElementById('password').value;
-
     validateAuth(user,password).then((value) => {
         if (value != null) {
             var secondsExpire = 21600; // TEMPO EM SEGUNDOS QUE LEVARA PARA O COOKIE EXPIRAR

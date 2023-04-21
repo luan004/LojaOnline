@@ -19,11 +19,11 @@
     </div>
 </div> -->
 
-<div class="navbar has-background-black-ter p-2">
+<div class="navbar is-dark p-2">
 
     <!-- NAVBAR-BRAND -->
     <div class="navbar-brand">
-        <div class="navbar-item is-nunito-extra-bold has-text-light">
+        <div class="navbar-item is-nunito has-text-light has-text-weight-bold">
             Painel de Administração
         </div>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,20 +34,56 @@
     </div>
 
     <!-- NAVBAR-MENU -->
-    <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
+    <div class="navbar-menu">
 
-            <a class="navbar-item has-text-light is-nunito-bold">
-                <label class="item" id="admin.name"></label>
-            </a>
-    
-            <div class="navbar-end">
-                <div class="navbar-dropdown is-right">
-                    <a href="" class="navbar-item">
-                        <label class="label">
-                            Item
+        <div class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  More
+                </a>
+                <div class="navbar-dropdown">
+                  <div class="navbar-item">
+                    About
+                  </div>
+                  <a class="navbar-item">
+                    Jobs
+                  </a>
+                  <a class="navbar-item">
+                    Contact
+                  </a>
+                  <hr class="navbar-divider">
+                  <a class="navbar-item">
+                    Report an issue
+                  </a>
+                </div>
+              </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable is-nunito">
+                <div class="navbar-item has-text-light has-hover-light">
+                    <label class="item" id="admin.name"></label>
+                    <figure class="image is-24x24 ml-3">
+                        <img class="is-rounded" src="" id="admin.avatar">
+                    </figure>
+                </div>   
+                <div class="navbar-dropdown is-right has-background-dark">
+                    <div class="navbar-item is-clickable" id="myaccounth">
+                        <label class="label has-text-light has-text-weight-light">
+                            <span class="icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            Minha Conta
                         </label>
-                    </a>
+                    </div>
+                    <div class="navbar-item is-clickable is-hoverable" id="exit" >
+                        <label class="label is-clickable has-text-light has-text-weight-light">
+                            <span class="icon">
+                                <i class="fas fa-sign-out"></i>
+                            </span>
+                            Sair
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
