@@ -1,9 +1,7 @@
 var url = new URL(window.location.href);
 var searchTerm = url.searchParams.get("search");
 
-/* var url = new URL(window.location.href);
-var searchTerm = url.searchParams.get("search");
-console.log(searchTerm);
+document.getElementById('searchTerm').innerHTML = searchTerm;
 
 removeStopWords(searchTerm);
 
@@ -37,4 +35,4 @@ function removeStopWords(string) {
 
     // Chamar funcao increaseSearchStat para cada
     wordsWithoutStopWords.forEach(word => increaseSearchStat(word));
-} */
+}
