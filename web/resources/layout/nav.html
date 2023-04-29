@@ -1,0 +1,64 @@
+<style>
+  body {
+    padding-top: 70px;
+  }
+  .nav {
+    background-color: rgba(255, 255, 255, 0.623);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+</style>
+
+<nav class="nav navbar navbar-expand-lg shadow-sm fixed-top mb-3">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="./resources/images/circle.svg" alt="ByteBay">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Início</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Gamer</a></li>
+              <li><a class="dropdown-item" href="#">Headphones</a></li>
+              <li><a class="dropdown-item" href="#">Monitores</a></li>
+              <li><a class="dropdown-item" href="#">Notebooks</a></li>
+              <li><a class="dropdown-item" href="#">Smartphones</a></li>
+              <li><a class="dropdown-item" href="#">Video Games</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre</a>
+          </li>
+        </ul>
+        <div class="d-flex" role="search">
+            <form class="input-group" name="searchForm" method="GET" action="search.html" onsubmit="return numberCheck()">
+                <input type="text" class="form-control" type="search" name="search" id="searchBar" placeholder="Pesquisar..." aria-label="Pesquisar" aria-describedby="button-addon2">
+                <button class="btn btn-primary" type="submit" value="" autocomplete="off" onclick="" readonly onfocus="this.removeAttribute('readonly');">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+            <button class="btn btn-primary ms-1">
+              <i class="fa-solid fa-user"></i>
+            </button>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<script>
+  function numberCheck() {
+    let s = document.forms["searchForm"]["search"].value;
+    if (s == "") {
+        return false;
+    }
+  }
+</script>

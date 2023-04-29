@@ -1,170 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteBay</title>
+    <title>WEB</title>
 
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script> 
-        $(function(){
-            $("#header").load("resources/layout/header.html");
-            $("#footer").load("resources/layout/footer.html");
-        });
+      $(function(){
+          $("#nav").load("resources/layout/nav.html");
+          $("#footer").load("resources/layout/footer.html");
+      });
     </script>
     
     <!-- ESSENTIAL SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/data/firebase.js"></script>
-    <script src="./js/data/slideshowFunctions.js"></script>
-    <script>startData();</script>
+    <script src="./js/data/customFunctions.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="resources/styles/body.css" />
-    <link rel="stylesheet" type="text/css" href="resources/styles/web.css" />
-    <link rel="stylesheet" type="text/css" href="resources/styles/content.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
 <body>
+  <!-- NAV -->  
+  <section id="nav"></section>
 
-    <div id="header"></div>
+  <!-- SLIDESHOW -->
+  <section id="slideshow"></section>
 
-    <div id="slideshow"></div>
-
-    <div class="content categories">
-        <label class="h1Title">Categorias</label>
-
-        <div class="categorie1" href="#">
-            <div class="imgboxCategorie1">
-                <img class="imgCategorie1" title="imag" src="resources/images/iphone.png">
-                <div class="titleCategorie1">Smartphones</div>
+  <!-- CATEGORIAS -->
+  <section>
+    <div class="card container mb-3">
+      <h2 class="mb-3 pt-3">Categorias</h2>
+      <div class="row">
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#adb942;">
+            <img src="./resources/images/categories/smartphone.png" style="background-color:#d1df51;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">Smartphones</h5>
             </div>
+          </a>
         </div>
-
-        <div class="categorie1">
-            <div class="imgboxCategorie1">
-                <img class="imgCategorie1" title="img" src="resources/images/macbook2.png">
-                <div class="titleCategorie1">Notebooks</div>
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#3484b9;">
+            <img src="./resources/images/categories/notebook.png" style="background-color:#519fdf;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">Notebooks</h5>
             </div>
+          </a>
         </div>
-
-        <div class="categorie2">
-            <div class="imgboxCategorie2">
-                <img class="imgCategorie2" title="img" src="resources/images/headphones.png">
-                <div class="titleCategorie2">Headphones</div>
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#3fac5a;">
+            <img src="./resources/images/categories/headphones.webp" style="background-color:#51df74;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">Headphones</h5>
             </div>
+          </a>
         </div>
-
-        <div class="categorie2">
-            <div class="imgboxCategorie2">
-                <img class="imgCategorie2" title="img" src="resources/images/monitores.png">
-                <div class="titleCategorie2">Monitores</div>
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#b96e42;">
+            <img src="./resources/images/categories/videogames.png" style="background-color:#df8551;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">Video Games</h5>
             </div>
+          </a>
         </div>
-
-        <div class="categorie2">
-            <div class="imgboxCategorie2">
-                <img class="imgCategorie2" title="img" src="resources/images/videogames.png">
-                <div class="titleCategorie2">Video Games</div>
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#b44141;">
+            <img src="./resources/images/categories/gamer.png" style="background-color:#df5151;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">PC Gamer</h5>
             </div>
+          </a>
         </div>
-
-        <div class="categorie2">
-            <div class="imgboxCategorie2">
-                <img class="imgCategorie2" title="img" src="resources/images/pcgamer.png">
-                <div class="titleCategorie2">PC Gamer</div>
+  
+        <div class="col col-lg-2 col-sm-4 col-6 mb-4">
+          <a href="" class="card" style="background-color:#ab58b3;">
+            <img src="./resources/images/categories/tv.png" style="background-color:#d56edf;" class="card-img-top" alt="...">
+            <div class="card-footer">
+              <h5 class="card-title text-center mb-0">Smartphones</h5>
             </div>
+          </a>
         </div>
+      </div>
     </div>
+  </section>
 
-    <div class="grid content">
+  <!-- HIGHLIGHTS -->
+  <section id="highlights"></section>
 
-        <a href="#" class="product">
-            <div class="productImage">
-                <img class="productImg" title="productImg" src="
-                https://pcgo.pt/57676-thickbox_default/computador-apple-imac-a1419-intel-core-i5-4570-8gb-256gb-ssd-27-2k-com-macos-catalina-recondicionado.jpg
-                ">
-            </div>
-            <div class="likeButton"></div>
-            <div class="productInfo">
-                <label class="productName">
-                    Apple iMac (de 24 polegadas, Processador M1 da Apple com CPU 8‑core e GPU 8‑core, 8 GB RAM, 512 GB) - Azul
-                </label>
-                <label class="productPrice">
-                    <label class="minorPrice">R$</label>
-                    <label class="plusPrice">999.999</label>
-                    <label class="minorPrice">00</label>
-                </label>
-            </div>
-        </a>
+  <!-- FOOTER -->
+  <section id="footer"></section>
 
-        <a href="#" class="product">
-            <div class="productImage">
-                <img class="productImg" title="productImg" src="
-                https://pcgo.pt/57676-thickbox_default/computador-apple-imac-a1419-intel-core-i5-4570-8gb-256gb-ssd-27-2k-com-macos-catalina-recondicionado.jpg
-                ">
-            </div>
-            <div class="likeButton"></div>
-            <div class="productInfo">
-                <label class="productName">
-                    Apple iMac (de 24 polegadas, Processador M1 da Apple com CPU 8‑core e GPU 8‑core, 8 GB RAM, 512 GB) - Azul
-                </label>
-                <label class="productPrice">
-                    <label class="minorPrice">R$</label>
-                    <label class="plusPrice">999.999</label>
-                    <label class="minorPrice">00</label>
-                </label>
-            </div>
-        </a>
-
-        <a href="#" class="product">
-            <div class="productImage">
-                <img class="productImg" title="productImg" src="
-                https://pcgo.pt/57676-thickbox_default/computador-apple-imac-a1419-intel-core-i5-4570-8gb-256gb-ssd-27-2k-com-macos-catalina-recondicionado.jpg
-                ">
-            </div>
-            <div class="likeButton"></div>
-            <div class="productInfo">
-                <label class="productName">
-                    Apple iMac (de 24 polegadas, Processador M1 da Apple com CPU 8‑core e GPU 8‑core, 8 GB RAM, 512 GB) - Azul
-                </label>
-                <label class="productPrice">
-                    <label class="minorPrice">R$</label>
-                    <label class="plusPrice">999.999</label>
-                    <label class="minorPrice">00</label>
-                </label>
-            </div>
-        </a>
-
-        <a href="#" class="product">
-            <div class="productImage">
-                <img class="productImg" title="productImg" src="
-                https://pcgo.pt/57676-thickbox_default/computador-apple-imac-a1419-intel-core-i5-4570-8gb-256gb-ssd-27-2k-com-macos-catalina-recondicionado.jpg
-                ">
-            </div>
-            <div class="likeButton"></div>
-            <div class="productInfo">
-                <label class="productName">
-                    Apple iMac (de 24 polegadas, Processador M1 da Apple com CPU 8‑core e GPU 8‑core, 8 GB RAM, 512 GB) - Azul
-                </label>
-                <label class="productPrice">
-                    <label class="minorPrice">R$</label>
-                    <label class="plusPrice">999.999</label>
-                    <label class="minorPrice">00</label>
-                </label>
-            </div>
-        </a>
-    </div>
-
-    <div id="footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
-<!-- PAGE SCRIPT -->
-<script src="./js/pages/web.js"></script>
-
+  <!-- PAGE SCRIPT -->
+  <script type="module" src="./js/pages/web.js"></script>
 </html>
