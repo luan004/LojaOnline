@@ -41,7 +41,7 @@
         </ul>
         <div class="d-flex" role="search">
             <form class="input-group" name="searchForm" method="GET" action="search.html" onsubmit="return numberCheck()">
-                <input type="text" class="form-control" type="search" name="search" id="searchBar" placeholder="Pesquisar..." aria-label="Pesquisar" aria-describedby="button-addon2">
+                <input type="text" class="form-control" type="search" name="s" id="searchBar" placeholder="Pesquisar..." aria-label="Pesquisar" aria-describedby="button-addon2">
                 <button class="btn btn-primary" type="submit" value="" autocomplete="off" onclick="" readonly onfocus="this.removeAttribute('readonly');">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
@@ -56,7 +56,7 @@
 
 <script>
   function numberCheck() {
-    let s = document.forms["searchForm"]["search"].value;
+    let s = document.forms["searchForm"]["s"].value;
     if (s == "") {
         return false;
     }

@@ -55,7 +55,7 @@ $(document).ready(function() {
 })
 
 var url = new URL(window.location.href);
-var searchTerm = url.searchParams.get("search");
+var searchTerm = url.searchParams.get("s");
 
 document.getElementById('searchTerm').innerHTML = searchTerm;
 var category = document.getElementById('categorySelect').value;
@@ -108,12 +108,12 @@ function createListItem(key, product) {
     <div class="card mb-3">
         <div class="row p-0 m-0">
             <div class="col-sm-3 col-4 p-0 m-0">
-                <div class="rounded overflow-hidden">
-                    <img  src="` + product.image + `" class="w-100 border-end">
-                </div>
+                <a href="./product?p=` + key + `" class="rounded overflow-hidden">
+                    <img src="` + product.image + `" class="w-100 border-end">
+                </a>
             </div>
             <div class="col-sm-9 col-8 pt-2">
-                <a href="./product?key=` + key + `"class="d-block h4 text-truncate">` + product.name + `</a>
+                <a href="./product?p=` + key + `"class="d-block h4 text-truncate">` + product.name + `</a>
                 <p class="line-clamp justify">` + product.description + `</p>
 
                 <div class="position-absolute bottom-0 mb-2 fill-available me-2 pt-2 bg-white">
