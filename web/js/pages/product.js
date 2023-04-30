@@ -1,4 +1,4 @@
-import {readProduct} from '../data/productCRUD.js';
+import {readProduct, updateProduct} from '../data/productCRUD.js';
 import {getData} from '../data/customFunctions.js';
 
 var url = new URL(window.location.href);
@@ -12,13 +12,21 @@ readProduct(key).then((product) => {
     if (product == null) {
         window.location.replace("./");
     }
+
+    var view = product.viewCount + 1;
+    updateProduct(key, 'viewCount', view);
+
     document.getElementById('prodImage').src = product.image;
     document.getElementById('prodName').innerHTML = product.name;
     document.getElementById('prodDescrip').innerHTML = product.description;
     document.getElementById('price').innerHTML = product.price.replace('.', ',');
 
     document.getElementById('likes').innerHTML = product.likes;
-    document.getElementById('views').innerHTML = product.viewCount;
+    document.getElementById('stock').innerHTML = product.stock;
+    document.getElementById('views').innerHTML = view;
+
+    var view = product.viewCount;
+
 });
 
 
