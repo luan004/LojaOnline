@@ -67,22 +67,32 @@
                     <ul class="list-group list-group-flush">
                         <div class="card-header"><strong>Preço</strong></div>
                         <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-6">
-                                    Min
-                                    <input type="number" value="0" id="typeNumber" class="form-control">
+                            Min
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">R$</span>
                                 </div>
+                                <input value="0" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <div class="input-group-append">
+                                  <span class="input-group-text">,00</span>
+                                </div>
+                            </div>
 
-                                <div class="col-6">
-                                    Max
-                                    <input type="number" id="typeNumber" class="form-control">
+                            Max
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <div class="input-group-append">
+                                  <span class="input-group-text">,00</span>
                                 </div>
                             </div>
                         </li>
 
                         <div class="card-header"><strong>Categorias</strong></div>
                         <li class="list-group-item">
-                            <select class="form-select">
+                            <select class="form-select" id="categorySelect">
                                 <option value="">Todos</option>
                                 <option value="smartphones">Smartphones</option>
                                 <option value="notebooks">Notebooks</option>
@@ -94,11 +104,15 @@
                         </li>
                       </ul>
 
+                      <li class="list-group-item p-3">
+                        <button id="applyFilters" class="btn btn-primary w-100">Aplicar Filtros</button>
+                      </li>
+
                 </div>
             </div>
             <!-- LIST -->
             <div class="col-lg-9 mb-3">
-                <div class="card p-3">
+                <div class="card p-3" id="list">
                     <div class="d-flex p-2 m-3 border-bottom"><strong>X itens encontrados</strong></div>
 
                     <!-- PRODUCT -->

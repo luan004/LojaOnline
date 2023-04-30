@@ -2,9 +2,76 @@ var url = new URL(window.location.href);
 var searchTerm = url.searchParams.get("search");
 
 document.getElementById('searchTerm').innerHTML = searchTerm;
+var category = document.getElementById('categorySelect').value;
+
+document.getElementById('applyFilters').addEventListener('click', function() {
+    category = document.getElementById('categorySelect').value;
+    loadList('name', searchTerm, category);
+})
+
+loadList('name', searchTerm)
+/* LIST */
+function loadList(filterBy = '', filterValue = '', category = '') {
+    firebase.database().ref('products').once('value')
+        .then(snapshot => {
+            const products = snapshot.val();
+            const productList = document.getElementById('list');
+            let numProducts = 0;
+            list.innerHTML = '<div class="d-flex p-2 m-3 border-bottom"><strong id="numProducts"></strong></div>';
+
+            for (const productKey in products) {
+                const product = products[productKey];
+                let isFiltered = false;
+
+                if (filterBy && filterValue) {
+                    const regex = new RegExp(filterValue.toLowerCase().split(' ').join('.*'), 'g');
+                    const productText = `${product.name} ${product.description} ${product.category}`.toLowerCase();
+                    if (regex.test(productText)) {
+                        isFiltered = true;
+                    }
+                }
+
+                if (category && product.category.toLowerCase() !== category.toLowerCase()) {
+                    isFiltered = false;
+                }
+
+                if (!filterBy || isFiltered) {
+                    createListItem(productKey, product);
+                    numProducts++;
+                }
+            }
+
+            document.getElementById('numProducts').innerHTML = numProducts + ' produtos encontrados';
+        });
+}
+
+  
+
+function createListItem(key, product) {
+    const card = `
+    <div class="card mb-3">
+        <div class="row p-0 m-0">
+            <div class="col-sm-3 col-4 p-0 m-0">
+                <div class="rounded overflow-hidden">
+                    <img  src="` + product.image + `" class="w-100 border-end">
+                </div>
+            </div>
+            <div class="col-sm-9 col-8 pt-2">
+                <a href="./product?key=` + key + `" class="h4 text-truncate">` + product.name + `</a>
+                <p class="line-clamp justify">` + product.description + `</p>
+
+                <div class="position-absolute bottom-0 mb-2 fill-available me-2 pt-2 bg-white">
+                    <h4 class="me-auto mb-2 text-truncate">R$` + product.price.replace('.', ',') + `</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
+  document.getElementById('list').innerHTML += card;
+}
+
 
 removeStopWords(searchTerm);
-
 function increaseSearchStat(searchTerm) {
     firebase.database().ref('search_stats/' + searchTerm).transaction(function(snapshot) {
         // Verifique se o nó já existe no Firebase

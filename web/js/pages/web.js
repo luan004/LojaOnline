@@ -26,7 +26,7 @@ $(document).ready(function() {
           readProduct(val).then((product) => {
             document.getElementById('product1img').src = product.image;
             document.getElementById('product1name').innerHTML = product.name;
-            document.getElementById('product1name').href = './product/' + val;
+            document.getElementById('product1name').href = './product?key=' + val;
             document.getElementById('product1price').innerHTML = 'R$' + product.price.replace('.', ',');
           })
         })
@@ -36,7 +36,7 @@ $(document).ready(function() {
           readProduct(val).then((product) => {
             document.getElementById('product2img').src = product.image;
             document.getElementById('product2name').innerHTML = product.name;
-            document.getElementById('product2name').href = './product/' + val;
+            document.getElementById('product2name').href = './product?key=' + val;
             document.getElementById('product2price').innerHTML = 'R$' + product.price.replace('.', ',');
           })
         })
@@ -46,7 +46,7 @@ $(document).ready(function() {
           readProduct(val).then((product) => {
             document.getElementById('product3img').src = product.image;
             document.getElementById('product3name').innerHTML = product.name;
-            document.getElementById('product3name').href = './product/' + val;
+            document.getElementById('product3name').href = './product?key=' + val;
             document.getElementById('product3price').innerHTML = 'R$' + product.price.replace('.', ',');
           })
         })
@@ -56,7 +56,7 @@ $(document).ready(function() {
           readProduct(val).then((product) => {
             document.getElementById('product4img').src = product.image;
             document.getElementById('product4name').innerHTML = product.name;
-            document.getElementById('product4name').href = './product/' + val;
+            document.getElementById('product4name').href = './product?key=' + val;
             document.getElementById('product4price').innerHTML = 'R$' + product.price.replace('.', ',');
           })
         })  
