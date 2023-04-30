@@ -15,6 +15,10 @@ readProduct(key).then((product) => {
     document.getElementById('prodImage').src = product.image;
     document.getElementById('prodName').innerHTML = product.name;
     document.getElementById('prodDescrip').innerHTML = product.description;
+    document.getElementById('price').innerHTML = product.price.replace('.', ',');
+
+    document.getElementById('likes').innerHTML = product.likes;
+    document.getElementById('views').innerHTML = product.viewCount;
 });
 
 

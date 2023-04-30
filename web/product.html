@@ -40,7 +40,7 @@
                     <h4 id="prodName" class="text-truncate"></h4>
                     <p id="prodDescrip" class="text"></p>
 
-                    <h2>R$999,99 <span class="h6" style="color: blue;">10% de desconto!</span></h2>
+                    <h2>R$<span id="price"></span><span class="h6" style="color: blue;"> 10% de desconto!</span></h2>
                     <h4 style="color:rgb(136, 0, 0)"><del>R$1100,00</del></h4>
                     <h5 style="color:gray;" class="mb-4">Em até 10x sem juros</h5>
 
@@ -58,10 +58,22 @@
                         Adicionar ao Carrinho
                     </button>
 
-                    <button class="btn btn-primary w-100">
+                    <button class="btn btn-primary w-100 mb-4">
                         <i class="fa-solid fa-credit-card"></i>
                         Comprar Agora
                     </button>
+
+                    <div class="d-flex">
+                        <button class="btn btn-sm btn-outline-danger me-2">
+                            <i class="fa-solid fa-heart"></i>
+                            <span id="likes"></span> Curtidas
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fa-solid fa-eye"></i>
+                            <span id="views"></span> Visualizações
+                        </button>
+                    </div>
 
                 </div>
             </div>
