@@ -57,7 +57,7 @@ function createListItem(key, product) {
                 </div>
             </div>
             <div class="col-sm-9 col-8 pt-2">
-                <a href="./product?key=` + key + `" class="h4 text-truncate">` + product.name + `</a>
+                <a href="./product?key=` + key + `"class="d-block h4 text-truncate">` + product.name + `</a>
                 <p class="line-clamp justify">` + product.description + `</p>
 
                 <div class="position-absolute bottom-0 mb-2 fill-available me-2 pt-2 bg-white">
