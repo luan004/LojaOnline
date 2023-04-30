@@ -1,4 +1,5 @@
 import {readProduct} from '../data/productCRUD.js';
+import {getData} from '../data/customFunctions.js';
 
 $(document).ready(function() {
   getData('slideshow/enable').then((val) => {

@@ -1,0 +1,110 @@
+.banner {
+    height: 80px;
+}.logo {
+    background-image: url(../images/circle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+    float: left;
+    transition:0.3s;
+    width: 80px;
+    background-size: 35%;
+    margin-left: 0%;
+}.navigationMenu {
+    height: 80px;
+    float:left;
+    left: 50%;
+    position:sticky;
+    transform: translate(-50%);
+}.navigationMenuItem {
+    box-sizing: border-box;
+    margin: 30px 0px;
+    font-family: "NunitoBold";
+    font-size: 15px;
+    text-decoration: none;
+    color: #262525;
+    transition: 0.3s;
+    padding: 0px 10px;
+    display: inline-block;
+    border-radius: 20px;
+    transition:0.3s;
+}.navigationMenuItem:hover {
+    font-family: "NunitoExtraBold";
+    padding: 10px;
+    margin: 19px 0px;
+    background-color: #dddbd6;
+    font-size: 17px;
+}.form {
+    height: 80px;
+    float: right;
+    transition: 0.3s;
+}.searchBar {
+    box-sizing: border-box;
+    margin: 20px 0px;
+    height: 40px;
+    float: right;
+    padding-left: 20px;
+    border-radius: 20px 0 0 20px;
+    border-style: none;
+    background-color: #ebe9e3;
+    color:#262525;
+    font-family: NunitoBold;
+    transition: 0.3s;
+}
+::placeholder {
+    color: #262525a6;
+    opacity: 1;
+}
+:-ms-input-placeholder {
+   color: #262525a6;
+}
+::-ms-input-placeholder {
+   color: #262525a6;
+}.searchButton {
+    height: 40px;
+    width: 40px;
+    margin: 20px 0px;
+    float: right;
+    border-radius: 0 50% 50% 0;
+    border-style: none;
+    background-color: #ebe9e3;
+    cursor: pointer;
+    background-image: url(../images/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45%;
+    transition:0.3s;
+}.searchBar:hover, .searchButton:hover, .searchBar:focus{
+    background-color: #dddbd6;
+    outline: none !important;
+}.user {
+    height: 40px;
+    width: 40px;
+    margin: 20px 5px;
+    float: right;
+    border-radius: 50%;
+    background-image: url(../images/user.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    transition:0.3s;
+}.user:hover {
+    background-color: #dddbd6;
+}@media screen and (max-width:799px) {
+    .banner {
+        height: 130px;
+    }.form {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+        height: 50px;
+    }.searchBar {
+        width: 100%;
+        margin: 5px 0;
+    }.spanB {
+        display: block;
+        overflow: hidden;
+    }.searchButton {
+        margin: 5px 0;
+    }
+}
