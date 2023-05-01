@@ -1,5 +1,6 @@
 import {readProduct, updateProduct} from '../data/productCRUD.js';
 import {getData} from '../data/customFunctions.js';
+import {formatCep} from '../others/formats.js';
 
 var url = new URL(window.location.href);
 var key = url.searchParams.get("p");
@@ -19,16 +20,36 @@ readProduct(key).then((product) => {
     document.getElementById('prodImage').src = product.image;
     document.getElementById('prodName').innerHTML = product.name;
     document.getElementById('prodDescrip').innerHTML = product.description;
-    document.getElementById('price').innerHTML = product.price.replace('.', ',');
 
     document.getElementById('likes').innerHTML = product.likes;
     document.getElementById('stock').innerHTML = product.stock;
     document.getElementById('views').innerHTML = view;
 
-    var view = product.viewCount;
+    if (product.discount == 0) {
+      document.getElementById('price').innerHTML = 'R$' + product.price.replace('.', ',');
+    } else {
+      const newPrice =  parseFloat(product.price) - (product.discount/100 * parseFloat(product.price));
 
+      document.getElementById('price').innerHTML = 'R$' + newPrice.toFixed(2).toString().replace('.', ',') + '<span class="h6" style="color:blue;"> '+product.discount+'% de desconto!</span>';
+      document.getElementById('oldPrice').innerHTML = 'R$' + product.price.replace('.', ',');
+    }
 });
 
+document.getElementById("cep").addEventListener("input", function() {
+  this.value = formatCep(this.value);
+});
+
+/* CALCULAR VALOR DO CEP */
+document.getElementById('cepForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const cep = document.getElementById("cep");
+
+  if (cep.value.length != 9) {
+    cep.classList.add('is-invalid');
+  } else {
+    cep.classList.remove('is-invalid');
+  }
+});
 
 /* HIGHLIGHTS */
 $(document).ready(function() {

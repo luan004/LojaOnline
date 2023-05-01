@@ -40,18 +40,22 @@
                     <h4 id="prodName" class="text-truncate"></h4>
                     <p id="prodDescrip" class="text"></p>
 
-                    <h2>R$<span id="price"></span><span class="h6" style="color: blue;"> 10% de desconto!</span></h2>
-                    <h4 style="color:rgb(136, 0, 0)"><del>R$1100,00</del></h4>
-                    <h5 style="color:gray;" class="mb-4">Em até 10x sem juros</h5>
+                    <h2 id="price"></h2>
 
-                    <div class="card p-2 mb-4">
+                    <h5 style="color:rgb(136, 0, 0)">
+                        <del id="oldPrice"></del>
+                    </h5>
+
+                    <!-- <h5 style="color:gray;" class="mb-4">Em até 10x sem juros</h5> -->
+
+                    <!-- <form id="cepForm" class="card p-2 mb-4">
                         <h6>Calcular Frete</h6>
-                        <input class="form-control mb-2" placeholder="00000-000" type="text">
-                        <button class="btn btn-secondary w-100">
+                        <input id="cep" name="cep" class="form-control mb-2" maxlength="9" placeholder="00000-000" type="text">
+                        <button type="submit" class="btn btn-secondary w-100">
                             <i class="fa-solid fa-van-shuttle"></i>
                             Calcular Frete
                         </button>
-                    </div>
+                    </form> -->
 
                     <button class="btn btn-primary w-100 mb-2">
                         <i class="fa-solid fa-shopping-cart"></i>
