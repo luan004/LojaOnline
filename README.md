@@ -12,6 +12,8 @@ Este trabalho consiste no desenvolvimento de uma loja online e um painel de admi
 - Firebase
 - HTML
 - CSS
+- BOOTSTRAP
+- APACHE/XAMPP
 
 ## Autor
 
@@ -37,6 +39,8 @@ This work consists of developing an online store and a store management panel, b
 - CSS
 - JavaScript
 - Firebase
+- BOOTSTRAP
+- APACHE/XAMPP
 
 ## Author
 
