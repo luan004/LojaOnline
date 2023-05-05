@@ -4,7 +4,7 @@ Este repositório contém o código fonte do Trabalho de Conclusão de Curso "De
 
 ## Descrição do Projeto
 
-O projeto consiste no desenvolvimento de um sistema de vendas online completo, que inclui uma loja virtual para os clientes e um painel de administração para os funcionários da loja. A loja virtual será de acesso público e contará com uma página inicial para exibir promoções e produtos mais relevantes, além de permitir que os clientes, busquem produtos, criem, editem e apaguem suas contas de usuário, façam um carrinho de compras, adicione produtos em uma lista de favoritos e realizem compras. Já o painel de administração deverá ser acessado apenas por funcionários da empresa que irá gerir a loja, ele será hospedado em uma rede privada da empresa, por meio do painel de administração os funcionários poderão visualizar, criar, editar e apagar produtos, visualize estatísticas diárias, mensais e anuais sobre a loja, além de manipular as promoções e produtos que serão exibidos na página inicial. O projeto tem como objetivo criar uma solução completa e eficiente para vendas online, oferecendo uma experiência de compra agradável para os clientes e uma ferramenta de gerenciamento de vendas eficiente para a equipe da loja.
+Este trabalho consiste no desenvolvimento de uma loja online e um painel de administração da loja, ambos o sistemas utilizarão um único banco de dados Firebase, a loja online permitirá que clientes de qualquer lugar do país a acessem virtualmente, busquem produtos, vejam informações básicas sobre eles, sejam informados sobre promoções e criem contas de clientes, os clientes poderão realizar compras dos produtos, já o painel de administração terá como foco tornar a administração do banco de dados da loja mais fácil, os administradores poderão cadastrar, editar e remover produtos, mudar elementos visuais da loja, ver estatísticas sobre a loja, criar e remover novas contas de administradores além de poderem editar informações sobre suas próprias contas, em geral, o projeto tem como finalidade criar uma solução completa e eficiente para vendas online, oferecendo uma experiência de compra agradável para os clientes e uma ferramenta de administração prática e eficiente para os administradores.
 
 ## Tecnologias Utilizadas
 
@@ -12,6 +12,8 @@ O projeto consiste no desenvolvimento de um sistema de vendas online completo, q
 - Firebase
 - HTML
 - CSS
+- BOOTSTRAP
+- APACHE/XAMPP
 
 ## Autor
 
@@ -29,7 +31,7 @@ This repository contains the source code for the Final Project "Development of a
 
 ## Project Description
 
-The project consists of the development of a complete online sales system, which includes a virtual store for customers and an administration panel for store employees. The virtual store will be publicly accessible and will have a home page to display promotions and the most relevant products, as well as allowing customers to search for products, create, edit and delete their user accounts, add products to a wishlist, and make purchases. The administration panel should only be accessed by employees of the company that will manage the store, it will be hosted on a private network of the company, through the administration panel, employees will be able to view, create, edit and delete products, view daily, monthly, and yearly statistics about the store, as well as manipulate promotions and products that will be displayed on the home page. The project aims to create a complete and efficient solution for online sales, offering a pleasant shopping experience for customers and an efficient sales management tool for the store team.
+This work consists of developing an online store and a store management panel, both systems will use a single Firebase database. The online store will allow customers from anywhere in the country to access it virtually, search for products, view basic information about them, be informed about promotions and create customer accounts. Customers will be able to purchase products. On the other hand, the administration panel will focus on making the management of the store's database easier. Administrators will be able to add, edit and remove products, change visual elements of the store, view statistics about the store, create and remove new administrator accounts, as well as edit information about their own accounts. In general, the project aims to create a complete and efficient solution for online sales, offering a pleasant shopping experience for customers and a practical and efficient administration tool for administrators.
 
 ## Technologies Used
 
@@ -37,6 +39,8 @@ The project consists of the development of a complete online sales system, which
 - CSS
 - JavaScript
 - Firebase
+- BOOTSTRAP
+- APACHE/XAMPP
 
 ## Author
 
