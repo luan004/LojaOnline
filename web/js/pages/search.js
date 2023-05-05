@@ -62,6 +62,7 @@ function createListItem(key, product) {
             <div class="col-sm-9 col-8 pt-2">
                 <a href="./product?p=` + key + `"class="d-block h4 text-truncate">` + product.name + `</a>
                 <p class="line-clamp justify">` + product.description + `</p>
+                <span class="badge text-bg-secondary">`+ product.category+`</span>
 
                 <div class="position-absolute bottom-0 mb-2 fill-available me-2 pt-2 bg-white">
                     <h4 class="me-auto mb-2 text-truncate">R$` + product.price.replace('.', ',') + `</h4>
