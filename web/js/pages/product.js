@@ -35,11 +35,11 @@ readProduct(key).then((product) => {
     }
 });
 
-document.getElementById("cep").addEventListener("input", function() {
+/* document.getElementById("cep").addEventListener("input", function() {
   this.value = formatCep(this.value);
 });
 
-/* CALCULAR VALOR DO CEP */
+
 document.getElementById('cepForm').addEventListener('submit', function(e){
   e.preventDefault();
   const cep = document.getElementById("cep");
@@ -49,7 +49,7 @@ document.getElementById('cepForm').addEventListener('submit', function(e){
   } else {
     cep.classList.remove('is-invalid');
   }
-});
+}); */
 
 /* HIGHLIGHTS */
 $(document).ready(function() {
