@@ -9,9 +9,24 @@ $(document).ready(function() {
           getData('carousel/title').then((val) => {
             document.getElementById('titleHightlights').innerHTML = val;
           })
+
+          var i = 1;
+          while(i <= 4) {
+            console.log(i);
+            getData('carousel/product1').then((val) => {
+              readProduct(val).then((product) => {
+                document.getElementById('product1img').src = product.image;
+                document.getElementById('product1name').innerHTML = product.name;
+                document.getElementById('product1name').href = './product?key=' + val;
+                document.getElementById('product1price').innerHTML = 'R$' + product.price;
+              })
+            })
+
+            i++;
+          }
+
   
-          /* 1 */
-          getData('carousel/product1').then((val) => {
+/*           getData('carousel/product1').then((val) => {
             readProduct(val).then((product) => {
               document.getElementById('product1img').src = product.image;
               document.getElementById('product1name').innerHTML = product.name;
@@ -20,7 +35,6 @@ $(document).ready(function() {
             })
           })
   
-          /* 2 */
           getData('carousel/product2').then((val) => {
             readProduct(val).then((product) => {
               document.getElementById('product2img').src = product.image;
@@ -29,8 +43,7 @@ $(document).ready(function() {
               document.getElementById('product2price').innerHTML = 'R$' + product.price.replace('.', ',');
             })
           })
-  
-          /* 3 */
+
           getData('carousel/product3').then((val) => {
             readProduct(val).then((product) => {
               document.getElementById('product3img').src = product.image;
@@ -40,7 +53,6 @@ $(document).ready(function() {
             })
           })
   
-          /* 4 */
           getData('carousel/product4').then((val) => {
             readProduct(val).then((product) => {
               document.getElementById('product4img').src = product.image;
@@ -48,7 +60,7 @@ $(document).ready(function() {
               document.getElementById('product4name').href = './product?key=' + val;
               document.getElementById('product4price').innerHTML = 'R$' + product.price.replace('.', ',');
             })
-          })  
+          })   */
         })
       }
     })
