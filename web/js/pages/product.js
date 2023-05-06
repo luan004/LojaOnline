@@ -26,14 +26,14 @@ readProduct(key).then((product) => {
     document.getElementById('views').innerHTML = view;
 
     const price = product.price.toFixed(2).toString().replace('.', ',');
-    const discount = product.discount.toFixed(2).toString().replace('.', ',');
-    const newPrice = product.price - (product.discount/100 * product.price);
+    const discount = product.discount.toString().replace('.', ',');
+    const newPrice = (product.price - (product.discount/100 * product.price)).toFixed(2).toString().replace('.', ',');
 
     if (product.discount == 0) {
-      document.getElementById('price').innerHTML = 'R$' + product.price;
+      document.getElementById('price').innerHTML = 'R$' + price;
     } else {
-      document.getElementById('price').innerHTML = 'R$' + newPrice.toFixed(2) + 
-      '<span class="h6" style="color:blue;"> '+ discount + '% de desconto!</span>';
+      document.getElementById('price').innerHTML = 'R$' + newPrice + '<span class="h6" style="color:blue;"> '
+      + discount + '% de desconto!</span>';
       document.getElementById('oldPrice').innerHTML = 'R$' + price;
     }
 });
