@@ -17,7 +17,7 @@ $(document).ready(function() {
               readProduct(val).then((product) => {
                 document.getElementById('product' + index + 'img').src = product.image;
                 document.getElementById('product' + index + 'name').innerHTML = product.name;
-                document.getElementById('product' + index + 'name').href = './product?key=' + val;
+                document.getElementById('product' + index + 'link').href = './product?p=' + val;
                 document.getElementById('product' + index + 'price').innerHTML = 'R$' + product.price;
               })
             })
