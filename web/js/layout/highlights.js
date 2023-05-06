@@ -25,7 +25,7 @@ $(document).ready(function() {
                 if (product.discount == 0) {
                   document.getElementById('product' + index + 'price').innerHTML = 'R$' + price;
                 } else {
-                  document.getElementById('product' + index + 'price').innerHTML = 'R$' + newPrice + ' <del class="h6" style="color:red">'+price+'</del>';
+                  document.getElementById('product' + index + 'price').innerHTML = 'R$' + newPrice + ' <del class="h6" style="color:#880000">R$'+price+'</del>';
                 } 
               })
             })

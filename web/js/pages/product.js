@@ -25,7 +25,7 @@ readProduct(key).then((product) => {
     document.getElementById('views').innerHTML = view;
 
     const price = product.price.toFixed(2).toString().replace('.', ',');
-    const discount = product.discount.toString().replace('.', ',');
+    const discount = product.discount.toFixed(2).toString().replace('.', ',');
     const newPrice = (product.price - (product.discount/100 * product.price)).toFixed(2).toString().replace('.', ',');
 
     if (product.discount == 0) {

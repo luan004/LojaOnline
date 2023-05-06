@@ -51,6 +51,17 @@ function loadList(filterBy = '', filterValue = '', category = '') {
   
 
 function createListItem(key, product) {
+
+    const price = product.price.toFixed(2).toString().replace('.', ',');
+    const newPrice = (product.price - (product.discount/100 * product.price)).toFixed(2).toString().replace('.', ',');
+
+    var priceString;
+    if (product.discount == 0) {
+        priceString = price;
+    } else {
+        priceString = newPrice + ' <del style="color:#880000;" class="h6">R$'+price+'</del>';
+    }
+
     const card = `
     <div class="card mb-3">
         <div class="row p-0 m-0">
@@ -65,7 +76,7 @@ function createListItem(key, product) {
                 <span class="badge text-bg-secondary">`+ product.category+`</span>
 
                 <div class="position-absolute bottom-0 mb-2 fill-available me-2 pt-2 bg-white">
-                    <h4 class="me-auto mb-2 text-truncate">R$` + product.price + `</h4>
+                    <h4 class="me-auto mb-2 text-truncate">R$` + priceString + `</h4>
                 </div>
             </div>
         </div>
