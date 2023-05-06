@@ -25,13 +25,16 @@ readProduct(key).then((product) => {
     document.getElementById('stock').innerHTML = product.stock;
     document.getElementById('views').innerHTML = view;
 
-    if (product.discount == 0) {
-      document.getElementById('price').innerHTML = 'R$' + product.price.replace('.', ',');
-    } else {
-      const newPrice =  parseFloat(product.price) - (product.discount/100 * parseFloat(product.price));
+    const price = product.price.toFixed(2).toString().replace('.', ',');
+    const discount = product.discount.toFixed(2).toString().replace('.', ',');
+    const newPrice = product.price - (product.discount/100 * product.price);
 
-      document.getElementById('price').innerHTML = 'R$' + newPrice.toFixed(2).toString().replace('.', ',') + '<span class="h6" style="color:blue;"> '+product.discount+'% de desconto!</span>';
-      document.getElementById('oldPrice').innerHTML = 'R$' + product.price.replace('.', ',');
+    if (product.discount == 0) {
+      document.getElementById('price').innerHTML = 'R$' + product.price;
+    } else {
+      document.getElementById('price').innerHTML = 'R$' + newPrice.toFixed(2) + 
+      '<span class="h6" style="color:blue;"> '+ discount + '% de desconto!</span>';
+      document.getElementById('oldPrice').innerHTML = 'R$' + price;
     }
 });
 
@@ -87,7 +90,7 @@ $(document).ready(function() {
               document.getElementById('product3img').src = product.image;
               document.getElementById('product3name').innerHTML = product.name;
               document.getElementById('product3name').href = './product?key=' + val;
-              document.getElementById('product3price').innerHTML = 'R$' + product.price.replace('.', ',');
+              document.getElementById('product3price').innerHTML = 'R$' + product.price;
             })
           })
   
