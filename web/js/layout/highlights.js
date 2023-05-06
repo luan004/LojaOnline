@@ -18,7 +18,15 @@ $(document).ready(function() {
                 document.getElementById('product' + index + 'img').src = product.image;
                 document.getElementById('product' + index + 'name').innerHTML = product.name;
                 document.getElementById('product' + index + 'link').href = './product?p=' + val;
-                document.getElementById('product' + index + 'price').innerHTML = 'R$' + product.price;
+
+                const price = product.price.toFixed(2).toString().replace('.', ',');
+                const newPrice = (product.price - (product.discount/100 * product.price)).toFixed(2).toString().replace('.', ',');
+            
+                if (product.discount == 0) {
+                  document.getElementById('product' + index + 'price').innerHTML = 'R$' + price;
+                } else {
+                  document.getElementById('product' + index + 'price').innerHTML = 'R$' + newPrice + ' <del class="h6" style="color:red">'+price+'</del>';
+                } 
               })
             })
           })(i);
