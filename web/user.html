@@ -10,6 +10,7 @@
     <script> 
       $(function(){
           $("#nav").load("resources/layout/nav.html");
+          $("#sidebar").load("resources/layout/sidebar.html");
           $("#footer").load("resources/layout/footer.html");
       });
     </script>
@@ -48,43 +49,10 @@
     <!-- SETTINGS -->
     <section>
         <div class="row m-1">
-            <div class="col-12 col-md-3 mb-4">
-                <ul class="nav flex-column nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="fa fa-user-edit"></i>
-                            Minhas Informações
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-cart-shopping"></i>
-                            Carrinho de Compras
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-box"></i>
-                            Meus Pedidos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-credit-card"></i>
-                            Métodos de Pagamento
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-gear"></i>
-                            Configurações
-                        </a>
-                    </li>
-                  </ul>
+            <div id="sidebar" class="col-12 col-md-3 mb-4">
             </div>
             <div class="col-12 col-md-9">
-                <div class="row">
+                <div class="row g-3">
                     <div class="col-12 col-sm-6 mb-2 d-flex">
                         <div class="container card p-4">
                             <div class="d-flex align-items-center my-auto">
@@ -114,8 +82,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-12 mt-2">
+                    <div class="col-12">
                         <div class="card p-4 mb-3">
                             <h4>Alterar Informações Básicas</h4>
                             <form class="row g-3">
@@ -126,6 +93,14 @@
                                 <div class="col-md-6 col-12">
                                     <label for="emailInput" class="form-label">E-mail</label>
                                     <input id="emailInput" type="email" class="form-control" placeholder="seuemail@email.com">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <label for="phoneInput" class="form-label">Telefone</label>
+                                    <input id="phoneInput" type="tel" class="form-control" placeholder="(00) 00000-0000">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <label for="cpfInput" class="form-label">CPF</label>
+                                    <input id="cpfInput" type="text" class="form-control" placeholder="000.000.000-00">
                                 </div>
                                 <div class="col-md-4 col-12">
                                     <label for="inputState" class="form-label">Estado</label>
@@ -150,11 +125,16 @@
                                     <input id="addressInput" type="text" class="form-control" placeholder="Rua das Oliveiras, N°404">
                                 </div>
                                 <div class="col-12">
-                                    <button type="input" class="btn btn-primary w-100">Alterar Informações</button>
+                                    <button type="input" class="btn btn-primary w-100">
+                                        <i class="fa fa-user-edit"></i>
+                                        Alterar Informações
+                                    </button>
                                 </div>
                             </form>
                         </div>
-                        <div class="card p-4">
+                    </div>
+                    <div class="col-12">
+                        <div class="card p-4 mb-3">
                             <h4>Alterar Senha</h4>
                             <form class="row g-3">
                                 <div class="col-12">
@@ -170,11 +150,23 @@
                                     <input id="confirmNewPassInput" type="password" class="form-control">
                                 </div>
                                 <div class="col-12">
-                                    <button type="input" class="btn btn-primary w-100">Alterar Senha</button>
+                                    <button type="input" class="btn btn-primary w-100">
+                                        <i class="fa fa-user-edit"></i>
+                                        Alterar Senha
+                                    </button>
                                 </div>
                             </form>
                         </div>
-                        <div class="card p-4"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card p-4 mb-3">
+                            <h4>Apagar minha conta</h4>
+                            <p>Isso irá apagar completamente sua conta além de todos as suas informações que temos armazenadas em nosso banco de dados, essa ação não poderá ser desfeita, porém você poderá futuramente criar uma nova conta utilizando o mesmo CPF, telefone e/ou e-mail.</p>
+                            <button class="btn btn-danger w-100">
+                                <i class="fa fa-trash"></i>
+                                Apagar minha conta!
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
