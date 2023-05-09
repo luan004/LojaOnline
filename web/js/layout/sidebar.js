@@ -2,8 +2,8 @@ var page = window.location.pathname;
 var tab;
 
 switch (true) {
-  case page.includes('myaccount'):
-    tab = 'myaccount';
+  case page.includes('user'):
+    tab = 'user';
     break;
   case page.includes('cart'):
     tab = 'cart';
