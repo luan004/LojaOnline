@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <!-- SETTINGS -->
+    <!-- MY ACCOUNT -->
     <section>
         <div class="row m-1">
             <div id="sidebar" class="col-12 col-md-3 mb-4">
@@ -110,8 +110,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-12">
-                                    <label for="inputState" class="form-label">Cidade</label>
-                                    <select id="inputState" class="form-select">
+                                    <label for="inputCity" class="form-label">Cidade</label>
+                                    <select id="inputCity" class="form-select">
                                         <option selected>Escolha...</option>
                                         <option>...</option>
                                     </select>
@@ -139,15 +139,15 @@
                             <form class="row g-3">
                                 <div class="col-12">
                                     <label for="oldPassInput" class="form-label">Senha Atual</label>
-                                    <input id="oldPassInput" type="password" class="form-control">
+                                    <input id="oldPassInput" type="password" class="form-control" placeholder="********">
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <label for="newPassInput" class="form-label">Nova Senha</label>
-                                    <input id="newPassInput" type="password" class="form-control">
+                                    <input id="newPassInput" type="password" class="form-control" placeholder="********">
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <label for="confirmNewPassInput" class="form-label">Confirme a nova senha</label>
-                                    <input id="confirmNewPassInput" type="password" class="form-control">
+                                    <input id="confirmNewPassInput" type="password" class="form-control" placeholder="********">
                                 </div>
                                 <div class="col-12">
                                     <button type="input" class="btn btn-primary w-100">
@@ -162,10 +162,46 @@
                         <div class="card p-4 mb-3">
                             <h4>Apagar minha conta</h4>
                             <p>Isso irá apagar completamente sua conta além de todos as suas informações que temos armazenadas em nosso banco de dados, essa ação não poderá ser desfeita, porém você poderá futuramente criar uma nova conta utilizando o mesmo CPF, telefone e/ou e-mail.</p>
-                            <button class="btn btn-danger w-100">
+                            <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="fa fa-trash"></i>
                                 Apagar minha conta!
                             </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                        Apagar conta
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Essa ação é irreversível! você tem certeza disso?
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <div class="row w-100">
+                                            <div class="col-4">
+                                                <button type="button" class="btn btn-danger w-100">
+                                                    <i class="fa fa-trash"></i>
+                                                    Sim
+                                                </button>
+                                            </div>
+                                            <div class="col-8">
+                                                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">
+                                                    <i class="fa fa-star"></i>
+                                                    Manter minha conta
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
