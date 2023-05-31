@@ -1,32 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel | Login</title>
+    <title>Painel - Login</title>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
+    <!-- ESSENTIAL SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="./js/data/firebase.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/login.css" />
+    <style>
+        body {
+            height: 100vh;
+        }
+    </style>
 </head>
-<body>
 
-    <div class="loginContainer">
-        <form id="form">
-            <label>Usuário</label>
-            <input id="user" type="text" placeholder="luan" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
-            <label>Senha</label>
-            <input id="password" type="password" placeholder="123" class="textBox" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
-            <button class="loginButton" type="submit">Logar</button>
-            <label id="failedAuthMessage" class="failedAuthMessage"></label>
-        </form>
+<body>
+    <div class="h-100 d-flex align-items-center">
+        <div class="row w-100 m-0">
+            <div class="col-md-4 col-12 m-auto">
+                <div class="card container p-4">
+                    <form id="form">
+                        <h3 class="text-center">Painel Administrativo</h3>
+                        <div class="form-floating">
+                            <input type="text" id="user" class="form-control mb-2" placeholder="Usuário">
+                            <label for="text">Usuário</label>
+                        </div>
+            
+                        <div class="form-floating">
+                            <input type="password" id="password" class="form-control mb-4" placeholder="Senha">
+                            <label for="password">Senha</label>
+                        </div>
+            
+                        <button class="btn btn-primary w-100 mb-1" type="submit">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
-<script type="module" src="./js/pages/login.js"></script>
-
+  <!-- PAGE SCRIPT -->
+  <script type="module" src="./js/pages/login.js"></script>
 </html>
+

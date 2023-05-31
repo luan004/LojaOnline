@@ -1,122 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel | Estatísticas</title>
+    <title>Estatísticas</title>
 
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-    </script>
-
-    <script>
-        $(function(){
-            $("#sideBarElement").load("resources/layout/sidebar.html");
-            $("#fixedElement").load("resources/layout/header.html");
-        });
-    </script>
-
-    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <script src="./js/data/firebase.js"></script>
-
-    <script type="module" src="./js/data/statsFunctions.js"></script>
-
-
-    <link rel="stylesheet" type="text/css" href="resources/styles/body.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/app.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/sidebar.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/header.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/styles/stats.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <div id="tabContentElement" class="tabContentElement">
-        <!-- <div class="itemContainer">
-            <label class="statTitle">Estatísticas Diárias</label>
-        
-            <div class="item1">
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
-                        <path d="M483 947q-16 0-26-9.5T447 912v-51q-52-9-86.5-36.5T306 756q-7-15 1-31.5t25-23.5q14-5 29 1t26 22q17 30 44 44t58 14q45 0 71.5-20.5T587 706q0-39-28-62.5T456 597q-70-21-106.5-62.5T313 433q0-52 33-92.5T447 290v-50q0-16 10-25.5t26-9.5q15 0 25 9.5t10 25.5v50q35 7 65.5 24t50.5 46q9 14 3 30t-23 23q-13 6-28 1.5T556 396q-13-14-32-21.5t-43-7.5q-41 0-63 16.5T396 430q0 32 24 53.5T529 531q70 23 105.5 64.5T670 702q0 66-38.5 107T518 862v50q0 16-10 25.5t-25 9.5Z"/>
-                    </svg>
-                </div>
-                <label class="itemLabel">Receita Bruta</label>
-                <label class="item1Value">R$undef</label>
-            </div>
-            <div class="item1">
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
-                        <path d="M843 1005 739 902q-20 13-43 19t-46 6q-75 0-128.5-53T468 746q0-75 53.5-128T650 565q75 0 128 53t53 128q0 24-7 46.5T806 836l103 102q14 15 14.5 34t-13.5 33q-13 14-33.5 14t-33.5-14ZM650 833q36 0 61.5-25.5T737 746q0-36-25.5-62T650 658q-36 0-61.5 26T563 746q0 36 25.5 61.5T650 833ZM53 783q-15-10-18.5-29t5.5-34l152-242q13-20 37-22t40 16l63 75 106-171q13-22 39-22.5t40 21.5l89 133q-24 5-45.5 15T519 548l-39-60-100 163q-13 21-37 22.5T304 658l-66-76-118 188q-11 18-30.5 22T53 783Zm685-264q-25-11-51-13t-52-1l206-331q10-18 30-22t37 8q15 11 19 30t-6 34L738 519Z"/>            </svg>
-                </div>
-                <label class="itemLabel">Termo mais pesquisado</label>
-                <label class="item1Value" id="valueMostSearch"></label>
-            </div>
-        </div> -->
-        
-        <div class="itemContainer">
-            <label class="statTitle">Estatísticas Produtos</label>
-        
-            <div class="item1">
-                <label class="itemLabel">Quantidade de Produtos</label>
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
-                        <path d="M149.825 1016q-12.825 0-21.325-8.62-8.5-8.63-8.5-21.38V166q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T180 166v50h600v-50q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T840 166v820q0 12.75-8.675 21.38-8.676 8.62-21.5 8.62-12.825 0-21.325-8.62-8.5-8.63-8.5-21.38v-50H180v50q0 12.75-8.675 21.38-8.676 8.62-21.5 8.62ZM180 547h110V417q0-12.75 8.625-21.375T320 387h160q12.75 0 21.375 8.625T510 417v130h270V276H180v271Zm0 329h270V746q0-12.75 8.625-21.375T480 716h160q12.75 0 21.375 8.625T670 746v130h110V607H180v269Z"/>
-                    </svg>
-                </div>
-                <label class="item1Value" id="idQtdeProducts">0</label> -->
-            </div>
-        
-            <div class="item1">
-                <label class="itemLabel">Produto mais curtido</label>
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
-                        <path d="m439 900-53-49Q262 736 171 631.5T80 413q0-90 60.5-150.5T290 202q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880 413q0 114-91 218.5T574 851l-53 49q-17 16-41 16t-41-16Z"/>
-                    </svg>
-                </div>
-                <label class="item1Value min" id="idMostLiked">.</label> -->
-            </div>
-        
-            <div class="item1">
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
-                        <path d="M89 825q-14-14-14-35t14-35l256-256q14-14 33.5-14t32.5 14l127 126 266-297q12-15 32-16.5t34 12.5q14 13 14.5 32T873 389L573 728q-14 16-34.5 17T503 731L378 606 159 825q-14 14-34.5 14T89 825Z"/>
-                    </svg>
-                </div>
-                <label class="itemLabel">Produto mais acessado</label>
-                <label class="item1Value min" id="idMostViewed">.</label>
-            </div>
-        
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a id="user" class="nav-link" href="./user">
+                        <i class="fa fa-user-edit"></i>
+                        Minhas Conta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="cart" class="nav-link" href="./cart">
+                        <i class="fa fa-cart-shopping"></i>
+                        Carrinho de Compras
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a id="pedidos" class="nav-link" href="#">
+                        <i class="fa fa-box"></i>
+                        Meus Pedidos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="payment" class="nav-link" href="./payment">
+                        <i class="fa fa-credit-card"></i> 
+                        Métodos de Pagamento
+                    </a>
+                </li>
+            </ul>
         </div>
-        
-        <div class="itemContainer">
-            <label class="statTitle">Estatísticas Admins</label>
-            <div class="item1">
-                <label class="itemLabel">Quantidade de Admins</label>
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 96 960 960">
-                        <path d="M400 558q-77 0-126-49t-49-126q0-77 49-126t126-49q77 0 126.5 49T576 383q0 77-49.5 126T400 558ZM102 930q-20 0-33.5-13.5T55 883v-74q0-46 24.5-79t57.5-49q72-32 139-47t124-15h39q-9 15-21 47t-15 57q-4 19-3.5 53.5T407 836q5 30 20.5 54t30.5 40H102Zm613-107q33 0 53.5-20.5T789 748q0-33-20.5-53.5T715 674q-33 0-54 20.5T640 748q0 34 21 54.5t54 20.5Zm-47 69q-15-4-30.5-12.5T612 860l-41 9q-8 3-16-.5T543 858l-14-25q-5-7-3.5-16t7.5-15l36-33q-3-6-2.5-20.5T569 729l-36-34q-6-6-7.5-14.5T529 665l14-26q4-7 12-10t16-1l41 9q10-10 25.5-19t30.5-12l7-49q2-10 8-15.5t16-5.5h32q9 0 15.5 5.5T755 557l7 49q14 3 30 12t26 19l41-8q8-3 16 0t12 11l14 25q4 7 2 15t-8 15l-35 34q4 6 3.5 20t-3.5 20l36 33q6 6 7.5 15t-2.5 16l-15 25q-3 7-11 10.5t-16 .5l-41-9q-10 11-26 19.5T762 892l-7 49q-2 9-8.5 14.5T731 961h-32q-10 0-16-5.5t-8-14.5l-7-49Z"/>
-                    </svg>
-                </div>
-                <label class="item1Value" id="idQtdeAdmins">0</label> -->
-            </div>
-
-            <div class="item1">
-                <label class="itemLabel">Idade Média dos Admins</label>
-                <div class="itemIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 96 960 960">
-                        <path d="M180 976q-24 0-42-18t-18-42V296q0-24 18-42t42-18h65v-60h65v60h340v-60h65v60h65q24 0 42 18t18 42v620q0 24-18 42t-42 18H180Zm0-60h600V486H180v430Zm0-490h600V296H180v130Zm0 0V296v130Zm300 230q-17 0-28.5-11.5T440 616q0-17 11.5-28.5T480 576q17 0 28.5 11.5T520 616q0 17-11.5 28.5T480 656Zm-160 0q-17 0-28.5-11.5T280 616q0-17 11.5-28.5T320 576q17 0 28.5 11.5T360 616q0 17-11.5 28.5T320 656Zm320 0q-17 0-28.5-11.5T600 616q0-17 11.5-28.5T640 576q17 0 28.5 11.5T680 616q0 17-11.5 28.5T640 656ZM480 816q-17 0-28.5-11.5T440 776q0-17 11.5-28.5T480 736q17 0 28.5 11.5T520 776q0 17-11.5 28.5T480 816Zm-160 0q-17 0-28.5-11.5T280 776q0-17 11.5-28.5T320 736q17 0 28.5 11.5T360 776q0 17-11.5 28.5T320 816Zm320 0q-17 0-28.5-11.5T600 776q0-17 11.5-28.5T640 736q17 0 28.5 11.5T680 776q0 17-11.5 28.5T640 816Z"/>
-                    </svg>
-                </div>
-                <label class="item1Value" id="medAge">0</label> -->
-            </div>
+        <div class="col-md-9">
+            
         </div>
     </div>
-    <div id="sideBarElement"></div>
-    <div id="fixedElement" class="fixedElement"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
-<script type="module" src="./js/pages/stats.js"></script>
-
 </html>
